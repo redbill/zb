@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.hugedata.web.fsm.task.dao.AppGroupMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.hugedata.web.fsm.task.model.AppGroup" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="node_ID" property="nodeId" jdbcType="VARCHAR" />
+    <result column="group_name" property="groupName" jdbcType="VARCHAR" />
+    <result column="group_type" property="groupType" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, node_ID, group_name, group_type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from app_group
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from app_group
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.com.hugedata.web.fsm.task.model.AppGroup" useGeneratedKeys="true" keyProperty="id">
+    insert into app_group (id, node_ID, group_name, 
+      group_type)
+    values (#{id,jdbcType=INTEGER}, #{nodeId,jdbcType=VARCHAR}, #{groupName,jdbcType=VARCHAR}, 
+      #{groupType,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.hugedata.web.fsm.task.model.AppGroup" >
+    insert into app_group
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="nodeId != null" >
+        node_ID,
+      </if>
+      <if test="groupName != null" >
+        group_name,
+      </if>
+      <if test="groupType != null" >
+        group_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="nodeId != null" >
+        #{nodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null" >
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupType != null" >
+        #{groupType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.hugedata.web.fsm.task.model.AppGroup" >
+    update app_group
+    <set >
+      <if test="nodeId != null" >
+        node_ID = #{nodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null" >
+        group_name = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupType != null" >
+        group_type = #{groupType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.hugedata.web.fsm.task.model.AppGroup" >
+    update app_group
+    set node_ID = #{nodeId,jdbcType=VARCHAR},
+      group_name = #{groupName,jdbcType=VARCHAR},
+      group_type = #{groupType,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getMyUserGroups" resultMap="BaseResultMap" parameterType="cn.com.hugedata.web.fsm.task.model.AppUserGroup">
+        SELECT g.id , g.node_id, g.group_name 
+	    FROM app_group g ,app_user_group u where u.user_id = #{userId,jdbcType=INTEGER} and u.group_id = g.id
+  </select>
+</mapper>

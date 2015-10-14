@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.hugedata.web.fsm.task.dao.AppTaskInfoMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.hugedata.web.fsm.task.model.AppTaskInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="task_name" property="taskName" jdbcType="VARCHAR" />
+    <result column="task_type" property="taskType" jdbcType="INTEGER" />
+    <result column="app_id" property="appId" jdbcType="INTEGER" />
+    <result column="creat_time" property="creatTime" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="VARCHAR" />
+    <result column="end_time" property="endTime" jdbcType="VARCHAR" />
+    <result column="monitoring_frequency" property="monitoringFrequency" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="sms_sum" property="smsSum" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="cancel_time" property="cancelTime" jdbcType="VARCHAR" />
+    <result column="imspTaskId" property="imsptaskid" jdbcType="VARCHAR" />
+    <result column="task_node_type" property="taskNodeType" jdbcType="VARCHAR" />
+    <result column="order_id" property="orderId" jdbcType="BIGINT" />
+    <result column="testnum" property="testnum" jdbcType="INTEGER" />
+    <result column="realStartTime" property="realstarttime" jdbcType="VARCHAR" />
+    <result column="realEndTime" property="realendtime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, task_name, task_type, app_id, creat_time, start_time, end_time, monitoring_frequency, 
+    user_id, sms_sum, status, cancel_time, imspTaskId, task_node_type, order_id, testnum, 
+    realStartTime, realEndTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from app_task_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from app_task_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.com.hugedata.web.fsm.task.model.AppTaskInfo" useGeneratedKeys="true" keyProperty="id" >
+    insert into app_task_info (id, task_name, task_type, 
+      app_id, creat_time, start_time, 
+      end_time, monitoring_frequency, user_id, 
+      sms_sum, status, cancel_time, 
+      imspTaskId, task_node_type, order_id, 
+      testnum, realStartTime, realEndTime
+      )
+    values (#{id,jdbcType=INTEGER}, #{taskName,jdbcType=VARCHAR}, #{taskType,jdbcType=INTEGER}, 
+      #{appId,jdbcType=INTEGER}, #{creatTime,jdbcType=VARCHAR}, #{startTime,jdbcType=VARCHAR}, 
+      #{endTime,jdbcType=VARCHAR}, #{monitoringFrequency,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{smsSum,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR}, #{cancelTime,jdbcType=VARCHAR}, 
+      #{imsptaskid,jdbcType=VARCHAR}, #{taskNodeType,jdbcType=VARCHAR}, #{orderId,jdbcType=BIGINT}, 
+      #{testnum,jdbcType=INTEGER}, #{realstarttime,jdbcType=VARCHAR}, #{realendtime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.hugedata.web.fsm.task.model.AppTaskInfo" useGeneratedKeys="true" keyProperty="id"  >
+    insert into app_task_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="taskName != null" >
+        task_name,
+      </if>
+      <if test="taskType != null" >
+        task_type,
+      </if>
+      <if test="appId != null" >
+        app_id,
+      </if>
+      <if test="creatTime != null" >
+        creat_time,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="monitoringFrequency != null" >
+        monitoring_frequency,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="smsSum != null" >
+        sms_sum,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="cancelTime != null" >
+        cancel_time,
+      </if>
+      <if test="imsptaskid != null" >
+        imspTaskId,
+      </if>
+      <if test="taskNodeType != null" >
+        task_node_type,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="testnum != null" >
+        testnum,
+      </if>
+      <if test="realstarttime != null" >
+        realStartTime,
+      </if>
+      <if test="realendtime != null" >
+        realEndTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="taskName != null" >
+        #{taskName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskType != null" >
+        #{taskType,jdbcType=INTEGER},
+      </if>
+      <if test="appId != null" >
+        #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="creatTime != null" >
+        #{creatTime,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=VARCHAR},
+      </if>
+      <if test="monitoringFrequency != null" >
+        #{monitoringFrequency,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="smsSum != null" >
+        #{smsSum,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelTime != null" >
+        #{cancelTime,jdbcType=VARCHAR},
+      </if>
+      <if test="imsptaskid != null" >
+        #{imsptaskid,jdbcType=VARCHAR},
+      </if>
+      <if test="taskNodeType != null" >
+        #{taskNodeType,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="testnum != null" >
+        #{testnum,jdbcType=INTEGER},
+      </if>
+      <if test="realstarttime != null" >
+        #{realstarttime,jdbcType=VARCHAR},
+      </if>
+      <if test="realendtime != null" >
+        #{realendtime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.hugedata.web.fsm.task.model.AppTaskInfo" >
+    update app_task_info
+    <set >
+      <if test="taskName != null" >
+        task_name = #{taskName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskType != null" >
+        task_type = #{taskType,jdbcType=INTEGER},
+      </if>
+      <if test="appId != null" >
+        app_id = #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="creatTime != null" >
+        creat_time = #{creatTime,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=VARCHAR},
+      </if>
+      <if test="monitoringFrequency != null" >
+        monitoring_frequency = #{monitoringFrequency,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="smsSum != null" >
+        sms_sum = #{smsSum,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelTime != null" >
+        cancel_time = #{cancelTime,jdbcType=VARCHAR},
+      </if>
+      <if test="imsptaskid != null" >
+        imspTaskId = #{imsptaskid,jdbcType=VARCHAR},
+      </if>
+      <if test="taskNodeType != null" >
+        task_node_type = #{taskNodeType,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="testnum != null" >
+        testnum = #{testnum,jdbcType=INTEGER},
+      </if>
+      <if test="realstarttime != null" >
+        realStartTime = #{realstarttime,jdbcType=VARCHAR},
+      </if>
+      <if test="realendtime != null" >
+        realEndTime = #{realendtime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.hugedata.web.fsm.task.model.AppTaskInfo" >
+    update app_task_info
+    set task_name = #{taskName,jdbcType=VARCHAR},
+      task_type = #{taskType,jdbcType=INTEGER},
+      app_id = #{appId,jdbcType=INTEGER},
+      creat_time = #{creatTime,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=VARCHAR},
+      end_time = #{endTime,jdbcType=VARCHAR},
+      monitoring_frequency = #{monitoringFrequency,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      sms_sum = #{smsSum,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR},
+      cancel_time = #{cancelTime,jdbcType=VARCHAR},
+      imspTaskId = #{imsptaskid,jdbcType=VARCHAR},
+      task_node_type = #{taskNodeType,jdbcType=VARCHAR},
+      order_id = #{orderId,jdbcType=BIGINT},
+      testnum = #{testnum,jdbcType=INTEGER},
+      realStartTime = #{realstarttime,jdbcType=VARCHAR},
+      realEndTime = #{realendtime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  	<select id="getMySameNameTask" resultMap="BaseResultMap" parameterType="cn.com.hugedata.web.fsm.task.model.AppTaskInfo">
+		SELECT <include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM app_task_info 
+	        WHERE 
+		        user_id = #{userId,jdbcType=INTEGER} and task_name = #{taskName,jdbcType=VARCHAR} and status <> '0'
+	    ]]>
+	</select>
+	
+	<select id="getMyTaskList" resultMap="BaseResultMap" parameterType="cn.com.hugedata.web.fsm.task.model.AppTaskInfo">
+		SELECT <include refid="Base_Column_List" />
+	   <![CDATA[
+		     FROM app_task_info a
+	    where a.user_id = #{userId,jdbcType=INTEGER}
+	    and a.status not in ('0','5','6') ORDER BY start_time DESC
+	    ]]>
+	   
+	</select>
+	
+	<select id="getTaskInfoByUserId" resultMap="BaseResultMap">
+		SELECT <include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM app_task_info 
+	        WHERE 
+		        user_id = #{userId,jdbcType=INTEGER} and status not in ('0','5','6') ORDER BY start_time DESC
+	    ]]>
+	</select>
+</mapper>
