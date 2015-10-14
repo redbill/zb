@@ -50,7 +50,24 @@ var Login = function () {
 	            submitHandler: function (form) {
 	            	// ajax 调用后台相关验证
 	            	//如果验证成功并且是admin 则调到后台，否则普通用户跳转到首页
-	                window.location.href = paths+"mgrIndex";
+	            	var userName = $('input[name="username"]').val();
+	            	var password = $('imput[name="password"]').val();
+	            	
+	            	$.ajax({
+	    				url: paths+"loginAccount",
+	    				data: {userName:userName,password:password},
+	    				dataType:"json",
+	    				type:  "post", //默认GET
+	    				success: function(res){
+	    					console.log("url= "+ url +" succ方法传入错误")
+	    					window.location.href = paths+"mgrIndex";
+	    				},
+	    				error: function(res) {
+	                            console.log(res);
+	                     }
+	    			})
+	            	
+	                
 	            }
 	        });
 
