@@ -14,7 +14,7 @@
     <div class="menu">
         <ul class="sub_l">
             <li class="mainlevel"><a href="http://www.be-moneta.com/main.asp" title="HOME">首页</a></li>
-            <li class="mainlevel">走进品牌
+            <li class="mainlevel">走进品牌3
                 <ul class="sub_nav_03">
                     <span class="Triangle_con"></span>
                     <li class="first"><a href="http://www.be-moneta.com/about.asp" title="事业展望">Company 事业展望</a></li>
