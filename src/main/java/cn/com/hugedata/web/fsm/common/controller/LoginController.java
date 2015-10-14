@@ -58,6 +58,15 @@ public class LoginController
     }
 
     @RequestMapping(
+    { "mgr/addArticle" })
+    public String addArticle(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "addArticle";
+    }
+
+    
+    @RequestMapping(
     { "loginByEmail" })
     public String loginByEmail(HttpServletRequest request,
             HttpServletResponse response) throws Exception
