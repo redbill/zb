@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
+import com.bianlide.zb.common.controller.LoginController;
 
-import cn.com.hugedata.web.fsm.common.controller.LoginController;
 import cn.com.hugedata.web.fsm.task.model.AppInfo;
 import cn.com.hugedata.web.fsm.task.service.AppInfoService;
 import cn.com.hugedata.web.fsm.user.model.UserInfo;
