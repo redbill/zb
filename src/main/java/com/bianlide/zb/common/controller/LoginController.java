@@ -66,12 +66,12 @@ public class LoginController
     }
     
     @RequestMapping(
-    	    { "mgr/articleList" })
-    	    public String articleList(HttpServletRequest request,
-    	            HttpServletResponse response) throws Exception
-    	    {
-    	        return "articleList";
-    	    }
+    { "mgr/articleList" })
+    public String articleList(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "articleList";
+    }
 
     
     @RequestMapping(
