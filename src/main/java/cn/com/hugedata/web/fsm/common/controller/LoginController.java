@@ -64,7 +64,14 @@ public class LoginController
     {
         return "addArticle";
     }
-
+    
+    @RequestMapping(
+    { "mgr/articleList" })
+    public String articleList(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "articleList";
+    }
     
     @RequestMapping(
     { "loginByEmail" })
