@@ -19,11 +19,18 @@ import cn.com.hugedata.web.fsm.common.service.LoginService;
 import cn.com.hugedata.web.fsm.common.service.SignUpRequestBean;
 import cn.com.hugedata.web.fsm.user.model.UserInfo;
 
+import com.alibaba.fastjson.JSON;
+import com.bianlide.zb.common.model.UserAccount;
+import com.bianlide.zb.common.service.UserAccountService;
+import com.bianlide.zb.common.vo.JsonResultVO;
+
 @Controller
 public class LoginController
 {
 
     private LoginService loginService;
+
+    private UserAccountService userAccountService;
 
     private static Logger logger = LoggerFactory
             .getLogger(LoginController.class);
@@ -31,6 +38,11 @@ public class LoginController
     public void setLoginService(LoginService loginService)
     {
         this.loginService = loginService;
+    }
+
+    public void setUserAccountService(UserAccountService userAccountService)
+    {
+        this.userAccountService = userAccountService;
     }
 
     @RequestMapping(
@@ -64,7 +76,7 @@ public class LoginController
     {
         return "addArticle";
     }
-    
+
     @RequestMapping(
     { "mgr/articleList" })
     public String articleList(HttpServletRequest request,
@@ -73,7 +85,63 @@ public class LoginController
         return "articleList";
     }
 
-    
+    @RequestMapping(
+    { "loginAccount" })
+    public String loginAccount(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
+
+        PrintWriter pw = null;
+        response.setContentType("application/json;charset=utf-8");
+        pw = response.getWriter();
+        JsonResultVO jsonRes = new JsonResultVO();
+        try
+        {
+            if (userName == null || password == null)
+            {
+                throw new Exception("用户名或密码为空");
+
+            }
+
+            // 去数据库做校验
+            UserAccount userAccount = this.userAccountService.loginAccount(
+                    userName, password);
+
+            //
+            if (userAccount == null)
+            {
+                throw new Exception("用户名不存在");
+            }
+            else
+            {
+                if (!userAccount.getPassword().trim().equals(password.trim()))
+                {
+                    throw new Exception("密码不正确");
+                }
+                jsonRes.setIsOKToTrue();
+                request.getSession().setAttribute("userAccount", userAccount);
+            }
+
+            pw.write(JSON.toJSONString(jsonRes));
+            pw.flush();
+            return null;
+        }
+        catch (Exception e)
+        {
+            logger.error("loginAccount error : " + e.getMessage());
+            jsonRes.setMsg(e.getMessage());
+            pw.write(JSON.toJSONString(jsonRes));
+            pw.flush();
+            return null;
+        }
+        finally
+        {
+            pw.close();
+        }
+    }
+
     @RequestMapping(
     { "loginByEmail" })
     public String loginByEmail(HttpServletRequest request,

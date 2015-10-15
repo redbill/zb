@@ -20,7 +20,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import cn.com.hugedata.web.fsm.common.vo.ResultVO;
+import com.bianlide.zb.common.vo.ResultVO;
+
 import cn.com.hugedata.web.fsm.task.dao.AppTaskInfoMapper;
 import cn.com.hugedata.web.fsm.task.model.AppTaskInfo;
 import cn.com.hugedata.web.fsm.task.service.AppTaskInfoService;

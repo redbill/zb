@@ -1,4 +1,4 @@
-package cn.com.hugedata.web.fsm.common.vo;
+package com.bianlide.zb.common.vo;
 
 public class ResultVO implements java.io.Serializable
 {

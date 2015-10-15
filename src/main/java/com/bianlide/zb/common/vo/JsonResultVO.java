@@ -12,7 +12,7 @@
  * Description:
  ******************************************************
  */
-package cn.com.hugedata.web.fsm.common.vo;
+package com.bianlide.zb.common.vo;
 
 /**
  * @ClassName: JsonResultVO
@@ -24,7 +24,7 @@ package cn.com.hugedata.web.fsm.common.vo;
 public class JsonResultVO
 {
     String isOK = "false";
-    String msg = null;
+    String msg = "";
     Object jsonData = null;
 
     public String getIsOK()
