@@ -1341,10 +1341,6 @@ Portlets
   background-color: #bfd5fa  !important;
 }
 
-.portlet-body.blue, .portlet.blue {
-  background-color: #4b8df8 !important;
-}
-
 .portlet-body.red, .portlet.red {
   background-color: #e02222 !important;
 }
@@ -1521,7 +1517,6 @@ Box portlet
 
 .portlet.box.blue {  
    border: 1px solid #b4cef8;
-   border-top: 0;
 }
 
 .portlet.box.red .portlet-title {

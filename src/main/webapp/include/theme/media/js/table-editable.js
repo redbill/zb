@@ -11,7 +11,6 @@ var TableEditable = function () {
                 for (var i = 0, iLen = jqTds.length; i < iLen; i++) {
                     oTable.fnUpdate(aData[i], nRow, i, false);
                 }
-
                 oTable.fnDraw();
             }
 
@@ -48,27 +47,28 @@ var TableEditable = function () {
             }
 
             var oTable = $('#sample_editable_1').dataTable({
-                "aLengthMenu": [
-                    [5, 15, 20, -1],
-                    [5, 15, 20, "All"] // change per page values here
-                ],
-                // set the initial value
-                "iDisplayLength": 5,
-                "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-                "sPaginationType": "bootstrap",
-                "oLanguage": {
-                    "sLengthMenu": "_MENU_ records per page",
-                    "oPaginate": {
-                        "sPrevious": "Prev",
-                        "sNext": "Next"
-                    }
-                },
-                "aoColumnDefs": [{
-                        'bSortable': false,
-                        'aTargets': [0]
-                    }
-                ]
-            });
+		         "responsive": true,
+		         "bInfo": false,         //页脚信息
+		         "bLengthChange": false, //改变每页显示数据数量
+		         "iDisplayLength": 10,    //每页显示数目
+		         "searching":false,
+		         "bProcessing": true,    //加载数据时显示正在加载信息
+		         "oLanguage": {
+		             "sLengthMenu": "每页显示 _MENU_ 条记录",
+		             "sZeroRecords": "抱歉， 没有找到",
+		             "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+		             "sInfoEmpty": "没有数据",
+		             "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+		             "sSearch": "搜索：",
+		             "oPaginate": {
+		                 "sFirst": "首页",
+		                 "sPrevious": "前一页",
+		                 "sNext": "后一页",
+		                 "sLast": "尾页"
+		             },
+		             "sZeroRecords": "没有检索到数据",
+		         }
+		     });
 
             jQuery('#sample_editable_1_wrapper .dataTables_filter input').addClass("m-wrap medium"); // modify table search input
             jQuery('#sample_editable_1_wrapper .dataTables_length select').addClass("m-wrap small"); // modify table per page dropdown

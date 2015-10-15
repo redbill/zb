@@ -33,6 +33,7 @@
     <link href="<%=paths%>include/theme/media/css/style-responsive.css" rel="stylesheet" type="text/css" />
     <link href="<%=paths%>include/theme/media/css/default.css" rel="stylesheet" type="text/css" id="style_color" />
     <link href="<%=paths%>include/theme/media/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="<%=paths%>include/theme/media/css/my.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <link rel="shortcut icon" href="<%=paths%>include/theme/media/image/favicon.ico" />
 </head>
@@ -131,11 +132,11 @@
                     </a>
                     <ul class="sub-menu" style="display: block;">
                      <li>
-                            <a href="mgr/articleList">
+                            <a href="<%=paths%>mgr/articleList">
                                 <i class="icon-cogs"></i> 文章列表</a>
                         </li>
                         <li>
-                            <a href="mgr/addArticle">
+                            <a href="<%=paths%>mgr/addArticle">
                                 <i class="icon-time"></i> 添加文章
                             </a>
                         </li>
@@ -208,11 +209,18 @@
     <script src="<%=paths%>include/theme/media/js/jquery.blockui.min.js" type="text/javascript"></script>
     <script src="<%=paths%>include/theme/media/js/jquery.cookie.min.js" type="text/javascript"></script>
     <script src="<%=paths%>include/theme/media/js/jquery.uniform.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="<%=paths%>include/theme/media/js/select2.min.js"></script>
+	<script type="text/javascript" src="<%=paths%>include/theme/media/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="<%=paths%>include/theme/media/js/DT_bootstrap.js"></script>
+	<script src="<%=paths%>include/theme/media/js/app.js"></script>
+	<script src="<%=paths%>include/theme/media/js/table-editable.js"></script>    
+    
     <script src="<%=paths%>include/theme/media/js/app.js"></script>
     <script>
     jQuery(document).ready(function() {
 
         App.init();
+        TableEditable.init();
 
     });
     </script>
