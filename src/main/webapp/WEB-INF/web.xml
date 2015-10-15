@@ -32,6 +32,16 @@
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
 	
+	 <!-- 图片上传 -->
+  	<servlet>
+    	<servlet-name>upload</servlet-name>
+    	<servlet-class>com.bianlide.zb.common.severlet.fileUpload</servlet-class>
+  	</servlet>
+   	<servlet-mapping>
+    	<servlet-name>upload</servlet-name>
+    	<url-pattern>/upload</url-pattern>
+  	</servlet-mapping>
+	
 	<!--Log4j配置 -->
 	 <context-param>
 	  <param-name>log4jConfigLocation</param-name>

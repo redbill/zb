@@ -16,7 +16,8 @@ package cn.com.hugedata.web.fsm.task.service;
 
 import java.util.List;
 
-import cn.com.hugedata.web.fsm.common.vo.ResultVO;
+import com.bianlide.zb.common.vo.ResultVO;
+
 import cn.com.hugedata.web.fsm.task.model.AppTaskInfo;
 
 /**

@@ -10,9 +10,8 @@
                         <tr>
                             <th>文章标题</th>
                             <th>发布时间</th>
-                            <th>Points</th>
-                            <th>Notes</th>
-                            <th>是否删除</th>
+                            <th>文章类别</th>
+                            <th>删除/修改</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -20,29 +19,24 @@
                             <td>标题1</td>
                             <td>Alex Nilson</td>
                             <td>1234</td>
-                            <td class="center">power user</td>
-                            <td><a class="delete" href="javascript:;">删除</a></td>
+                            <td><a class="" href="javascript:;">修改</a> | <a class="delete" href="javascript:;">删除</a></td>
                         </tr>
                         <tr class="">
                             <td>标题2</td>
                             <td>Lisa Wong</td>
-                            <td>434</td>
-                            <td class="center">new user</td>
-                            <td><a class="delete" href="javascript:;">删除</a></td>
+                            <td>434</td><td><a class="" href="javascript:;">修改</a> | <a class="delete" href="javascript:;">删除</a></td>
                         </tr>
                         <tr class="">
                             <td>标题3</td>
                             <td>Nick Roberts</td>
                             <td>232</td>
-                            <td class="center">power user</td>
-                            <td><a class="delete" href="javascript:;">删除</a></td>
+                            <td><a class="" href="javascript:;">修改</a> | <a class="delete" href="javascript:;">删除</a></td>
                         </tr>
                         <tr class="">
                             <td>标题4</td>
                             <td>Sergio Jackson</td>
                             <td>132</td>
-                            <td class="center">elite user</td>
-                            <td><a class="delete" href="javascript:;">删除</a></td>
+                            <td><a class="" href="javascript:;">修改</a> | <a class="delete" href="javascript:;">删除</a></td>
                         </tr>
                     </tbody>
                 </table>

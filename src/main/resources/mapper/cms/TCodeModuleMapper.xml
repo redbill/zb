@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bianlide.zb.cms.dao.TCodeModuleMapper" >
+  <resultMap id="BaseResultMap" type="com.bianlide.zb.cms.model.TCodeModule" >
+    <result column="code_module" property="codeModule" jdbcType="VARCHAR" />
+    <result column="name_module" property="nameModule" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.bianlide.zb.cms.model.TCodeModule" >
+    insert into t_code_module (code_module, name_module)
+    values (#{codeModule,jdbcType=VARCHAR}, #{nameModule,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bianlide.zb.cms.model.TCodeModule" >
+    insert into t_code_module
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="codeModule != null" >
+        code_module,
+      </if>
+      <if test="nameModule != null" >
+        name_module,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="codeModule != null" >
+        #{codeModule,jdbcType=VARCHAR},
+      </if>
+      <if test="nameModule != null" >
+        #{nameModule,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
