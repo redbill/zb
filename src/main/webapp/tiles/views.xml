@@ -40,7 +40,7 @@
   <definition name="articleList" extends="mgrLayout">
       <put-attribute name="title"  value="1002管理后台首页"/>
       <put-attribute name="page-title"  value="文章列表"/>
-      <put-attribute name="page-title-desc"  value="g"/>
+      <put-attribute name="page-title-desc"  value=""/>
       <put-attribute name="main" value="/jsp/mgr/article_list.jsp"/>
   </definition>
   
