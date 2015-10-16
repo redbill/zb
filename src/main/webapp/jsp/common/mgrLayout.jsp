@@ -36,6 +36,7 @@
     <link href="<%=paths%>include/theme/media/css/my.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <link rel="shortcut icon" href="<%=paths%>include/theme/media/image/favicon.ico" />
+    <script src="<%=paths%>include/theme/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -197,7 +198,7 @@
     <!-- BEGIN FOOTER -->
     <tiles:insertAttribute name="footer" />
     <!-- END FOOTER -->
-    <script src="<%=paths%>include/theme/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+    
     <script src="<%=paths%>include/theme/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
     <script src="<%=paths%>include/theme/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
     <script src="<%=paths%>include/theme/media/js/bootstrap.min.js" type="text/javascript"></script>
@@ -217,7 +218,7 @@
     
     <script src="<%=paths%>include/theme/media/js/app.js"></script>
     <script>
-    jQuery(document).ready(function() {
+    $(function() {
 
         App.init();
         TableEditable.init();

@@ -90,7 +90,7 @@
 
 		<!-- BEGIN LOGIN FORM -->
 
-		<form class="form-vertical login-form" action="index.html">
+		<form class="form-vertical login-form" action="">
 
 			<h3 class="form-title">登录</h3>
 
@@ -165,7 +165,7 @@
 
 		<!-- BEGIN FORGOT PASSWORD FORM -->
 
-		<form class="form-vertical forget-form" action="index.html">
+		<form class="form-vertical forget-form" action="">
 
 			<h3 class="">Forget Password ?</h3>
 
@@ -209,7 +209,7 @@
 
 		<!-- BEGIN REGISTRATION FORM -->
 
-		<form class="form-vertical register-form" action="index.html">
+		<form class="form-vertical register-form" action="">
 
 			<h3 class="">Sign Up</h3>
 

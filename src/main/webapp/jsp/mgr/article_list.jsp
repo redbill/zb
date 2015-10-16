@@ -1,5 +1,13 @@
-<%@ page language="java" import="java.util.*,cn.com.hugedata.web.fsm.user.model.UserInfo" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+    <%
+String path = request.getContextPath();
+String paths = request.getScheme() + "://" + request.getServerName() + path + "/";
+if (request.getServerPort() != 80) {
+    paths = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+}
 
+%>
 <div class="row-fluid">
     <div class="span12">
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -51,4 +59,7 @@
 </div>
 <!-- END PAGE -->
 </div>
-
+<script>
+	var basePath = "<%=paths%>";
+</script>
+<script src="<%=paths%>include/javascripts/modules.js"></script>
