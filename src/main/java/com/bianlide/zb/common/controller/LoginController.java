@@ -62,7 +62,7 @@ public class LoginController
     }
 
     @RequestMapping(
-    { "mgrIndex" })
+    { "mgr/index" })
     public String mgrIndex(HttpServletRequest request,
             HttpServletResponse response) throws Exception
     {

@@ -1,11 +1,15 @@
 package com.bianlide.zb.cms.model;
 
+import java.util.Date;
+
 public class TJewContent {
     private Integer id;
 
     private String moduleCode;
 
     private String title;
+
+    private Date createTime;
 
     private String content;
 
@@ -31,6 +35,14 @@ public class TJewContent {
 
     public void setTitle(String title) {
         this.title = title == null ? null : title.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public String getContent() {

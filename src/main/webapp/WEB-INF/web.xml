@@ -23,6 +23,33 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<!-- 用户是否登录过滤器 -->
+	<filter>
+		<filter-name>userSessionFilter</filter-name>
+		<filter-class>com.bianlide.zb.common.UserSessionFilter</filter-class>
+		<init-param>
+		      <param-name>nofilterUrl</param-name>
+		       <param-value></param-value>
+		</init-param>
+		
+		<init-param>
+		      <param-name>nofilterUrlRegex</param-name>
+		       <param-value></param-value>
+		</init-param>
+		<init-param>
+		   <param-name>sendRedirect</param-name>
+		   <!--  -->
+		   <param-value>/index.jsp</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+	    <filter-name>userSessionFilter</filter-name>
+		<url-pattern>/mgr/*</url-pattern>
+	</filter-mapping>
+	
+	
 	<!-- Spring监听器 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

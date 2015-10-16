@@ -63,7 +63,7 @@ var Login = function () {
 	    					console.log( res);
 	    					if(res.isOK == "true"){
 	    						if(userName == "admin"){
-	    							window.location.href = paths+"mgrIndex";
+	    							window.location.href = paths+"mgr/index";
 	    						}else{
 	    							window.location.href = paths+"index";
 	    						}
