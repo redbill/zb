@@ -92,7 +92,7 @@ public class UserSessionFilter implements Filter
         UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
                 "userAccount");
         // 只有admin才能访问后台
-        if (userInfo == null || userInfo.getUserName().trim() != "admin")
+        if (userInfo == null || !userInfo.getUserName().trim().equals("admin"))
         {
             return false;
         }

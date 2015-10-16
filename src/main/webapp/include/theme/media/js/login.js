@@ -60,7 +60,6 @@ var Login = function () {
 	    				dataType:"json",
 	    				type:"post", //默认GET
 	    				success: function(res){
-	    					console.log( res);
 	    					if(res.isOK == "true"){
 	    						if(userName == "admin"){
 	    							window.location.href = paths+"mgr/index";
