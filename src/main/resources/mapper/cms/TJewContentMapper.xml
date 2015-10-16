@@ -3,15 +3,17 @@
 <mapper namespace="com.bianlide.zb.cms.dao.TJewContentMapper" >
   <resultMap id="BaseResultMap" type="com.bianlide.zb.cms.model.TJewContent" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="module_code" property="moduleCode" jdbcType="VARCHAR" />
+    <result column="code_module" property="codeModule" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    
+    <result column="module_name" property="moduleName" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.bianlide.zb.cms.model.TJewContent" extends="BaseResultMap" >
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, module_code, title, create_time
+    id, code_module, title, create_time
   </sql>
   <sql id="Blob_Column_List" >
     content
@@ -29,9 +31,9 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.bianlide.zb.cms.model.TJewContent" >
-    insert into t_jew_content (id, module_code, title, 
+    insert into t_jew_content (id, code_module, title, 
       create_time, content)
-    values (#{id,jdbcType=INTEGER}, #{moduleCode,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{codeModule,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.bianlide.zb.cms.model.TJewContent" >
@@ -40,8 +42,8 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="moduleCode != null" >
-        module_code,
+      <if test="codeModule != null" >
+        code_module,
       </if>
       <if test="title != null" >
         title,
@@ -57,8 +59,8 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="moduleCode != null" >
-        #{moduleCode,jdbcType=VARCHAR},
+      <if test="codeModule != null" >
+        #{codeModule,jdbcType=VARCHAR},
       </if>
       <if test="title != null" >
         #{title,jdbcType=VARCHAR},
@@ -74,8 +76,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.bianlide.zb.cms.model.TJewContent" >
     update t_jew_content
     <set >
-      <if test="moduleCode != null" >
-        module_code = #{moduleCode,jdbcType=VARCHAR},
+      <if test="codeModule != null" >
+        code_module = #{codeModule,jdbcType=VARCHAR},
       </if>
       <if test="title != null" >
         title = #{title,jdbcType=VARCHAR},
@@ -91,7 +93,7 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bianlide.zb.cms.model.TJewContent" >
     update t_jew_content
-    set module_code = #{moduleCode,jdbcType=VARCHAR},
+    set code_module = #{codeModule,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       content = #{content,jdbcType=LONGVARCHAR}
@@ -99,9 +101,18 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.bianlide.zb.cms.model.TJewContent" >
     update t_jew_content
-    set module_code = #{moduleCode,jdbcType=VARCHAR},
+    set code_module = #{codeModule,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="getAticleList" resultMap="ResultMapWithBLOBs">
+    select 
+    tjc.id,tjc.code_module,tjc.title,tjc.content,tcm.name_module,tjc.create_time
+    
+    from t_jew_content tjc,t_code_module tcm
+    where tjc.code_module=tcm.code_module
+   
+  </select>
 </mapper>

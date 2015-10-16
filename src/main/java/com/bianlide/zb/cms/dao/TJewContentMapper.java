@@ -1,5 +1,7 @@
 package com.bianlide.zb.cms.dao;
 
+import java.util.List;
+
 import com.bianlide.zb.cms.model.TJewContent;
 
 public interface TJewContentMapper {
@@ -16,4 +18,6 @@ public interface TJewContentMapper {
     int updateByPrimaryKeyWithBLOBs(TJewContent record);
 
     int updateByPrimaryKey(TJewContent record);
+    
+    List<TJewContent> getAticleList();
 }

@@ -5,13 +5,15 @@ import java.util.Date;
 public class TJewContent {
     private Integer id;
 
-    private String moduleCode;
+    private String codeModule;
 
     private String title;
 
     private Date createTime;
 
     private String content;
+    
+    private String nameModule;
 
     public Integer getId() {
         return id;
@@ -21,12 +23,12 @@ public class TJewContent {
         this.id = id;
     }
 
-    public String getModuleCode() {
-        return moduleCode;
+    public String getCodeModule() {
+        return codeModule;
     }
 
-    public void setModuleCode(String moduleCode) {
-        this.moduleCode = moduleCode == null ? null : moduleCode.trim();
+    public void setCodeModule(String codeModule) {
+        this.codeModule = codeModule == null ? null : codeModule.trim();
     }
 
     public String getTitle() {
@@ -52,4 +54,14 @@ public class TJewContent {
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
     }
+
+	public String getNameModule() {
+		return nameModule;
+	}
+
+	public void setNameModule(String nameModule) {
+		this.nameModule = nameModule== null ? null : nameModule.trim();;
+	}
+    
+    
 }
