@@ -4,6 +4,23 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 	<display-name>Archetype Created Web Application</display-name>
+	 <session-config>
+    	<session-timeout>60</session-timeout>
+ 	 </session-config>
+ 	 
+ 	 <!-- Error Page定义 -->
+	<error-page>
+		<error-code>500</error-code>
+		<location>/index.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/index.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/index.jsp</location>
+	</error-page>
 	<!-- Spring和mybatis的配置文件 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
