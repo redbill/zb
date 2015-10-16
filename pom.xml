@@ -218,7 +218,18 @@
 			<version>1.9</version>
 		</dependency>
 		
+		<!-- baidu ueditor -->
+		 <dependency>
+			  <groupId>com.baidu</groupId>
+			  <artifactId>baidu-ueditor</artifactId>
+			  <version>1.1.1</version>
+		 </dependency>
 		 
+		 <dependency>
+			  <groupId>org.json</groupId>
+			  <artifactId>json</artifactId>
+			  <version>baidu-editor</version>
+		 </dependency>
 		
 	</dependencies>
 	
