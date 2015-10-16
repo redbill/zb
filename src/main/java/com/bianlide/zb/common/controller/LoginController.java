@@ -77,6 +77,7 @@ public class LoginController
         return "addArticle";
     }
 
+
     @RequestMapping(
     { "mgr/articleList" })
     public String articleList(HttpServletRequest request,
