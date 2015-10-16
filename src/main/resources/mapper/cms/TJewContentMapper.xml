@@ -7,7 +7,7 @@
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     
-    <result column="module_name" property="moduleName" jdbcType="VARCHAR" />
+    <result column="name_module" property="nameModule" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.bianlide.zb.cms.model.TJewContent" extends="BaseResultMap" >
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
