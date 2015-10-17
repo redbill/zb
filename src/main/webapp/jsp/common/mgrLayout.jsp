@@ -49,13 +49,14 @@
     <script src="<%=paths%>include/theme/media/js/jquery.cookie.min.js" type="text/javascript"></script>
     <script src="<%=paths%>include/theme/media/js/jquery.uniform.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="<%=paths%>include/theme/media/js/select2.min.js"></script>
-    <script type="text/javascript" src="<%=paths%>include/theme/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="<%=paths%>include/theme/media/js/jquery.dataTables.1.10.8.js"></script>
     <script type="text/javascript" src="<%=paths%>include/theme/media/js/DT_bootstrap.js"></script>
     <script src="<%=paths%>include/theme/media/js/app.js"></script>
     <script src="<%=paths%>include/theme/media/js/table-editable.js"></script>
     <script src="<%=paths%>include/theme/media/js/app.js"></script>
     <script>
 	    $(function() {
+	
 	        App.init();
 	    });
     </script>

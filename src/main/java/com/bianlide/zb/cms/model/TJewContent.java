@@ -15,6 +15,8 @@ public class TJewContent {
     
     private String nameModule;
 
+    private String preImg;
+    
     public Integer getId() {
         return id;
     }
@@ -60,8 +62,17 @@ public class TJewContent {
 	}
 
 	public void setNameModule(String nameModule) {
-		this.nameModule = nameModule== null ? null : nameModule.trim();;
+		this.nameModule = nameModule== null ? null : nameModule.trim();
+	}
+
+	public String getPreImg() {
+		return preImg;
+	}
+
+	public void setPreImg(String preImg) {
+		this.preImg = preImg== null ? null : preImg.trim();;
 	}
     
+	
     
 }

@@ -16,7 +16,7 @@
                     <div class="control-group">
                         <label class="control-label">标题：</label>
                         <div class="controls">
-                            <input type="text" placeholder="文章标题" class="m-wrap">
+                            <input type="text" placeholder="文章标题" class="m-wrap" name="title" value=" ${title}">
                             <span class="help-inline"></span>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                     <div class="control-group">
                         <label class="control-label">文章内容：</label>
                         <div class="controls">
-                            <script id="container" name="content" type="text/plain">这里写你的初始化内容</script>
+                            <script id="container" name="content" style="width:800px; height:400px;" type="text/plain"></script>
                         </div>
                     </div>
                     <div class="form-actions">

@@ -6,6 +6,7 @@
     <result column="code_module" property="codeModule" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="pre_img" property="preImg" jdbcType="VARCHAR" />
     
     <result column="name_module" property="nameModule" jdbcType="VARCHAR" />
   </resultMap>
@@ -32,9 +33,9 @@
   </delete>
   <insert id="insert" parameterType="com.bianlide.zb.cms.model.TJewContent" >
     insert into t_jew_content (id, code_module, title, 
-      create_time, content)
+      create_time, content,pre_img)
     values (#{id,jdbcType=INTEGER}, #{codeModule,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR})
+      #{createTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR}, #{preImg,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.bianlide.zb.cms.model.TJewContent" >
     insert into t_jew_content
@@ -54,6 +55,9 @@
       <if test="content != null" >
         content,
       </if>
+      <if test="preImg != null" >
+        pre_img,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -70,6 +74,9 @@
       </if>
       <if test="content != null" >
         #{content,jdbcType=LONGVARCHAR},
+      </if>
+       <if test="preImg != null" >
+        #{preImg,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -88,6 +95,9 @@
       <if test="content != null" >
         content = #{content,jdbcType=LONGVARCHAR},
       </if>
+       <if test="preImg != null" >
+        pre_img = #{preImg,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -96,6 +106,7 @@
     set code_module = #{codeModule,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
+      pre_img = #{preImg,jdbcType=VARCHAR},
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -103,16 +114,20 @@
     update t_jew_content
     set code_module = #{codeModule,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
+      pre_img = #{preImg,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
   
-  <select id="getAticleList" resultMap="ResultMapWithBLOBs">
+  <select id="getAticleList" parameterType="com.bianlide.zb.cms.model.TJewContent"  resultMap="ResultMapWithBLOBs">
     select 
-    tjc.id,tjc.code_module,tjc.title,tjc.content,tcm.name_module,tjc.create_time
-    
+    tjc.id,tjc.code_module,tjc.title,tjc.content,tcm.name_module,tjc.create_time,tjc.pre_img
     from t_jew_content tjc,t_code_module tcm
     where tjc.code_module=tcm.code_module
+    <if test="codeModule != null" >
+      and tjc.code_module=#{codeModule,jdbcType=VARCHAR}
+    </if>
+    order by tjc.create_time desc
    
   </select>
 </mapper>

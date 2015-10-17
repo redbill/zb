@@ -19,5 +19,5 @@ public interface TJewContentMapper {
 
     int updateByPrimaryKey(TJewContent record);
     
-    List<TJewContent> getAticleList();
+    List<TJewContent> getAticleList(TJewContent content);
 }
