@@ -67,7 +67,7 @@ var Login = function () {
 	    							window.location.href = paths+"index";
 	    						}
 	    					}else{
-	    						alert(res.msg);
+	    						console.log(res.msg);
 	    					}
 	    				},
 	    				error: function(res) {
@@ -81,7 +81,7 @@ var Login = function () {
 	        $('.login-form input').keypress(function (e) {
 	            if (e.which == 13) {
 	                if ($('.login-form').validate().form()) {
-	                    window.location.href = "index.html";
+	                	$("#login-btn").click();
 	                }
 	                return false;
 	            }

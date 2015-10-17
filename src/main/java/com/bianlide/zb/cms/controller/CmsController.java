@@ -1,6 +1,7 @@
 package com.bianlide.zb.cms.controller;
 
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,76 +19,119 @@ import com.bianlide.zb.cms.service.CmsService;
 import com.bianlide.zb.common.controller.LoginController;
 import com.bianlide.zb.common.vo.JsonResultVO;
 
-
-@RestController  
+@RestController
 public class CmsController {
-	
+
 	private CmsService cmsService;
 
-    private static Logger logger = LoggerFactory
-            .getLogger(LoginController.class);
-    
-    
-	
+	private static Logger logger = LoggerFactory
+			.getLogger(LoginController.class);
+
 	public CmsService getCmsService() {
 		return cmsService;
 	}
-
-
 
 	public void setCmsService(CmsService cmsService) {
 		this.cmsService = cmsService;
 	}
 
-
-
 	/**
-     * 获取内容列表.
-     * 
-     * @Title: getArticleList
-     * @Description: TODO(这里用一句话描述这个方法的作用)
-     * @author Sophie
-     * @param request
-     * @param response
-     * @return
-     * @throws Exception
-     * @throws
-     */
-	 @RequestMapping(
-	 { "getArticleList" })
-    public ModelAndView getArticleList(HttpServletRequest request,
-            HttpServletResponse response) throws Exception
-    {
+	 * 获取内容列表.
+	 * 
+	 * @Title: getArticleList
+	 * @Description: TODO(这里用一句话描述这个方法的作用)
+	 * @author Sophie
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 * @throws
+	 */
+	@RequestMapping({ "getArticleList" })
+	public ModelAndView getArticleList(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 
 		response.setContentType("application/json;charset=utf-8");
-        String msg = "";
-        String isOK = "true";
-        PrintWriter pw = response.getWriter();
-        JsonResultVO jsonRes = new JsonResultVO();
-//        String title = request.getParameter("title");//标题（模糊匹配）
-//        String codeModule = request.getParameter("codeModule");//模块
-//        if(codeModule==null || "".equals(codeModule)){
-//        	codeModule="1000";
-//        }
-        try
-        {
-        	List<TJewContent> articleList=cmsService.getArticleList();
-        	
-        	jsonRes.setJsonData(articleList);
-        }
-        catch (Exception e)
-        {
-        	isOK="false";
-        	msg="获取文章列表异常";
-            logger.error(
-                    "CmsController.getArticleList error", e);
-            e.printStackTrace();
-        }
-        jsonRes.setIsOK(isOK);
-        jsonRes.setMsg(msg);
-        pw.write(JSON.toJSONString(jsonRes));
-        return null;
-    }
+		String msg = "";
+		String isOK = "true";
+		PrintWriter pw = response.getWriter();
+		JsonResultVO jsonRes = new JsonResultVO();
+		// String title = request.getParameter("title");//标题（模糊匹配）
+		// String codeModule = request.getParameter("codeModule");//模块
+		// if(codeModule==null || "".equals(codeModule)){
+		// codeModule="1000";
+		// }
+		try {
+			List<TJewContent> articleList = cmsService.getArticleList();
+
+			jsonRes.setJsonData(articleList);
+		} catch (Exception e) {
+			isOK = "false";
+			msg = "获取文章列表异常";
+			logger.error("CmsController.getArticleList error", e);
+			e.printStackTrace();
+		}
+		jsonRes.setIsOK(isOK);
+		jsonRes.setMsg(msg);
+		pw.write(JSON.toJSONString(jsonRes));
+		return null;
+	}
+
+	/**
+	 * 添加(编辑)文章.
+	 * 
+	 * @Title: addOrEditArticle
+	 * @Description: TODO(这里用一句话描述这个方法的作用)
+	 * @author Sophie
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 * @throws
+	 */
+	@RequestMapping({ "addOrEditArticle" })
+	public ModelAndView addOrEditArticle(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		response.setContentType("application/json;charset=utf-8");
+		String msg = "";
+		String isOK = "true";
+		PrintWriter pw = response.getWriter();
+		JsonResultVO jsonRes = new JsonResultVO();
+		String idStr = request.getParameter("id");
+		String title = request.getParameter("title");// 标题（模糊匹配）
+		String codeModule = request.getParameter("codeModule");// 模块
+		String content = request.getParameter("content");// 编辑内容
+
+		content = content.replaceAll("&lt;", "<");
+		content = content.replaceAll("&gt;", ">");
+		content = content.replaceAll("\n", "");
+		content = content.replaceAll("&amp;", "&");
+		content = content.replaceAll("&quot;", "\"");
+		content = content.replaceAll("&nbsp;", " ");
+		content = content.replaceAll("&copy;", "");
+
+		TJewContent jewContent = new TJewContent();
+		if(idStr!=null && !"".equals(idStr)){
+			jewContent.setId(Integer.parseInt(idStr));
+		}
+		jewContent.setTitle(title);
+		jewContent.setContent(content);
+		jewContent.setCreateTime(new Date());
+		jewContent.setCodeModule(codeModule);
+		try {
+			//新增或添加
+			cmsService.saveOrUpdate(jewContent);
+
+		} catch (Exception e) {
+			isOK = "false";
+			msg = "获取文章列表异常";
+			logger.error("CmsController.getArticleList error", e);
+			e.printStackTrace();
+		}
+		jsonRes.setIsOK(isOK);
+		jsonRes.setMsg(msg);
+		pw.write(JSON.toJSONString(jsonRes));
+		return null;
+	}
 }
-
-
