@@ -106,6 +106,8 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 		<async-supported>true</async-supported>
+		<!-- 文件上传配置 -->
+		<multipart-config></multipart-config>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SpringMVC</servlet-name>
