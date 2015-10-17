@@ -167,7 +167,10 @@ public class CmsController {
 			try {
 				//删除文章
 				cmsService.delContentById(id);
-
+				//获得最新列表
+				 TJewContent content = new TJewContent();
+				List<TJewContent> articleList = cmsService.getArticleList(content);
+				jsonRes.setJsonData(articleList);
 			} catch (Exception e) {
 				isOK = "false";
 				msg = "删除文章列表异常";
