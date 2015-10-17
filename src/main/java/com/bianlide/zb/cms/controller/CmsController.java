@@ -187,4 +187,49 @@ public class CmsController {
 		pw.write(JSON.toJSONString(jsonRes));
 		return null;
 	}
+	
+	/**
+	 * 根据id获取文章内容.
+	 * 
+	 * @Title: getArticleById
+	 * @Description: TODO(这里用一句话描述这个方法的作用)
+	 * @author Sophie
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 * @throws
+	 */
+	@RequestMapping(
+    { "getArticleById" })
+    public ModelAndView getArticleById(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+		PrintWriter pw = null;
+		String isOK="true";
+		String msg="";
+        response.setContentType("application/json;charset=utf-8");
+        pw = response.getWriter();
+        JsonResultVO jsonRes = new JsonResultVO();
+		String idStr = request.getParameter("id");
+		
+		
+		try {
+			if(idStr!=null && !"".equals(idStr)){
+				int id=Integer.parseInt(idStr);
+				TJewContent content= cmsService.getContentById(id);
+				jsonRes.setJsonData(content);
+			}
+
+		} catch (Exception e) {
+			isOK = "false";
+			msg = "进入文章编辑页出错";
+			logger.error("CmsController.getArticleById error", e);
+			e.printStackTrace();
+		}
+		jsonRes.setIsOK(isOK);
+		jsonRes.setMsg(msg);
+		pw.write(JSON.toJSONString(jsonRes));
+        return null;
+    }
 }
