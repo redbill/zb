@@ -1,5 +1,12 @@
 <%@ page language="java" import="java.util.*,cn.com.hugedata.web.fsm.user.model.UserInfo" pageEncoding="UTF-8"%>
+<%
+    String path = request.getContextPath();
+    String paths = request.getScheme() + "://" + request.getServerName() + path + "/";
+    if (request.getServerPort() != 80) {
+        paths = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    }
 
+%>
 <div class="row-fluid">
     <div class="portlet-body form">
         <div class="tab-content">
@@ -28,7 +35,7 @@
                     <div class="control-group">
                         <label class="control-label">文章内容：</label>
                         <div class="controls">
-                            <textarea class="large m-wrap" rows="3"></textarea>
+                            <script id="container" name="content" type="text/plain">这里写你的初始化内容</script>
                         </div>
                     </div>
                     <div class="form-actions">
@@ -40,3 +47,11 @@
         </div>
     </div>
 </div>
+		<script type="text/javascript" src="<%=paths%>/include/components/ueditor/ueditor.config.js"></script>  
+        <!-- 编辑器源码文件 -->  
+        <script type="text/javascript" src="<%=paths%>/include/components/ueditor/ueditor.all.js"></script>  
+        <!-- 语言包文件(建议手动加载语言包，避免在ie下，因为加载语言失败导致编辑器加载失败) -->  
+        <script type="text/javascript" src="<%=paths%>/include/components/ueditor/lang/zh-cn/zh-cn.js"></script>  
+        <script type="text/javascript">  
+            var editor = UE.getEditor('container')  
+        </script>  
