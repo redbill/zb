@@ -113,6 +113,7 @@
     
     from t_jew_content tjc,t_code_module tcm
     where tjc.code_module=tcm.code_module
+    order by tjc.create_time desc
    
   </select>
 </mapper>
