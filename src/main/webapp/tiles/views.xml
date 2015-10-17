@@ -17,6 +17,11 @@
       <put-attribute name="main"   value="/jsp/public/index.jsp"/>
   </definition>
   
+  <definition name="priceList" extends="publicLayout">
+      <put-attribute name="title"  value="钻石报价"/>
+      <put-attribute name="main"   value="/jsp/public/priceList.jsp"/>
+  </definition>
+  
   
   <definition name="mgrLayout" template="/jsp/common/mgrLayout.jsp">
       <put-attribute name="header" value="/jsp/common/mgrHeader.jsp"/>

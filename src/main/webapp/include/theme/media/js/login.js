@@ -61,7 +61,6 @@ var Login = function () {
 	    				type:"post", //默认GET
 	    				success: function(res){
 	    					if(res.isOK == "true"){
-	    						alert(1)
 	    						if(userName == "admin"){
 	    							window.location.href = paths+"mgr/index";
 	    						}else{
@@ -72,7 +71,6 @@ var Login = function () {
 	    					}
 	    				},
 	    				error: function(res) {
-	                            console.log(res);
 	                     }
 	    			})
 	            	

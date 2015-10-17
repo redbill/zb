@@ -1,5 +1,7 @@
-<%@ page language="java" import="java.util.*,cn.com.hugedata.web.fsm.user.model.UserInfo" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,com.bianlide.zb.common.model.UserAccount" pageEncoding="UTF-8"%>
 <%
+UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
+        "userAccount");
     String path = request.getContextPath();
     String paths = request.getScheme() + "://" + request.getServerName() + path + "/";
     if (request.getServerPort() != 80) {
@@ -74,5 +76,13 @@
                     <li><a href="">Feedback 反馈信息</a></li>
                 </ul>
             </li>
+    <%
+	if(userInfo != null ){
+		%>
+		
+		  <li class="mainlevel"><a href="mgr/priceList" title="钻石报价">钻石报价</a></li>
+		<%
+			} 
+	    %>
         </ul>
     </div>
