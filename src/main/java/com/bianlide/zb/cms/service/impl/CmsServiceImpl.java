@@ -20,4 +20,13 @@ public class CmsServiceImpl implements CmsService{
 		return this.jewContentMapper.getAticleList();
 	}
 
+	public void saveOrUpdate(TJewContent content) {
+		// TODO Auto-generated method stub
+		if(content.getId()!=null){//编辑
+			jewContentMapper.updateByPrimaryKeySelective(content);
+		}else{//新增
+			jewContentMapper.insertSelective(content);
+		}
+	}
+
 }
