@@ -35,7 +35,7 @@
                     <div class="control-group">
                         <label class="control-label">文章内容：</label>
                         <div class="controls">
-                            <script id="container" name="content" type="text/plain">这里写你的初始化内容</script>
+                            <script id="container" name="content" style="width:800px; height:400px;" type="text/plain"></script>
                         </div>
                     </div>
                     <div class="form-actions">

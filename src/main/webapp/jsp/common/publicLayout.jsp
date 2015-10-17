@@ -16,6 +16,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title><tiles:insertAttribute name="title"/></title>
     <link href="<%=paths%>include/stylesheets/publicStyle.css" rel="stylesheet" type="text/css">
+        <link href="<%=paths%>include/stylesheets/style.css" rel="stylesheet" type="text/css"/>
+<link href="<%=paths%>include/stylesheets/modules.css" rel="stylesheet" type="text/css"/>
     <script src="<%=paths%>include/javascripts/jquery-1.js"></script>
     <script src="<%=paths%>include/javascripts/slides.js"></script>
     <script language="javascript" type="text/javascript" src="<%=paths%>include/javascripts/menu.js"></script>

@@ -8,7 +8,7 @@
     }
 
 %>
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!-->
@@ -37,6 +37,29 @@
     <!-- END GLOBAL MANDATORY STYLES -->
     <link rel="shortcut icon" href="<%=paths%>include/theme/media/image/favicon.ico" />
     <script src="<%=paths%>include/theme/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+    <script src="<%=paths%>include/theme/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="<%=paths%>include/theme/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+    <script src="<%=paths%>include/theme/media/js/bootstrap.min.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+    <script src="<%=paths%>include/theme/media/js/excanvas.min.js"></script>
+    <script src="<%=paths%>include/theme/media/js/respond.min.js"></script>  
+    <![endif]-->
+    <script src="<%=paths%>include/theme/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="<%=paths%>include/theme/media/js/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="<%=paths%>include/theme/media/js/jquery.cookie.min.js" type="text/javascript"></script>
+    <script src="<%=paths%>include/theme/media/js/jquery.uniform.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="<%=paths%>include/theme/media/js/select2.min.js"></script>
+    <script type="text/javascript" src="<%=paths%>include/theme/media/js/jquery.dataTables.1.10.8.js"></script>
+    <script type="text/javascript" src="<%=paths%>include/theme/media/js/DT_bootstrap.js"></script>
+    <script src="<%=paths%>include/theme/media/js/app.js"></script>
+    <script src="<%=paths%>include/theme/media/js/table-editable.js"></script>
+    <script src="<%=paths%>include/theme/media/js/app.js"></script>
+    <script>
+	    $(function() {
+	
+	        App.init();
+	    });
+    </script>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -57,7 +80,7 @@
                     <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
                 </li>
                 <li class="start ">
-                    <a href="index.html">
+                    <a href="<%=paths%>index">
                         <i class="icon-home"></i>
                         <span class="title">前台首页</span>
                     </a>
@@ -132,7 +155,7 @@
                         <span class="arrow "></span>
                     </a>
                     <ul class="sub-menu" style="display: block;">
-                     <li>
+                        <li>
                             <a href="<%=paths%>mgr/articleList">
                                 <i class="icon-cogs"></i> 文章列表</a>
                         </li>
@@ -141,7 +164,6 @@
                                 <i class="icon-time"></i> 添加文章
                             </a>
                         </li>
-                       
                     </ul>
                 </li>
             </ul>
@@ -185,46 +207,13 @@
                         <!-- END PAGE TITLE & BREADCRUMB-->
                     </div>
                 </div>
-                <!-- END PAGE HEADER-->
-                <!-- BEGIN PAGE CONTENT-->
                 <tiles:insertAttribute name="main" />
-                <!-- END PAGE CONTENT-->
             </div>
-            <!-- END PAGE CONTAINER-->
         </div>
-        <!-- END PAGE -->
     </div>
-    <!-- END CONTAINER -->
-    <!-- BEGIN FOOTER -->
     <tiles:insertAttribute name="footer" />
-    <!-- END FOOTER -->
-    
-    <script src="<%=paths%>include/theme/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-    <script src="<%=paths%>include/theme/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-    <script src="<%=paths%>include/theme/media/js/bootstrap.min.js" type="text/javascript"></script>
-    <!--[if lt IE 9]>
-                <script src="<%=paths%>include/theme/media/js/excanvas.min.js"></script>
-                <script src="<%=paths%>include/theme/media/js/respond.min.js"></script>  
-                <![endif]-->
-    <script src="<%=paths%>include/theme/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
-    <script src="<%=paths%>include/theme/media/js/jquery.blockui.min.js" type="text/javascript"></script>
-    <script src="<%=paths%>include/theme/media/js/jquery.cookie.min.js" type="text/javascript"></script>
-    <script src="<%=paths%>include/theme/media/js/jquery.uniform.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="<%=paths%>include/theme/media/js/select2.min.js"></script>
-	<script type="text/javascript" src="<%=paths%>include/theme/media/js/jquery.dataTables.js"></script>
-	<script type="text/javascript" src="<%=paths%>include/theme/media/js/DT_bootstrap.js"></script>
-	<script src="<%=paths%>include/theme/media/js/app.js"></script>
-	<script src="<%=paths%>include/theme/media/js/table-editable.js"></script>    
-    
-    <script src="<%=paths%>include/theme/media/js/app.js"></script>
-    <script>
-    $(function() {
 
-        App.init();
-        TableEditable.init();
-
-    });
-    </script>
 </body>
 
 </html>
+

@@ -10,8 +10,26 @@ if (request.getServerPort() != 80) {
 %>
 <div class="row-fluid">
     <div class="span12">
-        <!-- BEGIN EXAMPLE TABLE PORTLET-->
         <div class="portlet box blue">
+                    <div class="portlet-body">
+                <table class="table table-striped table-hover table-bordered" id="">
+					<thead>
+                        <tr colspan="2">
+                            <th>文章筛选</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+	                    <tr id="filter_col1" data-column="0">
+					        <td style="text-align: right;">标题：</td>
+					        <td align="center"><input type="text" class="column_filter" id="col0_filter"></td>
+					    </tr>
+					    <tr id="filter_col2" data-column="1">
+					        <td style="text-align: right;">文章类别：</td>
+					        <td align="center"><input type="text" class="column_filter" id="col1_filter"></td>
+					    </tr>
+                    </tbody> 
+                </table>
+            </div>
             <div class="portlet-body">
                 <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
                     <thead>
@@ -22,8 +40,8 @@ if (request.getServerPort() != 80) {
                             <th>删除/修改</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="">
+                    <tbody class="arc-lists-tbody">
+                        <!-- <tr class="">
                             <td>标题1</td>
                             <td>Alex Nilson</td>
                             <td>1234</td>
@@ -45,21 +63,19 @@ if (request.getServerPort() != 80) {
                             <td>Sergio Jackson</td>
                             <td>132</td>
                             <td><a class="" href="javascript:;">修改</a> | <a class="delete" href="javascript:;">删除</a></td>
-                        </tr>
-                    </tbody>
+                        </tr>-->
+                    </tbody> 
                 </table>
             </div>
+
         </div>
-        <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
-<!-- END PAGE CONTENT -->
 </div>
-<!-- END PAGE CONTAINER-->
 </div>
-<!-- END PAGE -->
 </div>
 <script>
 	var basePath = "<%=paths%>";
 </script>
+<script src="<%=paths%>include/javascripts/moment.min.js"></script>
 <script src="<%=paths%>include/javascripts/modules.js"></script>

@@ -31,7 +31,7 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
 	}else{
 	    %>
 		 
-		  <li><a href="<%=paths%>jsp/public/login.jsp" title="登录" target="_blank">登录</a></li>
+		  <li><a href="<%=paths%>jsp/public/login.jsp" title="登录" target="_self">登录</a></li>
 		 
 		 <%
 	}
@@ -43,3 +43,20 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
         <p>京ICP备15000958号-1 |Moneta 中国 Copyright @ 2011 MONETA .All right reserved Design by <a href="http://www.mindjoy.cn/" target="_blank">MINDJOY</a>
         </p>
     </div>
+
+      <script>
+    	function loginOut(){
+    		$.ajax({
+				url: "<%=paths%>loginOut",
+				data: {},
+				dataType:"json",
+				type:"post", //默认GET
+				success: function(res){
+					window.location.href = "<%=paths%>index";
+				},
+				error: function(res) {
+					window.location.href = "<%=paths%>index";
+                 }
+			})
+    	}
+    </script>

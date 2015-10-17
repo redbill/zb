@@ -61,18 +61,16 @@ var Login = function () {
 	    				type:"post", //默认GET
 	    				success: function(res){
 	    					if(res.isOK == "true"){
-	    						alert(1)
 	    						if(userName == "admin"){
 	    							window.location.href = paths+"mgr/index";
 	    						}else{
 	    							window.location.href = paths+"index";
 	    						}
 	    					}else{
-	    						alert(res.msg);
+	    						console.log(res.msg);
 	    					}
 	    				},
 	    				error: function(res) {
-	                            console.log(res);
 	                     }
 	    			})
 	            	
@@ -83,7 +81,7 @@ var Login = function () {
 	        $('.login-form input').keypress(function (e) {
 	            if (e.which == 13) {
 	                if ($('.login-form').validate().form()) {
-	                    window.location.href = "index.html";
+	                	$("#login-btn").click();
 	                }
 	                return false;
 	            }
