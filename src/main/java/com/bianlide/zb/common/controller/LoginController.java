@@ -20,6 +20,8 @@ import cn.com.hugedata.web.fsm.common.service.SignUpRequestBean;
 import cn.com.hugedata.web.fsm.user.model.UserInfo;
 
 import com.alibaba.fastjson.JSON;
+import com.bianlide.zb.cms.model.TJewContent;
+import com.bianlide.zb.cms.service.CmsService;
 import com.bianlide.zb.common.model.UserAccount;
 import com.bianlide.zb.common.service.UserAccountService;
 import com.bianlide.zb.common.vo.JsonResultVO;
@@ -31,9 +33,19 @@ public class LoginController
     private LoginService loginService;
 
     private UserAccountService userAccountService;
+    
+    private CmsService cmsService;
 
-    private static Logger logger = LoggerFactory
-            .getLogger(LoginController.class);
+	private static Logger logger = LoggerFactory
+			.getLogger(LoginController.class);
+
+	public CmsService getCmsService() {
+		return cmsService;
+	}
+
+	public void setCmsService(CmsService cmsService) {
+		this.cmsService = cmsService;
+	}
 
     public void setLoginService(LoginService loginService)
     {
@@ -69,11 +81,36 @@ public class LoginController
         return "mgrIndex";
     }
 
-    @RequestMapping(
+	@RequestMapping(
     { "mgr/addArticle" })
     public String addArticle(HttpServletRequest request,
             HttpServletResponse response) throws Exception
     {
+		PrintWriter pw = null;
+		String isOK="true";
+		String msg="";
+        response.setContentType("application/json;charset=utf-8");
+        pw = response.getWriter();
+        JsonResultVO jsonRes = new JsonResultVO();
+		String idStr = request.getParameter("id");
+		
+		
+		try {
+			if(idStr!=null && !"".equals(idStr)){
+				int id=Integer.parseInt(idStr);
+				TJewContent content= cmsService.getContentById(id);
+				jsonRes.setJsonData(content);
+			}
+
+		} catch (Exception e) {
+			isOK = "false";
+			msg = "进入文章编辑页出错";
+			logger.error("LoginController.addArticle error", e);
+			e.printStackTrace();
+		}
+		jsonRes.setIsOK(isOK);
+		jsonRes.setMsg(msg);
+		pw.write(JSON.toJSONString(jsonRes));
         return "addArticle";
     }
 
@@ -85,7 +122,6 @@ public class LoginController
     {
         return "articleList";
     }
-
     @RequestMapping(
     { "loginAccount" })
     public String loginAccount(HttpServletRequest request,

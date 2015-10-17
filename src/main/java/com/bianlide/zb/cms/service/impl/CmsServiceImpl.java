@@ -16,8 +16,8 @@ public class CmsServiceImpl implements CmsService{
 	@Resource
     private TJewContentMapper jewContentMapper;
 	
-	public List<TJewContent> getArticleList() {
-		return this.jewContentMapper.getAticleList();
+	public List<TJewContent> getArticleList(TJewContent content) {
+		return this.jewContentMapper.getAticleList(content);
 	}
 
 	public void saveOrUpdate(TJewContent content) {
@@ -27,6 +27,14 @@ public class CmsServiceImpl implements CmsService{
 		}else{//新增
 			jewContentMapper.insertSelective(content);
 		}
+	}
+
+	public TJewContent getContentById(int id) {
+		return jewContentMapper.selectByPrimaryKey(id);
+	}
+
+	public void delContentById(int id) {
+		jewContentMapper.deleteByPrimaryKey(id);
 	}
 
 }
