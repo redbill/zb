@@ -1,4 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+        <%
+    String path = request.getContextPath();
+    String paths = request.getScheme() + "://" + request.getServerName() + path + "/";
+    if (request.getServerPort() != 80) {
+        paths = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    }
+    %>
 
    <!--主体-->
     <div class="warp">
@@ -374,7 +381,7 @@
                             <td class="w_50">
                                 <a title="按钻重排序" href="javascript:;" name="order_type" value="1" order="0">
               钻重
-              <img src="http://image.99vvs.com/front2/image/c_up.jpg" width="7" height="8">
+              <img src="" width="7" height="8">
             </a>
                             </td>
                             <td class="w_30">颜色</td>
@@ -394,7 +401,7 @@
                             <td class="w_65">
                                 <a title="按价格排序" href="javascript:;" name="order_type" value="3" order="0">
               折后价(RMB)
-              <img src="http://image.99vvs.com/front2/image/c_up.jpg" width="7" height="8">
+              <img src="" width="7" height="8">
             </a>
                             </td>
                             <!-- <td class="w_65">操作</td> -->
