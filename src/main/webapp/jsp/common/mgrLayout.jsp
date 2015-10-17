@@ -80,7 +80,7 @@
                     <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
                 </li>
                 <li class="start ">
-                    <a href="index.html">
+                    <a href="<%=paths%>index">
                         <i class="icon-home"></i>
                         <span class="title">前台首页</span>
                     </a>

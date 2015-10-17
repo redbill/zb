@@ -71,7 +71,6 @@ var Login = function () {
 	    					}
 	    				},
 	    				error: function(res) {
-	                            console.log(res);
 	                     }
 	    			})
 	            	

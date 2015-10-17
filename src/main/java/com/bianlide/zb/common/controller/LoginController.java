@@ -70,6 +70,14 @@ public class LoginController
     }
 
     @RequestMapping(
+    { "mgr/priceList" })
+    public String priceList(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "priceList";
+    }
+
+    @RequestMapping(
     { "mgr/addArticle" })
     public String addArticle(HttpServletRequest request,
             HttpServletResponse response) throws Exception
@@ -77,13 +85,45 @@ public class LoginController
         return "addArticle";
     }
 
-
     @RequestMapping(
     { "mgr/articleList" })
     public String articleList(HttpServletRequest request,
             HttpServletResponse response) throws Exception
     {
         return "articleList";
+    }
+
+    @RequestMapping(
+    { "loginOut" })
+    public String loginOut(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+
+        PrintWriter pw = null;
+        response.setContentType("application/json;charset=utf-8");
+        pw = response.getWriter();
+        JsonResultVO jsonRes = new JsonResultVO();
+        try
+        {
+            jsonRes.setIsOKToTrue();
+            request.getSession().setAttribute("userAccount", null);
+
+            pw.write(JSON.toJSONString(jsonRes));
+            pw.flush();
+            return null;
+        }
+        catch (Exception e)
+        {
+            logger.error("loginOut error : " + e.getMessage());
+            jsonRes.setMsg(e.getMessage());
+            pw.write(JSON.toJSONString(jsonRes));
+            pw.flush();
+            return null;
+        }
+        finally
+        {
+            pw.close();
+        }
     }
 
     @RequestMapping(

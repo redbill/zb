@@ -31,6 +31,8 @@ public class UserSessionFilter implements Filter
     /** 检查不通过时，转发的URL */
     private String sendRedirect;
 
+    private String normalUserAccessUrl;
+
     public void destroy()
     {
     }
@@ -92,19 +94,30 @@ public class UserSessionFilter implements Filter
         UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
                 "userAccount");
         // 只有admin才能访问后台
-        if (userInfo == null || !userInfo.getUserName().trim().equals("admin"))
+        if (userInfo != null && userInfo.getUserName().trim().equals("admin"))
         {
-            return false;
+            return true;
+        }
+        else if (userInfo != null
+                && request.getRequestURI().endsWith("priceList"))
+        {
+            return true;
         }
         else
         {
-            return true;
+            return false;
         }
     }
 
     public void init(FilterConfig cfg) throws ServletException
     {
         String nofilterUrlText = cfg.getInitParameter("nofilterUrl");
+        String normalUserAccessUrl = cfg
+                .getInitParameter("normalUserAccessUrl");
+        if (!StringUtils.isBlank(normalUserAccessUrl))
+        {
+            this.normalUserAccessUrl = normalUserAccessUrl;
+        }
         if (!StringUtils.isBlank(nofilterUrlText))
         {
             nofilterUrlList = Arrays.asList(nofilterUrlText.split("[,]"));
