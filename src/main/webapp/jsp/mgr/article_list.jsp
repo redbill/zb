@@ -74,6 +74,22 @@ if (request.getServerPort() != 80) {
 </div>
 </div>
 </div>
+
+<!-- 删除时候的模态框 -->
+<div id="tip-pop" class="modal hide fade in" style="display: none; ">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal"></a>
+		<h3>提示消息</h3>
+	</div>
+	<div class="modal-body">
+		<h4>是否删除当前文章？</h4>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn btn-success" id="delete-yes">是</a>
+		<a href="#" class="btn" data-dismiss="modal">否</a>
+	</div>
+</div>
+
 <script>
 	var basePath = "<%=paths%>";
 </script>

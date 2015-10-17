@@ -31,11 +31,11 @@
 
                     if (resLen > 0) {
                         for (var i = 0; i < resLen; i++) {
-                            stringTr = '<tr class="" data-sign=' + res[i].id + '>' +
+                            stringTr += '<tr class="" data-sign=' + res[i].id + '>' +
                                 '<td>' + res[i].title + '</td>' +
                                 '<td>' + _that.timestampFormat(res[i].createTime / 1000) + '</td>' +
                                 '<td>' + res[i].nameModule + '</td>' +
-                                '<td><a class="arc-edit" href="javascript:;" data-sign="' + res[i].id + '">修改</a> | <a class="arc-delete" href="javascript:;">删除</a></td>' +
+                                '<td><a class="arc-edit" href="javascript:;" data-sign="' + res[i].id + '">修改</a> | <a class="arc-delete" href="javascript:;" data-sign="'+ res[i].id +'">删除</a></td>' +
                                 '</tr>';
                         }
                         $(".arc-lists-tbody").html(stringTr);
@@ -92,13 +92,55 @@
          * 修改文章
          */
         editArticle: function() {
+        	var _that = this;
             var sign;
-            $(".arc-edit").on("click", function() {
+            $(document.body).on("click", ".arc-edit", function() {
                 sign = $(this).attr("data-sign");
-                commonAjax;
-                location.href = basePath + "mgr/addArticle";
-                $(".m-wrap").val(11111);
+                console.log(sign);
+                location.href = basePath + "mgr/addArticle?id=" + sign;
+//              _that.commonAjax(basePath + "mgr/addArticle", {id: sign}, "GET", function(result) {
+////	            	if(result.isOK === "true") {
+//	                    console.log(result)
+////	            	}
+//	            });
             })
+        },
+        /**
+         * 删除文章
+         */
+        deleteArticle: function() {
+        	var _that = this;
+            var sign;
+        	$(document.body).on("click", ".arc-delete", function() {
+        		sign = $(this).attr("data-sign");
+        		$('#tip-pop').modal();
+        	});
+        	$("#delete-yes").on("click", function() {
+              _that.commonAjax(basePath + "delArticle", {id: sign}, "POST", function(result) {
+	            	if(result.isOK === "true") {
+	            		$('#tip-pop').modal('hide');
+	            		
+	            		 var res = result.jsonData,
+	                        resLen = res.length,
+	                        stringTr = "";
+
+	                    if (resLen > 0) {
+	                        for (var i = 0; i < resLen; i++) {
+	                            stringTr += '<tr class="" data-sign=' + res[i].id + '>' +
+	                                '<td>' + res[i].title + '</td>' +
+	                                '<td>' + _that.timestampFormat(res[i].createTime / 1000) + '</td>' +
+	                                '<td>' + res[i].nameModule + '</td>' +
+	                                '<td><a class="arc-edit" href="javascript:;" data-sign="' + res[i].id + '">修改</a> | <a class="arc-delete" href="javascript:;" data-sign="'+ res[i].id +'">删除</a></td>' +
+	                                '</tr>';
+	                        }
+	                        $(".arc-lists-tbody").html();
+	                        $(".arc-lists-tbody").html(stringTr);
+	                        //调用datatables
+	                        _that.useDataTable();
+	                    }
+	            	}
+	            });
+        	})
         },
         /**
          * 使用moment插件 格式化时间戳成特定形式的时间
@@ -117,5 +159,6 @@
 
         modules.getArticleLists();
         modules.editArticle();
+        modules.deleteArticle();
 
 }()

@@ -16,7 +16,7 @@
                     <div class="control-group">
                         <label class="control-label">标题：</label>
                         <div class="controls">
-                            <input type="text" placeholder="文章标题" class="m-wrap">
+                            <input type="text" placeholder="文章标题" class="m-wrap" name="title" value=" ${title}">
                             <span class="help-inline"></span>
                         </div>
                     </div>
