@@ -17,7 +17,7 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
         <ul class="sub_l">
             <li class="mainlevel"><a href="" title="HOME">首页</a></li>
             <li class="mainlevel">走进品牌
-                <ul class="sub_nav_03">
+                <ul class="sub_nav_03" id="brand-lists">
                     <span class="Triangle_con"></span>
                     <li class="first"><a href="" title="事业展望">Company 事业展望</a></li>
                     <li class="item"><a href="" title="品牌故事">Brand Story 品牌故事</a></li>
@@ -27,7 +27,7 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
                 </ul>
             </li>
             <li class="mainlevel">系列产品
-                <ul class="sub_nav_03">
+                <ul class="sub_nav_03" id="product-lists">
                     <span class="Triangle_con"></span>
                     <li class="first"><a href="">Transforever传世经典</a></li>
                     <li class="item"><a href="">Super Star 10ct Diamond巨星</a></li>
@@ -48,7 +48,7 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
                 </ul>
             </li>
             <li class="mainlevel ml50">客户服务
-                <ul class="sub_nav_03">
+                <ul class="sub_nav_03" id="service-lists">
                     <span class="Triangle_con"></span>
                     <li><a href="" title="珠宝定制流程">process 珠宝定制流程</a></li>
                     <li><a href="">VIP Service 客户服务</a></li>
@@ -60,7 +60,7 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
         </ul>
         <ul class="sub_r">
             <li class="mainlevel"><a href="">活动资讯</a>
-                <ul class="sub_nav_04">
+                <ul class="sub_nav_04" id="activity-lists">
                     <span class="Triangle_con"></span>
                     <li><a href="" title="MONETA大事记">MONETA大事记</a></li>
                     <li><a href="" title="活动资讯">News 活动资讯</a></li>
@@ -86,3 +86,6 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
 	    %>
         </ul>
     </div>
+    <script>
+    	
+    </script>

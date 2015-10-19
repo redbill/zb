@@ -63,6 +63,14 @@ public class LoginController
     }
 
     @RequestMapping(
+    { "category" })
+    public String category(HttpServletRequest request, HttpServletResponse response)
+            throws Exception
+    {
+        return "category";
+    }
+    
+    @RequestMapping(
     { "mgr/index" })
     public String mgrIndex(HttpServletRequest request,
             HttpServletResponse response) throws Exception
@@ -92,6 +100,30 @@ public class LoginController
             HttpServletResponse response) throws Exception
     {
         return "articleList";
+    }
+
+    @RequestMapping(
+    { "mgr/upLoadPriceFile" })
+    public String upLoadPriceFile(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "upLoadPriceFile";
+    }
+
+    @RequestMapping(
+    { "mgr/importPriceData" })
+    public String importPriceData(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "importPriceData";
+    }
+
+    @RequestMapping(
+    { "mgr/updatePriceData" })
+    public String updatePriceData(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "updatePriceData";
     }
 
     @RequestMapping(

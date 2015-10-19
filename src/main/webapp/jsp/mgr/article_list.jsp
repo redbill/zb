@@ -25,7 +25,15 @@ if (request.getServerPort() != 80) {
 					    </tr>
 					    <tr id="filter_col2" data-column="1">
 					        <td style="text-align: right;">文章类别：</td>
-					        <td align="center"><input type="text" class="column_filter" id="col1_filter"></td>
+					        <td align="center">
+						        <select class="column_filter" id="col1_filter">
+						        	<option>选择栏目</option>
+							        <option>产品</option>
+							        <option>品牌</option>
+							        <option>活动</option>
+							        <option>客服</option>
+							      </select>
+					        </td>
 					    </tr>
                     </tbody> 
                 </table>
@@ -35,8 +43,8 @@ if (request.getServerPort() != 80) {
                     <thead>
                         <tr>
                             <th>文章标题</th>
-                            <th>发布时间</th>
                             <th>文章类别</th>
+                            <th>发布时间</th>
                             <th>删除/修改</th>
                         </tr>
                     </thead>
@@ -75,23 +83,12 @@ if (request.getServerPort() != 80) {
 </div>
 </div>
 
-<!-- 删除时候的模态框 -->
-<div id="tip-pop" class="modal hide fade in" style="display: none; ">
-	<div class="modal-header">
-		<a class="close" data-dismiss="modal"></a>
-		<h3>提示消息</h3>
-	</div>
-	<div class="modal-body">
-		<h4>是否删除当前文章？</h4>
-	</div>
-	<div class="modal-footer">
-		<a href="#" class="btn btn-success" id="delete-yes">是</a>
-		<a href="#" class="btn" data-dismiss="modal">否</a>
-	</div>
-</div>
 
-<script>
-	var basePath = "<%=paths%>";
-</script>
-<script src="<%=paths%>include/javascripts/moment.min.js"></script>
+
+
 <script src="<%=paths%>include/javascripts/modules.js"></script>
+<script>
+	modules.getArticleLists();
+	modules.editArticleBtn();
+	modules.deleteArticle();
+</script>

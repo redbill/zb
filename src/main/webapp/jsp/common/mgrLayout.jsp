@@ -51,13 +51,13 @@
     <script type="text/javascript" src="<%=paths%>include/theme/media/js/select2.min.js"></script>
     <script type="text/javascript" src="<%=paths%>include/theme/media/js/jquery.dataTables.1.10.8.js"></script>
     <script type="text/javascript" src="<%=paths%>include/theme/media/js/DT_bootstrap.js"></script>
-    <script src="<%=paths%>include/theme/media/js/app.js"></script>
-    <script src="<%=paths%>include/theme/media/js/table-editable.js"></script>
-    <script src="<%=paths%>include/theme/media/js/app.js"></script>
+	<script src="<%=paths%>include/javascripts/moment.min.js"></script>
+    <%-- <script src="<%=paths%>include/theme/media/js/table-editable.js"></script>--%>
+    <script src="<%=paths%>include/theme/media/js/app.js"></script> 
     <script>
+    var basePath = "<%=paths%>";
 	    $(function() {
-	
-	        App.init();
+	         App.init(); 
 	    });
     </script>
 </head>
@@ -85,8 +85,9 @@
                         <span class="title">前台首页</span>
                     </a>
                 </li>
+               
                 <li class="active ">
-                    <a href="javascript:;">
+                    <a href="<%=paths%>mgr/updatePriceData">
                         <i class="icon-cogs"></i>
                         <span class="title">报价管理</span>
                         <span class="selected"></span>
@@ -94,14 +95,19 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="layout_horizontal_sidebar_menu.html">
+                            <a href="<%=paths%>mgr/upLoadPriceFile">
 
-                            Horzontal & Sidebar Menu</a>
+                            上传报价文件</a>
                         </li>
                         <li>
-                            <a href="layout_horizontal_menu1.html">
+                            <a href="<%=paths%>mgr/importPriceData">
 
-                            Horzontal Menu 1</a>
+                            导入报价文件</a>
+                        </li>
+                        <li>
+                            <a href="<%=paths%>mgr/updatePriceData">
+
+                            更改报价数据</a>
                         </li>
                     </ul>
                 </li>

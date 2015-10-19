@@ -1,5 +1,10 @@
-! function() {
+!function() {
     var modules = {
+    	allParam: function() {
+    		return {
+    			"cat" : {"1000": "品牌","1001":"产品", "1002":"活动", "1003": "客服"}
+    		};
+    	},
         /**
          * ajax 共用
          */
@@ -28,19 +33,23 @@
                     var res = result.jsonData,
                         resLen = res.length,
                         stringTr = "";
-
+                    
                     if (resLen > 0) {
                         for (var i = 0; i < resLen; i++) {
                             stringTr += '<tr class="" data-sign=' + res[i].id + '>' +
                                 '<td>' + res[i].title + '</td>' +
-                                '<td>' + _that.timestampFormat(res[i].createTime / 1000) + '</td>' +
                                 '<td>' + res[i].nameModule + '</td>' +
+                                '<td>' + _that.timestampFormat(res[i].createTime / 1000) + '</td>' +
                                 '<td><a class="arc-edit" href="javascript:;" data-sign="' + res[i].id + '">修改</a> | <a class="arc-delete" href="javascript:;" data-sign="'+ res[i].id +'">删除</a></td>' +
                                 '</tr>';
                         }
+                        
                         $(".arc-lists-tbody").html(stringTr);
-                        //调用datatables
+
                         _that.useDataTable();
+                    }else {
+                    	stringTr = '<tr><td colspan="4" style="text-align: center;">暂无数据</td></tr>';
+                    	$(".arc-lists-tbody").html(stringTr);
                     }
                 } else {
 
@@ -58,6 +67,12 @@
                 ).draw();
             }
 
+            function filterSelect(i) {
+                $('#sample_editable_1').DataTable().column(i).search(
+                    $('#col' + i + '_filter').val()
+                ).draw();
+            }
+            
             $(function() {
                 $('#sample_editable_1').DataTable({
                     "responsive": true,
@@ -86,23 +101,20 @@
                 $('input.column_filter').on('keyup click', function() {
                     filterColumn($(this).parents('tr').attr('data-column'));
                 });
+                $("select.column_filter").on("change", function() {
+                	filterColumn($(this).parents('tr').attr('data-column'));
+                })
             });
         },
         /**
          * 修改文章
          */
-        editArticle: function() {
+        editArticleBtn: function() {
         	var _that = this;
             var sign;
             $(document.body).on("click", ".arc-edit", function() {
                 sign = $(this).attr("data-sign");
-                console.log(sign);
-                location.href = basePath + "mgr/addArticle?id=" + sign;
-//              _that.commonAjax(basePath + "mgr/addArticle", {id: sign}, "GET", function(result) {
-////	            	if(result.isOK === "true") {
-//	                    console.log(result)
-////	            	}
-//	            });
+                location.href =  basePath + "mgr/addArticle?id=" + sign;
             })
         },
         /**
@@ -115,31 +127,108 @@
         		sign = $(this).attr("data-sign");
         		$('#tip-pop').modal();
         	});
-        	$("#delete-yes").on("click", function() {
+        	
+        	$(document.body).on("click", "#delete-yes", function() {
               _that.commonAjax(basePath + "delArticle", {id: sign}, "POST", function(result) {
 	            	if(result.isOK === "true") {
-	            		$('#tip-pop').modal('hide');
-	            		
-	            		 var res = result.jsonData,
-	                        resLen = res.length,
-	                        stringTr = "";
+	            		$('#tip-pop > .modal-footer').hide();
+	            		$(".modal-body").find("h4").text("文章删除成功");
+	            		setTimeout(function() {
+//	            			alert(111)
+	            			$('#tip-pop').modal('hide');
 
-	                    if (resLen > 0) {
-	                        for (var i = 0; i < resLen; i++) {
-	                            stringTr += '<tr class="" data-sign=' + res[i].id + '>' +
-	                                '<td>' + res[i].title + '</td>' +
-	                                '<td>' + _that.timestampFormat(res[i].createTime / 1000) + '</td>' +
-	                                '<td>' + res[i].nameModule + '</td>' +
-	                                '<td><a class="arc-edit" href="javascript:;" data-sign="' + res[i].id + '">修改</a> | <a class="arc-delete" href="javascript:;" data-sign="'+ res[i].id +'">删除</a></td>' +
-	                                '</tr>';
-	                        }
-	                        $(".arc-lists-tbody").html();
-	                        $(".arc-lists-tbody").html(stringTr);
-	                        //调用datatables
-	                        _that.useDataTable();
-	                    }
+		            		location.reload();
+	            		}, 1400);
+	            	} else {
+	            		$('#tip-pop > .modal-footer').hide();
+	            		$(".modal-body").find("h4").text("删除文章失败");
 	            	}
 	            });
+        	});
+        	
+        },
+        /**
+         * 编辑文章内容
+         */
+        editArticleContent: function() {
+        	var _that = this;
+        	if(!!id) {
+        		_that.commonAjax(basePath + "getArticleById", {id: id}, "POST", function(result) {
+        			if(result.isOK === "true"){
+        				var data = result.jsonData,
+        					len = data.length;
+
+        				$(".m-wrap").val(data.title || "");
+        				$("select.m-wrap > option[value="+ data.codeModule +"]").attr("selected", true);
+        				editor.addListener("ready", function () { //ueditor 设置内容,必须等编辑器初始化完成
+        	                editor.setContent(data.content);
+        				});
+        			} else {
+        				console.log(result.msg)
+        			}
+        		});
+        	}
+        },
+        /**
+         * 添加文章
+         */
+        addArticleByAjax: function() {
+        	var _that = this;
+        	var dataAddArcticle = {};
+        	var cat = _that.allParam().cat;
+        	var $form =  $("#add_article_form > .control-group");
+        	var msg = "文章添加成功！";
+        	
+        	$("#sava_arcticle").on("click", function() {
+        		//标题不得为空
+        		var title = $.trim($form.eq(0).find("input").val());
+        		if(!!title) {
+        			dataAddArcticle.title = title
+        		}else {
+        			$form.eq(0).find("span").text("标题不能为空！")
+        			return;
+        		}
+        		
+        		//产品模块 需要传递preImg参数
+        		if(productCode === '1001') {
+        			dataAddArcticle.preImg = $("#hidFileID").attr('data-img');
+        		}
+        		
+        		var productCode = $form.find("select").val();
+        		dataAddArcticle.codeModule = productCode;
+        		
+        		dataAddArcticle.content = editor.getContent() ? editor.getContent() : "";
+        		
+            	if(!!id) {
+            		dataAddArcticle.id = id;
+            		msg = "文章修改成功！"
+            	}
+            	_that.commonAjax(
+        			basePath + "addOrEditArticle", 
+        			dataAddArcticle, 
+					"POST", 
+					function(result) {
+		    			if(result.isOK === "true"){
+		            		$('#tip-pop').modal();
+		            		$('#tip-pop > .modal-footer').hide();
+		            		$('#tip-pop > .modal-body').find("h4").text(msg);
+		            		setTimeout(function() {
+		            			$('#tip-pop').modal('hide');
+		            			location.reload();
+		            		}, 1200)
+		    			} else {
+		    				$('#tip-pop').modal();
+		            		$('#tip-pop > .modal-footer').hide();
+		            		$('#tip-pop > .modal-body').find("h4").text(result.msg);
+		    			}
+        			});
+        	});
+        	
+        },
+        //产品模块要上传单图片
+        imgUploadShowOrHide: function() {
+        	$("#cat-select").on("change", function() {
+        		($(this).val() === '1001') ? $("#img-up").show() : $("#img-up").hide();
         	})
         },
         /**
@@ -156,9 +245,8 @@
 
     };
 
+    window.modules = modules;
 
-        modules.getArticleLists();
-        modules.editArticle();
-        modules.deleteArticle();
+
 
 }()
