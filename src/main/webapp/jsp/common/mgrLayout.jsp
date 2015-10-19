@@ -51,13 +51,13 @@
     <script type="text/javascript" src="<%=paths%>include/theme/media/js/select2.min.js"></script>
     <script type="text/javascript" src="<%=paths%>include/theme/media/js/jquery.dataTables.1.10.8.js"></script>
     <script type="text/javascript" src="<%=paths%>include/theme/media/js/DT_bootstrap.js"></script>
-    <script src="<%=paths%>include/theme/media/js/app.js"></script>
-    <script src="<%=paths%>include/theme/media/js/table-editable.js"></script>
-    <script src="<%=paths%>include/theme/media/js/app.js"></script>
+	<script src="<%=paths%>include/javascripts/moment.min.js"></script>
+    <%-- <script src="<%=paths%>include/theme/media/js/table-editable.js"></script>--%>
+    <script src="<%=paths%>include/theme/media/js/app.js"></script> 
     <script>
+    var basePath = "<%=paths%>";
 	    $(function() {
-	
-	        App.init();
+	         App.init(); 
 	    });
     </script>
 </head>
