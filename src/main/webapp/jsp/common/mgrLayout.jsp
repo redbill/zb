@@ -85,8 +85,9 @@
                         <span class="title">前台首页</span>
                     </a>
                 </li>
+               
                 <li class="active ">
-                    <a href="javascript:;">
+                    <a href="<%=paths%>mgr/updatePriceData">
                         <i class="icon-cogs"></i>
                         <span class="title">报价管理</span>
                         <span class="selected"></span>
@@ -94,14 +95,19 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="layout_horizontal_sidebar_menu.html">
+                            <a href="<%=paths%>mgr/upLoadPriceFile">
 
-                            Horzontal & Sidebar Menu</a>
+                            上传报价文件</a>
                         </li>
                         <li>
-                            <a href="layout_horizontal_menu1.html">
+                            <a href="<%=paths%>mgr/importPriceData">
 
-                            Horzontal Menu 1</a>
+                            导入报价文件</a>
+                        </li>
+                        <li>
+                            <a href="<%=paths%>mgr/updatePriceData">
+
+                            更改报价数据</a>
                         </li>
                     </ul>
                 </li>

@@ -95,6 +95,30 @@ public class LoginController
     }
 
     @RequestMapping(
+    { "mgr/upLoadPriceFile" })
+    public String upLoadPriceFile(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "upLoadPriceFile";
+    }
+
+    @RequestMapping(
+    { "mgr/importPriceData" })
+    public String importPriceData(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "importPriceData";
+    }
+
+    @RequestMapping(
+    { "mgr/updatePriceData" })
+    public String updatePriceData(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "updatePriceData";
+    }
+
+    @RequestMapping(
     { "loginOut" })
     public String loginOut(HttpServletRequest request,
             HttpServletResponse response) throws Exception
