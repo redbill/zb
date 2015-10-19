@@ -186,9 +186,16 @@
         	var dataAddArcticle = {};
         	var cat = _that.allParam().cat;
         	var $form =  $("#add_article_form > .control-group");
+        	
         	$("#sava_arcticle").on("click", function() {
+        		var productCode = $form.find("select").val();
+        		
+        		if(productCode === '1001') {
+        			dataAddArcticle.preImg = $("#hidFileID").attr('data-img');
+        		}
+        		
         		dataAddArcticle.title = $form.find("input").val();
-        		dataAddArcticle.codeModule = $form.find("select").val();
+        		dataAddArcticle.codeModule = productCode;
         		dataAddArcticle.content = editor.getContent();
             	console.log(dataAddArcticle);
             	if(!!id) {
@@ -215,6 +222,14 @@
         			});
         	});
         	
+        },
+        //产品模块要上传单图片
+        imgUploadShowOrHide: function() {
+        	$("#cat-select").on("change", function() {
+        		if($(this).val() === '1001'){
+        			$("#img-up").show();
+        		}
+        	})
         },
         /**
          * 使用moment插件 格式化时间戳成特定形式的时间

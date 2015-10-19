@@ -21,14 +21,7 @@
     <script src="<%=paths%>include/javascripts/jquery-1.js"></script>
     <script src="<%=paths%>include/javascripts/slides.js"></script>
     <script language="javascript" type="text/javascript" src="<%=paths%>include/javascripts/menu.js"></script>
-    <script>
-    $(function() {
-        $('#slides').slides({
-            preload: true,
-            generateNextPrev: true
-        });
-    });
-    </script>
+
 </head>
 
 <body>

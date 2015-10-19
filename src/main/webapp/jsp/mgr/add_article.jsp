@@ -6,7 +6,6 @@
     if (request.getServerPort() != 80) {
         paths = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
     }
-
 %>
 <script src="<%=paths%>include/javascripts/ajaxupload.js"></script> 
 <script>
@@ -29,7 +28,7 @@
                     <div class="control-group">
                         <label class="control-label">模块：</label>
                         <div class="controls">
-                            <select class="m-wrap" tabindex="1">
+                            <select class="m-wrap" tabindex="1" id="cat-select">
                                 <option value="1000">品牌</option>
                                 <option value="1001">产品</option>
                                 <option value="1002">活动</option>
@@ -37,10 +36,12 @@
                             </select>
                         </div>
                     </div>
-                    <div class="control-group">
+                    
+                    <div class="control-group" id="img-up" style="display: none;">
                         <label class="control-label">图片上传：</label>
                         <div class="controls">
                             <span class="file" style="position: relative">
+                            	<span class="txt" style="display: inline-block;width: 92px;height: 30px;line-height: 30px;color: #555;background-color: #e2e4ea;border: 1px solid #cbcbcb;text-align: center;padding: 0;">浏览图片</span>
 								<input id="uploadImg" data-url="" name="uploadImg" type="file" style="position: absolute;top: 0;right: 0;width: 92px;height: 30px;z-index: 2;opacity: 0;cursor: pointer;"/>
 							</span>
 							 <input type="hidden" name="hidFileID" id="hidFileID" value="" />
@@ -66,17 +67,18 @@
         </div>
     </div>
 </div>
-		<script type="text/javascript" src="<%=paths%>/include/components/ueditor/ueditor.config.js"></script>  
+		<script type="text/javascript" src="<%=paths%>include/components/ueditor/ueditor.config.js"></script>  
         <!-- 编辑器源码文件 -->  
-        <script type="text/javascript" src="<%=paths%>/include/components/ueditor/ueditor.all.js"></script>  
+        <script type="text/javascript" src="<%=paths%>include/components/ueditor/ueditor.all.js"></script>  
         <!-- 语言包文件(建议手动加载语言包，避免在ie下，因为加载语言失败导致编辑器加载失败) -->  
-        <script type="text/javascript" src="<%=paths%>/include/components/ueditor/lang/zh-cn/zh-cn.js"></script>  
+        <script type="text/javascript" src="<%=paths%>include/components/ueditor/lang/zh-cn/zh-cn.js"></script>  
         <script src="<%=paths%>include/javascripts/modules.js"></script>
         <script type="text/javascript">  
             var editor = UE.getEditor('container');
             
 
     		$(function() {
+    			modules.imgUploadShowOrHide();
     			modules.editArticleContent();
     			modules.addArticleByAjax();
     			
@@ -96,11 +98,9 @@
     						}
     					},
     					onComplete:function(filename,files,issuccess){
-    						var msg      = files.split("|")[2],
-    							isok     = files.split("|")[1],
-    					 		filename = files.split("|")[0];
-    						$("#uploadImgTips").text(msg).show();
-    						$("#uploadImg").data('imgfile',filename);
+    						var res = JSON.parse(files);
+    						$("#uploadImgTips").text(res.msg).show();
+    						$("#hidFileID").attr('data-img',filename);
     					}
     				});
     			}
