@@ -38,7 +38,7 @@
 		<h4>是否删除当前文章？</h4>
 	</div>
 	<div class="modal-footer">
-		<a href="#" class="btn btn-success" id="delete-yes">是</a>
-		<a href="#" class="btn" data-dismiss="modal">否</a>
+		<a href="javascript:;" class="btn btn-success" id="delete-yes">是</a>
+		<a href="javascript:;" class="btn" data-dismiss="modal">否</a>
 	</div>
 </div>

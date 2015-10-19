@@ -21,7 +21,7 @@
                         <label class="control-label">标题：</label>
                         <div class="controls">
                             <input type="text" placeholder="文章标题" class="m-wrap" name="title" value="">
-                            <span class="help-inline"></span>
+                            <span class="help-inline" style="color: red;"></span>
                         </div>
                     </div>
                     
@@ -53,11 +53,12 @@
 					
                     <div class="control-group">
                         <label class="control-label">文章内容：</label>
-                        <div class="controls">
-                            <script id="container" name="content" style="width:800px; height:400px;" type="text/plain"></script>
+                    </div>
+                    <div class="control-group">
+                    <div class="">
+                            <script id="container" name="content" style="width:1010px; height:400px;" type="text/plain"></script>
                         </div>
                     </div>
-                    
                     <div class="form-actions">
 						<input type="button" class="btn black" id="sava_arcticle" value="保存" />
 					</div>
@@ -100,7 +101,7 @@
     					onComplete:function(filename,files,issuccess){
     						var res = JSON.parse(files);
     						$("#uploadImgTips").text(res.msg).show();
-    						$("#hidFileID").attr('data-img',filename);
+    						$("#hidFileID").attr('data-img',res.fileName);
     					}
     				});
     			}
