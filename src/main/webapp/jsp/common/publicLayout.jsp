@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
-<%
+    <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+        <%
     String path = request.getContextPath();
     String paths = request.getScheme() + "://" + request.getServerName() + path + "/";
     if (request.getServerPort() != 80) {

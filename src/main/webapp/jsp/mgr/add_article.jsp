@@ -1,5 +1,6 @@
-<%@ page language="java" import="java.util.*,cn.com.hugedata.web.fsm.user.model.UserInfo" pageEncoding="UTF-8"%>
-<%
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+        <%
     String path = request.getContextPath();
     String paths = request.getScheme() + "://" + request.getServerName() + path + "/";
     if (request.getServerPort() != 80) {
@@ -7,6 +8,7 @@
     }
 
 %>
+<script src="<%=paths%>include/javascripts/ajaxupload.js"></script> 
 <script>
 	var id = parseInt('<%=request.getParameter("id")%>', 10);
 </script>
@@ -35,7 +37,19 @@
                             </select>
                         </div>
                     </div>
+                    <div class="control-group">
+                        <label class="control-label">图片上传：</label>
+                        <div class="controls">
+                            <span class="file" style="position: relative">
+								<input id="uploadImg" data-url="" name="uploadImg" type="file" style="position: absolute;top: 0;right: 0;width: 92px;height: 30px;z-index: 2;opacity: 0;cursor: pointer;"/>
+							</span>
+							 <input type="hidden" name="hidFileID" id="hidFileID" value="" />
+							<span class="feedback hide" id="uploadImgTips">正在上传中</span>
+							<p class="tip" style="color: #999;font-size: 12px;">图片大小不能超过500K，支持jpg、jpeg、gif、png、bmp格式</p>
+                        </div>
+                    </div>
                     
+					
                     <div class="control-group">
                         <label class="control-label">文章内容：</label>
                         <div class="controls">
@@ -65,5 +79,30 @@
     		$(function() {
     			modules.editArticleContent();
     			modules.addArticleByAjax();
+    			
+    			//图片上传
+    			if($("#uploadImg").length>0){
+    				new AjaxUpload("#uploadImg",{//上传图片 	
+    					action: basePath + "upload?codeModule=1001&nameModule=product",
+    					autoSubmit:true,
+    					type:"POST",
+    					name:"file",
+    					onSubmit:function(filepic, extension){
+    						if (extension && /^(jpg|jpeg|gif|png|bmp|JPEG|JPG|GIF|PNG|BMP)$/.test(extension)){
+    				 	      	$("#uploadImgTips").html('<span class="loading">文件正在上传...</span>').show();
+    					 	}else{
+    							$("#uploadImgTips").text("格式错误！").show();
+    							return false;
+    						}
+    					},
+    					onComplete:function(filename,files,issuccess){
+    						var msg      = files.split("|")[2],
+    							isok     = files.split("|")[1],
+    					 		filename = files.split("|")[0];
+    						$("#uploadImgTips").text(msg).show();
+    						$("#uploadImg").data('imgfile',filename);
+    					}
+    				});
+    			}
     		})
         </script>

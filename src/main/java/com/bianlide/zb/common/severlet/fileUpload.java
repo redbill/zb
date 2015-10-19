@@ -85,7 +85,7 @@ public class fileUpload extends HttpServlet
                         }
                         else if (fileName != "")
                         {
-                        	String contextRealPath =request.getSession( ).getServletContext( ).getRealPath( "/"+nameModule+"/" );
+                        	String contextRealPath =request.getSession( ).getServletContext( ).getRealPath( "/uploadImg/" );
                         	
                         	
 //                             String contextRealPath = getServletContext()

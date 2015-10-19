@@ -33,7 +33,7 @@
                     var res = result.jsonData,
                         resLen = res.length,
                         stringTr = "";
-                    console.log("文章列表数据条数: " +resLen);
+                    console.log(res)
                     if (resLen > 0) {
                         for (var i = 0; i < resLen; i++) {
                             stringTr += '<tr class="" data-sign=' + res[i].id + '>' +
@@ -43,6 +43,7 @@
                                 '<td><a class="arc-edit" href="javascript:;" data-sign="' + res[i].id + '">修改</a> | <a class="arc-delete" href="javascript:;" data-sign="'+ res[i].id +'">删除</a></td>' +
                                 '</tr>';
                         }
+                        console.log(stringTr)
                         $(".arc-lists-tbody").html(stringTr);
                         //调用datatables
                         _that.useDataTable();
@@ -194,24 +195,24 @@
             		dataAddArcticle.id = id;
             	}
             	_that.commonAjax(
-            			basePath + "addOrEditArticle", 
-            			dataAddArcticle, 
-    					"POST", 
-    					function(result) {
-    		    			if(result.isOK === "true"){
-    		            		$('#tip-pop').modal();
-    		            		$('#tip-pop > .modal-footer').hide();
-    		            		$('#tip-pop > .modal-body').find("h4").text("文章添加成功");
-    		            		setTimeout(function() {
-    		            			$('#tip-pop').modal('hide');
-    		            			location.reload();
-    		            		}, 1200)
-    		    			} else {
-    		    				$('#tip-pop').modal();
-    		            		$('#tip-pop > .modal-footer').hide();
-    		            		$('#tip-pop > .modal-body').find("h4").text("文章添加失败,请重新添加");
-    		    			}
-    		    		});
+        			basePath + "addOrEditArticle", 
+        			dataAddArcticle, 
+					"POST", 
+					function(result) {
+		    			if(result.isOK === "true"){
+		            		$('#tip-pop').modal();
+		            		$('#tip-pop > .modal-footer').hide();
+		            		$('#tip-pop > .modal-body').find("h4").text("文章添加成功");
+		            		setTimeout(function() {
+		            			$('#tip-pop').modal('hide');
+		            			location.reload();
+		            		}, 1200)
+		    			} else {
+		    				$('#tip-pop').modal();
+		            		$('#tip-pop > .modal-footer').hide();
+		            		$('#tip-pop > .modal-body').find("h4").text("文章添加失败,请重新添加");
+		    			}
+        			});
         	});
         	
         },
