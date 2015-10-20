@@ -20,7 +20,6 @@ import cn.com.hugedata.web.fsm.common.service.SignUpRequestBean;
 import cn.com.hugedata.web.fsm.user.model.UserInfo;
 
 import com.alibaba.fastjson.JSON;
-import com.bianlide.zb.cms.service.CmsService;
 import com.bianlide.zb.common.model.UserAccount;
 import com.bianlide.zb.common.service.UserAccountService;
 import com.bianlide.zb.common.vo.JsonResultVO;
@@ -33,8 +32,8 @@ public class LoginController
 
     private UserAccountService userAccountService;
 
-	private static Logger logger = LoggerFactory
-			.getLogger(LoginController.class);
+    private static Logger logger = LoggerFactory
+            .getLogger(LoginController.class);
 
     public void setLoginService(LoginService loginService)
     {
@@ -107,30 +106,6 @@ public class LoginController
             HttpServletResponse response) throws Exception
     {
         return "articleList";
-    }
-
-    @RequestMapping(
-    { "mgr/upLoadPriceFile" })
-    public String upLoadPriceFile(HttpServletRequest request,
-            HttpServletResponse response) throws Exception
-    {
-        return "upLoadPriceFile";
-    }
-
-    @RequestMapping(
-    { "mgr/importPriceData" })
-    public String importPriceData(HttpServletRequest request,
-            HttpServletResponse response) throws Exception
-    {
-        return "importPriceData";
-    }
-
-    @RequestMapping(
-    { "mgr/updatePriceData" })
-    public String updatePriceData(HttpServletRequest request,
-            HttpServletResponse response) throws Exception
-    {
-        return "updatePriceData";
     }
 
     @RequestMapping(

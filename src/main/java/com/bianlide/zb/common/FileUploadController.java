@@ -14,15 +14,22 @@
  */
 package com.bianlide.zb.common;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.bianlide.zb.price.model.FileUpload;
+import com.bianlide.zb.price.service.PriceFileUploadService;
 
 /**
  * @ClassName: FileUploadController
@@ -34,6 +41,22 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class FileUploadController
 {
+    @Value("${fileUpload.excelUploadPath}")
+    private String excelUploadPath;
+
+    public void setExcelUploadPath(String excelUploadPath)
+    {
+        this.excelUploadPath = excelUploadPath;
+    }
+
+    private PriceFileUploadService priceFileUploadService;
+
+    public void setPriceFileUploadService(
+            PriceFileUploadService priceFileUploadService)
+    {
+        this.priceFileUploadService = priceFileUploadService;
+    }
+
     @RequestMapping(value = "mgr/uploadPriceFileForm", method = RequestMethod.POST)
     public String handleFormUpload(@RequestParam("name") String name,
             @RequestParam("file") MultipartFile file)
@@ -44,7 +67,7 @@ public class FileUploadController
             try
             {
                 SaveFileFromInputStream(file.getInputStream(),
-                        "D:\\bill\\eclipse\\zb\\uploadFile", "zb.xls");
+                        this.excelUploadPath);
             }
             catch (IOException e)
             {
@@ -65,10 +88,15 @@ public class FileUploadController
      * @param filename
      * @throws IOException
      */
-    public void SaveFileFromInputStream(InputStream stream, String path,
-            String filename) throws IOException
+    public void SaveFileFromInputStream(InputStream stream, String path)
+            throws IOException
     {
-        FileOutputStream fs = new FileOutputStream(path + "/" + filename);
+        FileUpload fu = new FileUpload();
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+        String dateStr = sdf.format(date);
+        File tempFile = File.createTempFile(dateStr, ".xls", new File(path));
+        FileOutputStream fs = new FileOutputStream(tempFile);
         byte[] buffer = new byte[1024 * 1024];
         int bytesum = 0;
         int byteread = 0;
@@ -80,6 +108,8 @@ public class FileUploadController
         }
         fs.close();
         stream.close();
+        fu.setFileName(tempFile.getName());
+        fu.setUploadTime(date);
+        this.priceFileUploadService.insertFileUploadRecord(fu);
     }
-
 }

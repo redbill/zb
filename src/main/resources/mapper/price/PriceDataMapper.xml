@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bianlide.zb.price.dao.PriceDataMapper" >
+  <resultMap id="BaseResultMap" type="com.bianlide.zb.price.model.PriceData" >
+    <id column="file_name" property="fileName" jdbcType="VARCHAR" />
+    <id column="row_num" property="rowNum" jdbcType="INTEGER" />
+    <id column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="shape" property="shape" jdbcType="VARCHAR" />
+    <result column="nai" property="nai" jdbcType="VARCHAR" />
+    <result column="ka" property="ka" jdbcType="VARCHAR" />
+    <result column="carat" property="carat" jdbcType="DECIMAL" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="clarity" property="clarity" jdbcType="VARCHAR" />
+    <result column="cut" property="cut" jdbcType="VARCHAR" />
+    <result column="polish" property="polish" jdbcType="VARCHAR" />
+    <result column="semmetry" property="semmetry" jdbcType="VARCHAR" />
+    <result column="fluor" property="fluor" jdbcType="VARCHAR" />
+    <result column="xin_jian" property="xinJian" jdbcType="VARCHAR" />
+    <result column="zhi_jing" property="zhiJing" jdbcType="DECIMAL" />
+    <result column="depth" property="depth" jdbcType="DECIMAL" />
+    <result column="tai_mian" property="taiMian" jdbcType="DECIMAL" />
+    <result column="cert_no" property="certNo" jdbcType="VARCHAR" />
+    <result column="cert" property="cert" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="delete_time" property="deleteTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    file_name, row_num, create_time, shape, nai, ka, carat, color, clarity, cut, polish, 
+    semmetry, fluor, xin_jian, zhi_jing, depth, tai_mian, cert_no, cert, price, status, 
+    delete_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.bianlide.zb.price.model.PriceDataKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from price_data
+    where file_name = #{fileName,jdbcType=VARCHAR}
+      and row_num = #{rowNum,jdbcType=INTEGER}
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+  </select>
+  <select id="getPriceDatas" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from price_data
+    where  status = '1'
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="com.bianlide.zb.price.model.PriceDataKey" >
+    delete from price_data
+    where file_name = #{fileName,jdbcType=VARCHAR}
+      and row_num = #{rowNum,jdbcType=INTEGER}
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.bianlide.zb.price.model.PriceData" >
+    insert into price_data (file_name, row_num, create_time, 
+      shape, nai, ka, carat, 
+      color, clarity, cut, 
+      polish, semmetry, fluor, 
+      xin_jian, zhi_jing, depth, 
+      tai_mian, cert_no, cert, 
+      price, status, delete_time
+      )
+    values (#{fileName,jdbcType=VARCHAR}, #{rowNum,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{shape,jdbcType=VARCHAR}, #{nai,jdbcType=VARCHAR}, #{ka,jdbcType=VARCHAR}, #{carat,jdbcType=DECIMAL}, 
+      #{color,jdbcType=VARCHAR}, #{clarity,jdbcType=VARCHAR}, #{cut,jdbcType=VARCHAR}, 
+      #{polish,jdbcType=VARCHAR}, #{semmetry,jdbcType=VARCHAR}, #{fluor,jdbcType=VARCHAR}, 
+      #{xinJian,jdbcType=VARCHAR}, #{zhiJing,jdbcType=DECIMAL}, #{depth,jdbcType=DECIMAL}, 
+      #{taiMian,jdbcType=DECIMAL}, #{certNo,jdbcType=VARCHAR}, #{cert,jdbcType=VARCHAR}, 
+      #{price,jdbcType=INTEGER}, #{status,jdbcType=CHAR}, #{deleteTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bianlide.zb.price.model.PriceData" >
+    insert into price_data
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fileName != null" >
+        file_name,
+      </if>
+      <if test="rowNum != null" >
+        row_num,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="shape != null" >
+        shape,
+      </if>
+      <if test="nai != null" >
+        nai,
+      </if>
+      <if test="ka != null" >
+        ka,
+      </if>
+      <if test="carat != null" >
+        carat,
+      </if>
+      <if test="color != null" >
+        color,
+      </if>
+      <if test="clarity != null" >
+        clarity,
+      </if>
+      <if test="cut != null" >
+        cut,
+      </if>
+      <if test="polish != null" >
+        polish,
+      </if>
+      <if test="semmetry != null" >
+        semmetry,
+      </if>
+      <if test="fluor != null" >
+        fluor,
+      </if>
+      <if test="xinJian != null" >
+        xin_jian,
+      </if>
+      <if test="zhiJing != null" >
+        zhi_jing,
+      </if>
+      <if test="depth != null" >
+        depth,
+      </if>
+      <if test="taiMian != null" >
+        tai_mian,
+      </if>
+      <if test="certNo != null" >
+        cert_no,
+      </if>
+      <if test="cert != null" >
+        cert,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="deleteTime != null" >
+        delete_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fileName != null" >
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="rowNum != null" >
+        #{rowNum,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shape != null" >
+        #{shape,jdbcType=VARCHAR},
+      </if>
+      <if test="nai != null" >
+        #{nai,jdbcType=VARCHAR},
+      </if>
+      <if test="ka != null" >
+        #{ka,jdbcType=VARCHAR},
+      </if>
+      <if test="carat != null" >
+        #{carat,jdbcType=DECIMAL},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="clarity != null" >
+        #{clarity,jdbcType=VARCHAR},
+      </if>
+      <if test="cut != null" >
+        #{cut,jdbcType=VARCHAR},
+      </if>
+      <if test="polish != null" >
+        #{polish,jdbcType=VARCHAR},
+      </if>
+      <if test="semmetry != null" >
+        #{semmetry,jdbcType=VARCHAR},
+      </if>
+      <if test="fluor != null" >
+        #{fluor,jdbcType=VARCHAR},
+      </if>
+      <if test="xinJian != null" >
+        #{xinJian,jdbcType=VARCHAR},
+      </if>
+      <if test="zhiJing != null" >
+        #{zhiJing,jdbcType=DECIMAL},
+      </if>
+      <if test="depth != null" >
+        #{depth,jdbcType=DECIMAL},
+      </if>
+      <if test="taiMian != null" >
+        #{taiMian,jdbcType=DECIMAL},
+      </if>
+      <if test="certNo != null" >
+        #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cert != null" >
+        #{cert,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bianlide.zb.price.model.PriceData" >
+    update price_data
+    <set >
+      <if test="shape != null" >
+        shape = #{shape,jdbcType=VARCHAR},
+      </if>
+      <if test="nai != null" >
+        nai = #{nai,jdbcType=VARCHAR},
+      </if>
+      <if test="ka != null" >
+        ka = #{ka,jdbcType=VARCHAR},
+      </if>
+      <if test="carat != null" >
+        carat = #{carat,jdbcType=DECIMAL},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="clarity != null" >
+        clarity = #{clarity,jdbcType=VARCHAR},
+      </if>
+      <if test="cut != null" >
+        cut = #{cut,jdbcType=VARCHAR},
+      </if>
+      <if test="polish != null" >
+        polish = #{polish,jdbcType=VARCHAR},
+      </if>
+      <if test="semmetry != null" >
+        semmetry = #{semmetry,jdbcType=VARCHAR},
+      </if>
+      <if test="fluor != null" >
+        fluor = #{fluor,jdbcType=VARCHAR},
+      </if>
+      <if test="xinJian != null" >
+        xin_jian = #{xinJian,jdbcType=VARCHAR},
+      </if>
+      <if test="zhiJing != null" >
+        zhi_jing = #{zhiJing,jdbcType=DECIMAL},
+      </if>
+      <if test="depth != null" >
+        depth = #{depth,jdbcType=DECIMAL},
+      </if>
+      <if test="taiMian != null" >
+        tai_mian = #{taiMian,jdbcType=DECIMAL},
+      </if>
+      <if test="certNo != null" >
+        cert_no = #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cert != null" >
+        cert = #{cert,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="deleteTime != null" >
+        delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where file_name = #{fileName,jdbcType=VARCHAR}
+      and row_num = #{rowNum,jdbcType=INTEGER}
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+  </update>
+  
+    <update id="deleteOldPriceData"  >
+    update price_data
+    <set >
+      
+     
+        status = '0',
+        delete_time =  current_timestamp(),
+    </set>
+    where status = '1'
+  </update>
+  
+  
+  <update id="updateByPrimaryKey" parameterType="com.bianlide.zb.price.model.PriceData" >
+    update price_data
+    set shape = #{shape,jdbcType=VARCHAR},
+      nai = #{nai,jdbcType=VARCHAR},
+      ka = #{ka,jdbcType=VARCHAR},
+      carat = #{carat,jdbcType=DECIMAL},
+      color = #{color,jdbcType=VARCHAR},
+      clarity = #{clarity,jdbcType=VARCHAR},
+      cut = #{cut,jdbcType=VARCHAR},
+      polish = #{polish,jdbcType=VARCHAR},
+      semmetry = #{semmetry,jdbcType=VARCHAR},
+      fluor = #{fluor,jdbcType=VARCHAR},
+      xin_jian = #{xinJian,jdbcType=VARCHAR},
+      zhi_jing = #{zhiJing,jdbcType=DECIMAL},
+      depth = #{depth,jdbcType=DECIMAL},
+      tai_mian = #{taiMian,jdbcType=DECIMAL},
+      cert_no = #{certNo,jdbcType=VARCHAR},
+      cert = #{cert,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      status = #{status,jdbcType=CHAR},
+      delete_time = #{deleteTime,jdbcType=TIMESTAMP}
+    where file_name = #{fileName,jdbcType=VARCHAR}
+      and row_num = #{rowNum,jdbcType=INTEGER}
+      and create_time = #{createTime,jdbcType=TIMESTAMP}
+  </update>
+</mapper>
