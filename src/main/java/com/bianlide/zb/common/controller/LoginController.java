@@ -62,6 +62,14 @@ public class LoginController
     }
 
     @RequestMapping(
+    { "category" })
+    public String category(HttpServletRequest request, HttpServletResponse response)
+            throws Exception
+    {
+        return "category";
+    }
+    
+    @RequestMapping(
     { "mgr/index" })
     public String mgrIndex(HttpServletRequest request,
             HttpServletResponse response) throws Exception

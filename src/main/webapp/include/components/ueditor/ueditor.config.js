@@ -19,6 +19,7 @@
      * 因此，UEditor提供了针对不同页面的编辑器可单独配置的根路径，具体来说，在需要实例化编辑器的页面最顶部写上如下代码即可。当然，需要令此处的URL等于对应的配置。
      * window.UEDITOR_HOME_URL = "/xxxx/xxxx/";
      */
+	
     var URL = window.UEDITOR_HOME_URL || getUEBasePath();
 
     /**
@@ -341,6 +342,7 @@
 
         //webAppKey 百度应用的APIkey，每个站长必须首先去百度官网注册一个key后方能正常使用app功能，注册介绍，http://app.baidu.com/static/cms/getapikey.html
         //, webAppKey: ""
+    	,allowDivTransToP:false
     };
 
     function getUEBasePath(docUrl, confUrl) {

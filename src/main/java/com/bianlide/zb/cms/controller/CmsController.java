@@ -106,6 +106,8 @@ public class CmsController {
 		String title = request.getParameter("title");// 标题（模糊匹配）
 		String codeModule = request.getParameter("codeModule");// 模块
 		String content = request.getParameter("content");// 编辑内容
+		String preImg=request.getParameter("content");// 预览图，用于产品模块
+		
 
 		content = content.replaceAll("&lt;", "<");
 		content = content.replaceAll("&gt;", ">");
@@ -123,6 +125,11 @@ public class CmsController {
 		jewContent.setContent(content);
 		jewContent.setCreateTime(new Date());
 		jewContent.setCodeModule(codeModule);
+		
+		if(preImg!=null && !"".equals(preImg)){
+			jewContent.setPreImg(preImg);
+		}
+		
 		try {
 			//新增或添加
 			cmsService.saveOrUpdate(jewContent);

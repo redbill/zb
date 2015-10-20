@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
-<%
+    <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+        <%
     String path = request.getContextPath();
     String paths = request.getScheme() + "://" + request.getServerName() + path + "/";
     if (request.getServerPort() != 80) {
@@ -21,14 +21,7 @@
     <script src="<%=paths%>include/javascripts/jquery-1.js"></script>
     <script src="<%=paths%>include/javascripts/slides.js"></script>
     <script language="javascript" type="text/javascript" src="<%=paths%>include/javascripts/menu.js"></script>
-    <script>
-    $(function() {
-        $('#slides').slides({
-            preload: true,
-            generateNextPrev: true
-        });
-    });
-    </script>
+
 </head>
 
 <body>

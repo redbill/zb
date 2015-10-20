@@ -39,10 +39,12 @@ public class fileUpload extends HttpServlet
             throws ServletException, IOException
     {
     	response.setContentType("application/json;charset=utf-8");
-        String msgString = "";
+        response.setContentType("text/html");
+        String msgString = "上传成功";
         boolean bIsOK = true;
         int loginStatus = 1;// 默认设置为登录正常
         String fileName = "";
+        PrintWriter pw = response.getWriter();
         DiskFileItemFactory factory = new DiskFileItemFactory();
         factory.setSizeThreshold(1024 * 1024);// 设置缓存大小为1M
         ServletFileUpload upload = new ServletFileUpload(factory);// 定义上传servlet
@@ -85,7 +87,7 @@ public class fileUpload extends HttpServlet
                         }
                         else if (fileName != "")
                         {
-                        	String contextRealPath =request.getSession( ).getServletContext( ).getRealPath( "/"+nameModule+"/" );
+                        	String contextRealPath =request.getSession( ).getServletContext( ).getRealPath( "/uploadImg/" );
                         	
                         	
 //                             String contextRealPath = getServletContext()
@@ -146,9 +148,10 @@ public class fileUpload extends HttpServlet
             }
 //        }
         // 定义返回结果
-        PrintWriter pw = response.getWriter();
+       
         pw.println("{\"isOK\":\"" + bIsOK + "\",\"msg\":\"" + msgString
                 + "\",\"fileName\":\"" + fileName + "\",\"loginStatus\":\""
                 + loginStatus + "\"}");
+        
     }
 }
