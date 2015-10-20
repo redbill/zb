@@ -26,6 +26,15 @@ $('input[name="reset"]').click(function() {
 });
 
 $(function() {
+	
+	$("#carat-set").on("change",function(){
+        var weightStr = $.trim($('#carat-set').val());
+        var weightBigSmall = weightStr.split("-");
+        $("#bigThanWeight").val(weightBigSmall[0]); 
+        $("#smallThanWeight").val(weightBigSmall[1]);
+    });
+	
+	
     $(".select-box a").click(function() {
         if ($(this).attr("class") == "un") {
             $(this).removeClass("un");
@@ -353,3 +362,65 @@ $(function() {
             });
         }
     }
+    
+    function searchDT(){
+    	//获取约束条件数据
+    	var searchCondition = getSearchCondition();
+    	//获取后台取得的数据
+    	
+    	//根据条件过滤所有数据
+    	
+    	//将数据放入到表格
+    	
+    	
+    }
+    
+    function getSearchCondition(){
+    	var searchCondition = {};
+    	var checkedShape = $('.shape-list li a.un');
+    	if(checkedShape && checkedShape.length > 0){
+    		var shapeCondition = new Array();
+    		
+    		for(var i=0;i< checkedShape.length ; i++){
+    		 shapeCondition.push(checkedShape.eq(i).attr("title"));	
+    		}
+    		searchCondition.shapeCondition = shapeCondition;
+    		console.log(shapeCondition);
+    	}
+    	
+//    	if($('#bigThanWeight').attr('value') && )
+//    	var bigThanWeight=""
+    	
+    	var checkedColor = $('.color-list li a.un');
+    	if(checkedColor && checkedColor.length > 0){
+    		var colorCondition = new Array();
+    		
+    		for(var i=0;i< checkedColor.length ; i++){
+    			colorCondition.push(checkedColor.eq(i).attr("title"));	
+    		}
+    		searchCondition.colorCondition = colorCondition;
+    		console.log(colorCondition);
+    	}
+    	
+//    	
+//    	
+//    	
+//    	mycars[0]="Saab"
+//    		mycars[1]="Volvo"
+//    		mycars[2]="BMW"
+    }
+    
+    function checkNum(e) { 
+        var re = /^\d+(?=\.{0,1}\d+$|$)/ 
+        if (e.value != "") { 
+            if (!re.test(e.value)) { 
+               // alert("请输入正确的数字"); 
+                e.value = ""; 
+                e.focus(); 
+            } 
+        } 
+    } 
+    
+    
+    
+    

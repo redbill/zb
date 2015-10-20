@@ -68,8 +68,8 @@
                         <div class="select-box"> <span>重量<br>
           Carat</span>
                             <div class="carat">
-                                <input type="text" name="carat_1" class="carat-input" maxlength="10"> -
-                                <input type="text" name="carat_2" class="carat-input" maxlength="10"> 克拉&nbsp;&nbsp;&nbsp;&nbsp;重量可选范围
+                                <input type="text" name="carat_1" class="carat-input" maxlength="10" id="bigThanWeight" onblur="checkNum(this)"  onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"> -
+                                <input type="text" name="carat_2" class="carat-input" maxlength="10" id="smallThanWeight" onblur="checkNum(this)"  onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"> 克拉&nbsp;&nbsp;&nbsp;&nbsp;重量可选范围
                                 <select id="carat-set">
                                     <option value="">请选择...</option>
                                     <option value="0.1-0.19">0.1-0.19</option>
@@ -359,7 +359,7 @@
                             <input name="offset" value="30" type="hidden">
                             <input name="o_t" value="" type="hidden">
                             <input name="o_s" value="" type="hidden">
-                            <input name="submit" class="search-bnt" value="确认搜索" type="button">
+                            <input name="submit" class="search-bnt" value="确认搜索" type="button" onclick="searchDT()">
                             <input name="reset" class="search-bnt" value="重置搜索条件" type="reset">
                         </div>
                     </div>
