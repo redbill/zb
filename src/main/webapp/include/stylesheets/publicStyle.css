@@ -1014,3 +1014,27 @@ a.redtxt:hover {
     margin: 0 auto;
     background-color: #fff;
 }
+/*分页*/
+.tablepage {
+	display:none;
+	line-height: 40px;
+	margin-bottom:20px;
+	text-align: right;
+}
+.tablepage a {
+	    display: inline-block;
+    padding: 0 10px;
+    border: 1px solid #E3E3E3;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: #77807d;
+    font-size:12px;
+    height: 30px;
+    line-height: 30px;
+}
+.tablepage a:hover{
+	border: #383839 1px solid;
+    color: #FFF;
+    background: #404040;
+    text-decoration: none;
+}
