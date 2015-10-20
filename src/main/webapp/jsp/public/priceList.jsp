@@ -10,7 +10,7 @@
    <!--主体-->
     <div class="warp">
         <form method="post" action="" name="searchFrm">
-            <div class="main">
+            <div class="" style="width:980px; margin:0 auto;">
                 <div class="title">
                     <h3>祼钻库存</h3>
                 </div>
@@ -293,7 +293,7 @@
                                     <input type="checkbox" name="cert[5]" value="统包货">
                                 </li>
                             </ul>
-                            <span class="f1">证书号码</span>
+                            <span class="f1" style="margin-left: 15px;">证书号码</span>
                             <input type="text" name="certificate" class="item-input" maxlength="30">
                         </div>
                         <div class="select-box"> <span>对称<br>
@@ -720,626 +720,6 @@
                             </td>
                             <!-- <td><a href="#">订购</a></td> -->
                         </tr>
-                        <tr style="background-color: rgb(241, 239, 239);">
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.510</td>
-                            <td>K</td>
-                            <td>SI3</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>None</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.45 x 4.42 x 3.11">4.45</a></td>
-                            <td>70.30</td>
-                            <td>59.50</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">1643</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr>
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.520</td>
-                            <td>G</td>
-                            <td>SI1</td>
-                            <td>EX</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>None</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.57 x 4.55 x 3.13">4.57</a></td>
-                            <td>68.70</td>
-                            <td>59.80</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">4264</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr style="background-color: rgb(241, 239, 239);">
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.540</td>
-                            <td>G</td>
-                            <td>SI2</td>
-                            <td>EX</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>None</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.83 x 4.58 x 3.09">4.83</a></td>
-                            <td>67.50</td>
-                            <td>58.80</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">4182</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr>
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.500</td>
-                            <td>F</td>
-                            <td>SI2</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>None</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.91 x 4.26 x 2.95">4.91</a></td>
-                            <td>69.20</td>
-                            <td>58.60</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">4078</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr style="background-color: rgb(241, 239, 239);">
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.500</td>
-                            <td>G</td>
-                            <td>SI2</td>
-                            <td>GD</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>Faint</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.66 x 4.28 x 2.97">4.66</a></td>
-                            <td>69.50</td>
-                            <td>54.60</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">3694</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr>
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.550</td>
-                            <td>I</td>
-                            <td>VS2</td>
-                            <td>EX</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>None</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.62 x 4.61 x 3.17">4.62</a></td>
-                            <td>68.70</td>
-                            <td>58.90</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">4449</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr style="background-color: rgb(241, 239, 239);">
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.500</td>
-                            <td>L</td>
-                            <td>VS1</td>
-                            <td>GD</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>None</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.94 x 4.17 x 2.82">4.94</a></td>
-                            <td>67.70</td>
-                            <td>54.00</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">1946</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr>
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.510</td>
-                            <td>G</td>
-                            <td>VVS1</td>
-                            <td>EX</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>None</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.78 x 4.42 x 3.03">4.78</a></td>
-                            <td>68.60</td>
-                            <td>59.70</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">5184</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr style="background-color: rgb(241, 239, 239);">
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.510</td>
-                            <td>I</td>
-                            <td>SI1</td>
-                            <td>EX</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>None</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.55 x 4.54 x 3.10">4.55</a></td>
-                            <td>68.30</td>
-                            <td>57.00</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">4004</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr>
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.560</td>
-                            <td>H</td>
-                            <td>SI2</td>
-                            <td>EX</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>Medium</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.97 x 4.54 x 3.11">4.97</a></td>
-                            <td>68.50</td>
-                            <td>56.40</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">4233</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr style="background-color: rgb(241, 239, 239);">
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.580</td>
-                            <td>G</td>
-                            <td>SI2</td>
-                            <td>GD</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>Faint</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.94 x 4.48 x 3.10">4.94</a></td>
-                            <td>69.20</td>
-                            <td>56.40</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">4285</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr>
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.510</td>
-                            <td>E</td>
-                            <td>I1</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>None</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.87 x 4.29 x 2.98">4.87</a></td>
-                            <td>69.60</td>
-                            <td>58.90</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">3060</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr style="background-color: rgb(241, 239, 239);">
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.530</td>
-                            <td>F</td>
-                            <td>SI1</td>
-                            <td>EX</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>None</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.89 x 4.47 x 3.04">4.89</a></td>
-                            <td>68.10</td>
-                            <td>58.90</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">4392</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr>
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.590</td>
-                            <td>I</td>
-                            <td>SI2</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>Strong</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.83 x 4.68 x 3.21">4.83</a></td>
-                            <td>68.50</td>
-                            <td>62.40</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">3955</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr style="background-color: rgb(241, 239, 239);">
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.500</td>
-                            <td>D</td>
-                            <td>SI2</td>
-                            <td>GD</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>None</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.54 x 4.32 x 2.99">4.54</a></td>
-                            <td>69.20</td>
-                            <td>55.30</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">3982</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr>
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.500</td>
-                            <td>G</td>
-                            <td>SI2</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>None</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.69 x 4.37 x 3.02">4.69</a></td>
-                            <td>69.10</td>
-                            <td>59.90</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">3742</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr style="background-color: rgb(241, 239, 239);">
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.500</td>
-                            <td>I</td>
-                            <td>SI2</td>
-                            <td>GD</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>Medium</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.45 x 4.36 x 3.03">4.45</a></td>
-                            <td>69.50</td>
-                            <td>56.80</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">3482</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr>
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.560</td>
-                            <td>L</td>
-                            <td>SI2</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>None</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.61 x 4.59 x 3.21">4.61</a></td>
-                            <td>69.90</td>
-                            <td>56.90</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">1985</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr style="background-color: rgb(241, 239, 239);">
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.500</td>
-                            <td>G</td>
-                            <td>SI1</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>Medium</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.75 x 4.19 x 2.97">4.75</a></td>
-                            <td>70.90</td>
-                            <td>61.10</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">3792</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
-                        <tr>
-                            <td>
-                                无
-                            </td>
-                            <td>垫形</td>
-                            <td></td>
-                            <td></td>
-                            <td>0.520</td>
-                            <td>G</td>
-                            <td>SI2</td>
-                            <td>GD</td>
-                            <td>VG</td>
-                            <td>VG</td>
-                            <td>None</td>
-                            <td>
-                                <font color="blue"></font>
-                            </td>
-                            <td><a href="javascript:;" title="4.46 x 4.44 x 3.07">4.46</a></td>
-                            <td>69.10</td>
-                            <td>60.30</td>
-                            <td>
-                                <font color="red"></font>
-                            </td>
-                            <td>
-                                <font color="red">统包货</font>
-                            </td>
-                            <td>
-                                <font color="blue">3976</font>
-                            </td>
-                            <!-- <td><a href="#">订购</a></td> -->
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -1355,4 +735,122 @@
             </div>
         </div>
     </div>
-  
+  <script>
+  var level = {};
+  level[''] = '';
+  level['I'] = 'Ideal';
+  level['E'] = 'EX';
+  level['V'] = 'VG';
+  level['G'] = 'GD';
+  level['F'] = 'Fair';
+  level['P'] = 'Poor';
+  var fluor = {};
+  fluor[''] = '';
+  fluor['N'] = 'None';
+  fluor['F'] = 'Faint';
+  fluor['M'] = 'Medium';
+  fluor['S'] = 'Strong';
+  fluor['V'] = 'VS';
+
+  //重置条件
+  $('input[name="reset"]').click(function() {
+      $(".select-box a").removeClass("un");
+      $(".select-box1 a").removeClass("un");
+      $(".select-box2 a").removeClass("un");
+      $(".select-box :checkbox").attr("checked", false);
+      $(".select-box2 :checkbox").attr("checked", false);
+  });
+
+  $(function() {
+      $(".select-box a").click(function() {
+          if ($(this).attr("class") == "un") {
+              $(this).removeClass("un");
+              $(this).next().attr("checked", false);
+          } else {
+              $(this).addClass("un");
+              $(this).next().attr("checked", true);
+          }
+      });
+  });
+  $(function() {
+      $(".select-box2 a").click(function() {
+          if ($(this).attr("class") == "un") {
+              $(this).removeClass("un");
+              $(this).next().attr("checked", false);
+          } else {
+              $(this).addClass("un");
+              $(this).next().attr("checked", true);
+          }
+      });
+  });
+  $(function() {
+      $("#3EX").click(function() {
+          if ($(this).attr("class") == "un") {
+              $(this).removeClass("un");
+              $("#exone").removeClass("un");
+              $("#exonecheck").attr("checked", false);
+              $("#extwo").removeClass("un");
+              $("#extwocheck").attr("checked", false);
+              $("#exthree").removeClass("un");
+              $("#exthreecheck").attr("checked", false);
+              $("#flnone").removeClass("un");
+              $("#flnonecheck").attr("checked", false);
+          } else {
+              $(this).addClass("un");
+              $("#exone").addClass("un");
+              $("#exonecheck").attr("checked", true);
+              $("#extwo").addClass("un");
+              $("#extwocheck").attr("checked", true);
+              $("#exthree").addClass("un");
+              $("#exthreecheck").attr("checked", true);
+              $("#flnone").addClass("un");
+              $("#flnonecheck").attr("checked", true);
+          }
+      });
+  });
+  $(function() {
+      $("#3EXVG").click(function() {
+          if ($(this).attr("class") == "un") {
+              $(this).removeClass("un");
+              $("#exone").removeClass("un");
+              $("#exonecheck").attr("checked", false);
+              $("#extwo").removeClass("un");
+              $("#extwocheck").attr("checked", false);
+              $("#exthree").removeClass("un");
+              $("#exthreecheck").attr("checked", false);
+              $("#vgone").removeClass("un");
+              $("#vgonecheck").attr("checked", false);
+              $("#vgtwo").removeClass("un");
+              $("#vgtwocheck").attr("checked", false);
+              $("#vgthree").removeClass("un");
+              $("#vgthreecheck").attr("checked", false);
+          } else {
+              $(this).addClass("un");
+              $("#exone").addClass("un");
+              $("#exonecheck").attr("checked", true);
+              $("#extwo").addClass("un");
+              $("#extwocheck").attr("checked", true);
+              $("#exthree").addClass("un");
+              $("#exthreecheck").attr("checked", true);
+              $("#vgone").addClass("un");
+              $("#vgonecheck").attr("checked", true);
+              $("#vgtwo").addClass("un");
+              $("#vgtwocheck").attr("checked", true);
+              $("#vgthree").addClass("un");
+              $("#vgthreecheck").attr("checked", true);
+          }
+      });
+  });
+  $(function() {
+      $("#without").click(function() {
+          if ($(this).attr("class") == "un") {
+              $(this).removeClass("un");
+              $('#withoutInput').attr("checked", false);
+          } else {
+              $(this).addClass("un");
+              $('#withoutInput').attr("checked", true);
+          }
+      });
+  });
+
+  </script>

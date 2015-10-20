@@ -17,9 +17,14 @@
       <put-attribute name="main"   value="/jsp/public/index.jsp"/>
   </definition>
   
-  <definition name="category" extends="publicLayout">
-      <put-attribute name="title"  value="首页"/>
+    <definition name="category" extends="publicLayout">
+      <put-attribute name="title"  value="文章列表"/>
       <put-attribute name="main"   value="/jsp/public/category.jsp"/>
+  </definition>
+  
+    <definition name="arcContent" extends="publicLayout">
+      <put-attribute name="title"  value="文章内容"/>
+      <put-attribute name="main"   value="/jsp/public/arcContent.jsp"/>
   </definition>
   
   <definition name="priceList" extends="publicLayout">

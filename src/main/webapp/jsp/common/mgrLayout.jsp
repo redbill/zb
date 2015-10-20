@@ -14,16 +14,12 @@
 <!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
-<!-- BEGIN HEAD -->
-
 <head>
     <meta charset="utf-8" />
     <title>
         <tiles:insertAttribute name="title" />
     </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="<%=paths%>include/theme/media/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="<%=paths%>include/theme/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
@@ -48,12 +44,12 @@
     <script src="<%=paths%>include/theme/media/js/jquery.blockui.min.js" type="text/javascript"></script>
     <script src="<%=paths%>include/theme/media/js/jquery.cookie.min.js" type="text/javascript"></script>
     <script src="<%=paths%>include/theme/media/js/jquery.uniform.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="<%=paths%>include/theme/media/js/select2.min.js"></script>
-    <script type="text/javascript" src="<%=paths%>include/theme/media/js/jquery.dataTables.1.10.8.js"></script>
-    <script type="text/javascript" src="<%=paths%>include/theme/media/js/DT_bootstrap.js"></script>
-	<script src="<%=paths%>include/javascripts/moment.min.js"></script>
+    <script src="<%=paths%>include/theme/media/js/select2.min.js" type="text/javascript" ></script>
+    <script src="<%=paths%>include/theme/media/js/jquery.dataTables.1.10.8.js" type="text/javascript" ></script>
+    <script src="<%=paths%>include/theme/media/js/DT_bootstrap.js" type="text/javascript" ></script>
+	<script src="<%=paths%>include/javascripts/moment.min.js" type="text/javascript" ></script>
     <%-- <script src="<%=paths%>include/theme/media/js/table-editable.js"></script>--%>
-    <script src="<%=paths%>include/theme/media/js/app.js"></script> 
+    <script src="<%=paths%>include/theme/media/js/app.js" type="text/javascript" ></script> 
     <script>
     var basePath = "<%=paths%>";
 	    $(function() {
@@ -61,8 +57,6 @@
 	    });
     </script>
 </head>
-<!-- END HEAD -->
-<!-- BEGIN BODY -->
 
 <body class="page-header-fixed">
     <!-- BEGIN HEADER -->
@@ -96,17 +90,14 @@
                     <ul class="sub-menu">
                         <li>
                             <a href="<%=paths%>mgr/upLoadPriceFile">
-
                             上传报价文件</a>
                         </li>
                         <li>
                             <a href="<%=paths%>mgr/importPriceData">
-
                             导入报价文件</a>
                         </li>
                         <li>
                             <a href="<%=paths%>mgr/updatePriceData">
-
                             更改报价数据</a>
                         </li>
                     </ul>
@@ -144,12 +135,10 @@
                     <ul class="sub-menu">
                         <li>
                             <a href="form_layout.html">
-
                             Form Layouts</a>
                         </li>
                         <li>
                             <a href="form_samples.html">
-
                             Advance Form Samples</a>
                         </li>
                     </ul>
@@ -176,9 +165,9 @@
             <!-- END SIDEBAR MENU -->
         </div>
         <!-- END SIDEBAR -->
+        
         <!-- BEGIN PAGE -->
         <div class="page-content">
-            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
             <div id="portlet-config" class="modal hide">
                 <div class="modal-header">
                     <button data-dismiss="modal" class="close" type="button"></button>
@@ -188,7 +177,6 @@
                     <p>Here will be a configuration form</p>
                 </div>
             </div>
-            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
             <!-- BEGIN PAGE CONTAINER-->
             <div class="container-fluid">
                 <!-- BEGIN PAGE HEADER-->
@@ -210,7 +198,6 @@
                             </li>
                             <li><a href="#">Blank Page</a></li>
                         </ul>
-                        <!-- END PAGE TITLE & BREADCRUMB-->
                     </div>
                 </div>
                 <tiles:insertAttribute name="main" />
@@ -218,8 +205,6 @@
         </div>
     </div>
     <tiles:insertAttribute name="footer" />
-
 </body>
-
 </html>
 

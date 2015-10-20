@@ -119,8 +119,8 @@ var templates = [
         'title': "自定义3",
         'preHtml':'自定义模板3 - 四列展示',
         'html':'<div style="position: relative;z-index: 0; width:1000px; font-size: 13px; background: #e9daab; color:#526351;">' +
-		        '<div style="float:left; width: 245px;min-height: 470px; background: #e9daab;"><img src="" width="250" height="470"></div>' +
-		        '<div style="float:left; width: 245px;min-height: 470px; background: #e9daab;">' +
+		        '<div style="float:left; width: 245px;min-height: 470px; border: 1px solid #33672d; background: #e9daab;"><img src="" width="250" height="470"></div>' +
+		        '<div style="float:left; width: 245px;min-height: 470px; border: 1px solid #33672d; background: #e9daab;">' +
 		            '<div style="text-align: center">' +
 		                '<a href="" title="5" class="lightbox"><img src="" width="227" height="140" style="margin-top: 1px;"></a>' +
 		            '</div>' +
@@ -131,7 +131,7 @@ var templates = [
 		                    'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>' +
 		            '</div>' +
 		        '</div>' +
-		        '<div style="float:left; width: 245px;min-height: 470px; background: #e9daab;">' +
+		        '<div style="float:left; width: 245px; border: 1px solid #33672d;min-height: 470px; background: #e9daab;">' +
 		            '<div style="text-align: center">' +
 		                '<a href="" title="1" class="lightbox"><img src="" width="227" height="140" style="margin-top: 1px;"></a>' +
 		            '</div>' +
@@ -142,7 +142,7 @@ var templates = [
 		                '<a href="" title="" class="lightbox"><img src="" width="227" height="140" style="margin-top: 1px;"></a>' +
 		            '</div>' +
 		        '</div>' +
-		        '<div style="float:left; width: 245px;min-height: 470px; background: #e9daab;">' +
+		        '<div style="float:left; width: 245px; border: 1px solid #33672d;min-height: 470px; background: #e9daab;">' +
 		            '<div style="text-align: center">' +
 		                '<a href="" title="4" class="lightbox"><img src="" width="227" height="295" style="margin-top: 1px;"></a>' +
 		            '</div>' +
@@ -158,8 +158,7 @@ var templates = [
         'title': "自定义3",
         'preHtml':'自定义模板3 - 四列展示',
         'html':'<div style="position: relative;z-index: 0; width:1000px; font-size: 13px; background: #e9daab; color:#526351;">' +
-		        '<div style="float:left;text-align: left;' +
-		        'padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border: 1px solid #33672d; ">' +
+		        '<div style="float:left;text-align: left;padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border: 1px solid #33672d; ">' +
 		            '<h1 style="text-align: center;"><img src="" width="227" height="35"></h1>' +
 		            '<div>' +
 		                '<h2>&nbsp;</h2>' +
@@ -170,16 +169,14 @@ var templates = [
 		                    '<br> &nbsp;xxxxxxxxxxxxxxxxxxxxxxx</p>' +
 		            '</div>' +
 		        '</div>' +
-		        '<div style="float:left;text-align: left;' +
-		        'padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border: 1px solid #33672d;">' +
+		        '<div style="float:left;text-align: left;padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border: 1px solid #33672d;">' +
 		            '<p style="text-align: center">' +
 		                '<br>' +
 		                '<br> <img alt="" align="middle" src="" width="220" height=348></p>' +
 		            '<p style="text-align: center"><span style="color: #008080"><strong>&nbsp;</strong><span style="color: #000000"><strong>Marika</strong></span></span>' +
 		            '</p>' +
 		        '</div>' +
-		        '<div style="float:left; padding: 2px 15px;text-align: left;' +
-		        'padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border: 1px solid #33672d;">' +
+		        '<div style="float:left; padding: 2px 15px;text-align: left;padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border: 1px solid #33672d;">' +
 		            '<p>&nbsp;</p>' +
 		            '<p>&nbsp;</p>' +
 		            '<h2>&nbsp; Palmiero设计师介绍</h2>' +
@@ -189,8 +186,7 @@ var templates = [
 		                '<br> &nbsp; &nbsp;xxxxxxxxxxxxxxxxxxxxxxxxxx</p>' +
 		            '<p>&nbsp;</p>' +
 		        '</div>' +
-		        '<div style="float:left;text-align: left;' +
-		        'padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border: 1px solid #33672d;">' +
+		        '<div style="float:left;text-align: left;padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border: 1px solid #33672d;">' +
 		            '<p style="text-align: center">&nbsp;</p>' +
 		            '<p style="text-align: center; ">' +
 		                '<br> <img align="middle" width="218" height="356" alt="" src=""></p>' +

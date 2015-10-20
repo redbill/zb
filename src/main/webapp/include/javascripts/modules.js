@@ -134,7 +134,6 @@
 	            		$('#tip-pop > .modal-footer').hide();
 	            		$(".modal-body").find("h4").text("文章删除成功");
 	            		setTimeout(function() {
-//	            			alert(111)
 	            			$('#tip-pop').modal('hide');
 
 		            		location.reload();
@@ -189,13 +188,13 @@
         			return;
         		}
         		
+        		var productCode = $form.find("select").val();
+        		dataAddArcticle.codeModule = productCode;
+        		
         		//产品模块 需要传递preImg参数
         		if(productCode === '1001') {
         			dataAddArcticle.preImg = $("#hidFileID").attr('data-img');
         		}
-        		
-        		var productCode = $form.find("select").val();
-        		dataAddArcticle.codeModule = productCode;
         		
         		dataAddArcticle.content = editor.getContent() ? editor.getContent() : "";
         		
@@ -203,6 +202,7 @@
             		dataAddArcticle.id = id;
             		msg = "文章修改成功！"
             	}
+            	console.log(dataAddArcticle);
             	_that.commonAjax(
         			basePath + "addOrEditArticle", 
         			dataAddArcticle, 

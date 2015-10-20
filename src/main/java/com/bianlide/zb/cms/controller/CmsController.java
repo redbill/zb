@@ -106,7 +106,7 @@ public class CmsController {
 		String title = request.getParameter("title");// 标题（模糊匹配）
 		String codeModule = request.getParameter("codeModule");// 模块
 		String content = request.getParameter("content");// 编辑内容
-		String preImg=request.getParameter("content");// 预览图，用于产品模块
+		String preImg=request.getParameter("preImg");// 预览图，用于产品模块
 		
 
 		content = content.replaceAll("&lt;", "<");

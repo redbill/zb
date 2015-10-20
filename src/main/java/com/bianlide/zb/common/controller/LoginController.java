@@ -71,6 +71,13 @@ public class LoginController
     }
     
     @RequestMapping(
+    { "arcContent" })
+    public String arcContent(HttpServletRequest request, HttpServletResponse response)
+            throws Exception
+    {
+        return "arcContent";
+    }
+    @RequestMapping(
     { "mgr/index" })
     public String mgrIndex(HttpServletRequest request,
             HttpServletResponse response) throws Exception
