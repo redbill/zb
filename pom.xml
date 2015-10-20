@@ -230,7 +230,14 @@
 			  <artifactId>json</artifactId>
 			  <version>baidu-editor</version>
 		 </dependency>
-		
+		 
+		 <!-- excel parse -->
+		<dependency>
+  <groupId>org.apache.poi</groupId>
+  <artifactId>poi-ooxml</artifactId>
+  <version>3.9</version>
+</dependency> 
+        
 	</dependencies>
 	
 	

@@ -99,8 +99,9 @@ public class UserSessionFilter implements Filter
             return true;
         }
         else if (userInfo != null
-                && request.getRequestURI().endsWith("priceList"))
-        {
+                && (request.getRequestURI().endsWith("priceList") || request
+                        .getRequestURI().endsWith("getPriceDatas")))
+        {// 报价访问连接普通员工也可访问
             return true;
         }
         else
