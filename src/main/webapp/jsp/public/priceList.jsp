@@ -853,4 +853,18 @@
       });
   });
 
+  
+  $(function() {
+  	$.ajax({
+			url: "<%=paths%>mgr/getPriceDatas",
+			data: {},
+			dataType:"json",
+			type:"post", //默认GET
+			success: function(res){
+				console.log(res);
+			},
+			error: function(res) {
+           }
+		})
+  });
   </script>
