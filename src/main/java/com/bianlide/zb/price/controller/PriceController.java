@@ -353,7 +353,9 @@ public class PriceController
         }
         else if (xssfRow.getCellType() == xssfRow.CELL_TYPE_NUMERIC)
         {
-            return String.valueOf(xssfRow.getNumericCellValue());
+
+            return BigDecimal.valueOf(xssfRow.getNumericCellValue())
+                    .toPlainString();
         }
         else
         {
@@ -398,7 +400,8 @@ public class PriceController
 
     public static void main(String[] varg)
     {
-        System.out.println(checkDigit("0"));
-    }
+        System.out.println(BigDecimal.valueOf(Double.valueOf("3.232323E4"))
+                .toPlainString());
 
+    }
 }
