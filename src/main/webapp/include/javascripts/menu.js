@@ -65,10 +65,22 @@ function getNavLists(codeModule, id) {
 		if(result.isOK === "true"){
 			var res = result.jsonData,
 				len = res.length,
-				totalStr = "";
-//			console.log(res)
+				totalStr = "",
+				indexStr = "";
+			var code = parseInt(codeModule, 10);
 			for(var i = 0; i < len; i++){
-				totalStr += '<li class="item"><a href="arcContent?aid='+ res[i].id +'" title="'+ res[i].title +'">'+ res[i].title +'</a></li>'
+				if(code == 1001) {
+					totalStr += '<li class="item"><a href="arcContent?aid='+ res[i].id +'&cat='+ res[i].codeModule +'" title="'+ res[i].title +'">'+ res[i].title +'</a></li>'
+				} else {
+					totalStr += '<li class="item"><a href="arcContent?aid='+ res[i].id +'" title="'+ res[i].title +'">'+ res[i].title +'</a></li>'
+				}
+				
+				if(codeModule == 1002 && i < 5) {
+					indexStr += '<li><a href="arcContent?aid='+ res[i].id +'" title="'+ res[i].title +'">'+ res[i].title +'</a></li>';
+				}
+			}
+			if(codeModule == 1002) {
+				$("#index-activity").html(indexStr);
 			}
 			$(id).append(totalStr);
 		}else {

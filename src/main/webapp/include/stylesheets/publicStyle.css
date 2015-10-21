@@ -449,7 +449,9 @@ a.redtxt:hover {
     background-position: 0 -12px;
 }
 
-.home_box {}
+.home_box {
+	height: auto !important;
+}
 
 .home_box h2 {
     font-weight: bold;
@@ -983,7 +985,6 @@ a.redtxt:hover {
     float: left;
     widht: 1000px;
     height: 485px;
-    margin-top: 42px;
     padding-top: 0px;
     border: 1px solid #33672d;
 }

@@ -39,12 +39,8 @@
 
                 <div class="rol rol_3">
                     <div class="hd"><a href="#" title="NEWS:大事记">NEWS:大事记</a></div>
-                    <ul class="list">
-                        <li><a href="">2015年2月14日东方新天地店重装开幕</a></li>
-                        <li><a href="">珍罕彩钻 花之梦幻—MONETA高级珠宝国贸新店璀璨开幕</a></li>
-                        <li><a href="">MONETA高级珠宝西安王府井百货店荣耀起航</a></li>
-                        <li><a href="">MONETA&amp;BE金源新燕莎MALL店璀璨开幕　轻奢新潮流</a></li>
-                        <li><a href="">MONETA高级珠宝哈尔滨麦凯乐精品店十一开幕</a></li>
+                    <ul class="list" id="index-activity">
+                        <!-- <li><a href="">2015年2月14日东方新天地店重装开幕</a></li> -->
                     </ul>
                 </div>
                 <div class="rol rol_4">
