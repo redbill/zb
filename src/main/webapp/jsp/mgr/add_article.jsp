@@ -10,6 +10,7 @@
 <script src="<%=paths%>include/javascripts/ajaxupload.js"></script> 
 <script>
 	var id = parseInt('<%=request.getParameter("id")%>', 10);
+	var cat = parseInt('<%=request.getParameter("cat")%>', 10);
 </script>
 <div class="row-fluid">
     <div class="portlet-body form">
@@ -50,6 +51,14 @@
                         </div>
                     </div>
                     
+                    <div class="control-group" id="img-show" style="display: none;">
+                        <label class="control-label">图片展示：</label>
+                        <div class="controls">
+                            <span>
+                            	<img src="" style="width:160px; height:200px;"/>
+                            </span>
+                        </div>
+                    </div>
 					
                     <div class="control-group">
                         <label class="control-label">文章内容：</label>
@@ -101,7 +110,9 @@
     					onComplete:function(filename,files,issuccess){
     						var res = JSON.parse(files);
     						$("#uploadImgTips").text(res.msg).show();
-    						$("#hidFileID").attr('data-img',res.fileName);
+    						$("#hidFileID").attr('data-img', res.fileName);
+    						//图片上传成功,展示
+    						$("#img-show").find("img").attr("src", basePath + "uploadImg/" + res.fileName)
     					}
     				});
     			}

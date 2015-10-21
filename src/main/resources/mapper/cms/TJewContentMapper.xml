@@ -20,10 +20,7 @@
     content
   </sql>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
+    select id,code_module,title,create_time,pre_img,content
     from t_jew_content
     where id = #{id,jdbcType=INTEGER}
   </select>

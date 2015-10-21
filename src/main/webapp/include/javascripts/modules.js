@@ -2,12 +2,10 @@
     var modules = {
     	allParam: function() {
     		return {
-    			"cat" : {"1000": "品牌","1001":"产品", "1002":"活动", "1003": "客服"}
+    			"cat" : {"品牌": "1000","产品":"1001", "活动":"1002", "客服": "1003"}
     		};
     	},
-        /**
-         * ajax 共用
-         */
+    	
         commonAjax: function(url, data, type, succFunc) {
             return $.ajax({
                 url: url || "",
@@ -40,7 +38,7 @@
                                 '<td>' + res[i].title + '</td>' +
                                 '<td>' + res[i].nameModule + '</td>' +
                                 '<td>' + _that.timestampFormat(res[i].createTime / 1000) + '</td>' +
-                                '<td><a class="arc-edit" href="javascript:;" data-sign="' + res[i].id + '">修改</a> | <a class="arc-delete" href="javascript:;" data-sign="'+ res[i].id +'">删除</a></td>' +
+                                '<td><a class="arc-edit" href="javascript:;" data-sign="' + res[i].id + '" data-cat="'+ _that.allParam().cat[$.trim(res[i].nameModule)] +'">修改</a> | <a class="arc-delete" href="javascript:;" data-sign="'+ res[i].id +'">删除</a></td>' +
                                 '</tr>';
                         }
                         
@@ -111,10 +109,11 @@
          */
         editArticleBtn: function() {
         	var _that = this;
-            var sign;
+            var sign, cat;
             $(document.body).on("click", ".arc-edit", function() {
                 sign = $(this).attr("data-sign");
-                location.href =  basePath + "mgr/addArticle?id=" + sign;
+                cat = $(this).attr("data-cat");
+                location.href =  basePath + "mgr/addArticle?id=" + sign + "&cat=" + cat;
             })
         },
         /**
@@ -135,7 +134,6 @@
 	            		$(".modal-body").find("h4").text("文章删除成功");
 	            		setTimeout(function() {
 	            			$('#tip-pop').modal('hide');
-
 		            		location.reload();
 	            		}, 1400);
 	            	} else {
@@ -151,13 +149,24 @@
          */
         editArticleContent: function() {
         	var _that = this;
-        	if(!!id) {
+        	if(!!id && !!cat) {
         		_that.commonAjax(basePath + "getArticleById", {id: id}, "POST", function(result) {
         			if(result.isOK === "true"){
         				var data = result.jsonData,
         					len = data.length;
-
+        				
+        				if(!!data.preImg) {
+            				$("#img-up").show();
+            				$("#img-show").show();
+        					$("#img-show").show().find("img").attr("src", basePath + "uploadImg/" +data.preImg);
+        				} else {
+            				$("#img-up").hide();
+            				$("#img-show").hide();
+        				}
+        				
+        				
         				$(".m-wrap").val(data.title || "");
+        				
         				$("select.m-wrap > option[value="+ data.codeModule +"]").attr("selected", true);
         				editor.addListener("ready", function () { //ueditor 设置内容,必须等编辑器初始化完成
         	                editor.setContent(data.content);
@@ -202,7 +211,7 @@
             		dataAddArcticle.id = id;
             		msg = "文章修改成功！"
             	}
-            	console.log(dataAddArcticle);
+            	
             	_that.commonAjax(
         			basePath + "addOrEditArticle", 
         			dataAddArcticle, 
@@ -228,7 +237,13 @@
         //产品模块要上传单图片
         imgUploadShowOrHide: function() {
         	$("#cat-select").on("change", function() {
-        		($(this).val() === '1001') ? $("#img-up").show() : $("#img-up").hide();
+        		($(this).val() === '1001') ? (function() {
+        			$("#img-up").show()
+        			$("#img-show").show()
+        		}()) : (function() {
+        			$("#img-up").hide()
+        			$("#img-show").hide()
+        		}());
         	})
         },
         /**

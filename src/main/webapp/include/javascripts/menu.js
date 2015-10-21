@@ -78,7 +78,7 @@ function getNavLists(codeModule, id) {
 }
 
 getNavLists(1000,"#brand-lists");
-getNavLists(1002,"#product-lists")
+getNavLists(1002,"#activity-lists")
 getNavLists(1003,"#service-lists")
-getNavLists(1001,"#activity-lists")
+getNavLists(1001,"#product-lists")
 

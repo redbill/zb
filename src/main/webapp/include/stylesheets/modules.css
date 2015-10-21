@@ -17,6 +17,11 @@
     width: 1000px;
     overflow: hidden;
 }
+#arc-content {
+	width: 1000px;
+    min-height:350px;
+    background:#eee;
+}
 
 .title {
     background: url(../images/title-bg.gif) repeat-x;

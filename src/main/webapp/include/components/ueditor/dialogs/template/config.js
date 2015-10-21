@@ -43,7 +43,7 @@ var templates = [
         "pre":"pre4.png",
         'title': "自定义1",
         'preHtml':'自定义模板1 - 四列展示',
-        'html':'<div style="position: relative;z-index: 0; width:1000px; font-size: 13px; background: #e9daab; color:#526351;">' +
+        'html':'<div id="dd" style="position: relative;z-index: 0; width:1000px; font-size: 13px; background: #e9daab; color:#526351;">' +
 		    '<div style="float:left; width: 245px;min-height: 470px;border: 1px solid #33672d; background: #e9daab;">' +
 		        '<h1 class="ct"><img src="" width="227" height="35"></h1>' +
 		        '<div>' +
