@@ -194,7 +194,6 @@ $(function() {
         dataType: "json",
         type: "POST",
         success: function(result) {
-
             if(result.isOK === "true"){
             	var res = result.jsonData,
             		len = res.length,
@@ -232,7 +231,7 @@ $(function() {
 		            		'</tr>';
             		}
             		$("#searchList").html(str);
-            		getTablePage(30, ".listtab")
+            		getTablePage(100, ".listtab")
             		$(".tablepage").show();
             	} else {
             		$("#searchList").html('<tr><td colspan="16">暂无数据!</td></tr>');
@@ -298,6 +297,7 @@ $(function() {
             direct = 1;
             len = $(id + " tr").length - 1; // 求这个表的总行数，剔除第一行介绍
             page = len % pageSize == 0 ? len / pageSize : Math.ceil(len / pageSize); //根据记录条数，计算页数
+            
             displayPage();
         });
         $("#btn4").click(function() { // 尾页

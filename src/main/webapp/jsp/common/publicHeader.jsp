@@ -38,13 +38,7 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
             </li>
         </ul>
         <ul class="sub_r">
-            <li class="mainlevel"><a href="">活动资讯</a>
-                <ul class="sub_nav_04" id="activity-lists">
-                    <span class="Triangle_con"></span>
-                   <!--  <li><a href="" title="MONETA大事记">MONETA大事记</a></li>
-                    <li><a href="" title="活动资讯">News 活动资讯</a></li>
-                    <li><a href="" title="门店动态">Shop  门店动态</a></li> -->
-                </ul>
+            <li class="mainlevel"><a href="mgr/activityLists">活动资讯</a>
             </li>
             <li class="mainlevel">联系我们
                 <ul class="sub_nav_05">

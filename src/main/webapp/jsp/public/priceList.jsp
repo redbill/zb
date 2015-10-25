@@ -370,9 +370,9 @@
             <div class="result"> 
 	            <span class="f1">为您筛选出<i id="total">238131</i>  颗钻石</span> 
 	            <span class="f2">每页显示：
-	            <a href="javascript:;" class="on" id="thirty" data-sign="30">30</a> 
+	            <a href="javascript:;" class="on" id="hundred" data-sign="100">100</a> 
 	            <a href="javascript:;" id="fifty" data-sign="50">50</a> 
-	            <a href="javascript:;" id="hundred" data-sign="100">100</a>
+	            <a href="javascript:;" id="thirty" data-sign="30">30</a>
 	            </span> 
             </div>
             <div class="result-list">

@@ -109,6 +109,13 @@ public class LoginController
     }
 
     @RequestMapping(
+    { "mgr/activityLists" })
+    public String activityLists(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "activityLists";
+    }
+    @RequestMapping(
     { "loginOut" })
     public String loginOut(HttpServletRequest request,
             HttpServletResponse response) throws Exception

@@ -44,7 +44,9 @@ function resizePic(obj1,maxWidth,maxHeight,setMargin){
 	}
 	obj.src=obj1.src;
 }
-
+/**
+ * 共用的ajax
+ */
 function commonAjax(url, data, type, succFunc) {
     return $.ajax({
         url: url || "",
@@ -60,27 +62,37 @@ function commonAjax(url, data, type, succFunc) {
         }
     });
 }
+
+/**
+ * 活动列表是个单独页面
+ */
+function getActivityLists() {
+	
+}
+
+
+/**
+ * 拼接导航文章下拉列表
+ * @param codeModule
+ * @param id
+ */
 function getNavLists(codeModule, id) {
 	commonAjax(basePath + "getArticleList", {codeModule: codeModule}, "POST", function(result){
 		if(result.isOK === "true"){
 			var res = result.jsonData,
 				len = res.length,
-				totalStr = "",
-				indexStr = "";
+				totalStr = "";
 			var code = parseInt(codeModule, 10);
 			for(var i = 0; i < len; i++){
 				if(code == 1001) {
 					totalStr += '<li class="item"><a href="arcContent?aid='+ res[i].id +'&cat='+ res[i].codeModule +'" title="'+ res[i].title +'">'+ res[i].title +'</a></li>'
+				} else if(code == 1002) {
+					totalStr += '<li><a href="arcContent?aid='+ res[i].id +'" title="'+ res[i].title +'">'+ res[i].title +'</a></li>';
 				} else {
 					totalStr += '<li class="item"><a href="arcContent?aid='+ res[i].id +'" title="'+ res[i].title +'">'+ res[i].title +'</a></li>'
 				}
 				
-				if(codeModule == 1002 && i < 5) {
-					indexStr += '<li><a href="arcContent?aid='+ res[i].id +'" title="'+ res[i].title +'">'+ res[i].title +'</a></li>';
-				}
-			}
-			if(codeModule == 1002) {
-				$("#index-activity").html(indexStr);
+				
 			}
 			$(id).append(totalStr);
 		}else {
@@ -90,7 +102,7 @@ function getNavLists(codeModule, id) {
 }
 
 getNavLists(1000,"#brand-lists");
-getNavLists(1002,"#activity-lists")
+getNavLists(1002,"#activityLists")
 getNavLists(1003,"#service-lists")
 getNavLists(1001,"#product-lists")
 

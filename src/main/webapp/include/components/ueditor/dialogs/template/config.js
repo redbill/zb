@@ -44,7 +44,7 @@ var templates = [
         'title': "自定义1",
         'preHtml':'自定义模板1 - 四列展示',
         'html':'<div id="dd" style="position: relative;z-index: 0; width:1000px; font-size: 13px; background: #e9daab; color:#526351;">' +
-		    '<div style="float:left; width: 245px;min-height: 470px;border: 1px solid #33672d; background: #e9daab;">' +
+		    '<div style="float:left; width: 245px;min-height: 470px;border-right: 2px solid #33672d; background: #e9daab;">' +
 		        '<h1 class="ct"><img src="" width="227" height="35"></h1>' +
 		        '<div>' +
 		            '<p>&nbsp;</p>' +
@@ -55,7 +55,7 @@ var templates = [
 		                '<br> &nbsp; 1990年，MONETA品牌的创始人，30岁的FEANCIS IBERT（小伊贝尔特）继承了家族传承百年的钻石国际贸易和钻石工厂业务，并始终关注着高级定制珠宝的终端市场，这位眼光高远的年轻人一直密切关注着高端零售珠宝的发展，他希望将自己的才华更大限度的得到释放，更加贴近客户的需求。为了考察市场，更准确地把握瞬息万变的珠宝潮流，伊贝尔特开始了游历欧洲的旅程。</p>' +
 		        '</div>' +
 		    '</div>' +
-		    '<div style="float:left; width: 245px;min-height: 470px;border: 1px solid #33672d; background: #e9daab;">' +
+		    '<div style="float:left; width: 245px;min-height: 470px;border-right: 2px solid #33672d; background: #e9daab;">' +
 		        '<p>&nbsp;</p>' +
 		        '<p>&nbsp;</p>' +
 		        '<p style="padding:1px 10px;">&nbsp;&nbsp;&nbsp;&nbsp;' +
@@ -63,13 +63,13 @@ var templates = [
 		        '<p style="padding:1px 10px;">&nbsp;&nbsp;' +
 		            '<br> &nbsp;&nbsp;&nbsp;&nbsp;MONETA,是晨曦，是爱人的名字，也是希腊神话中女神的名字，如果说白钻代表着持久的爱情，那么，瑰丽而独一无二的彩色钻石，代表的是浪漫与炙热以及永不停息的爱，是比白色钻石更加瑰丽的爱情讼诗。</p>' +
 		    '</div>' +
-		    '<div style="float:left; width: 245px;min-height: 470px;border: 1px solid #33672d; background: #e9daab;">' +
+		    '<div style="float:left; width: 245px;min-height: 470px;border-right: 2px solid #33672d; background: #e9daab;">' +
 		        '<p>&nbsp;</p>' +
 		        '<p>&nbsp;</p>' +
 		        '<p style="padding:1px 10px;">' +
 		            '<br> &nbsp; &nbsp;小伊贝尔的MONET品牌主要以做工精良的彩钻首饰为主产品。他不断在唯一、传世的定制理念下创造出更多的精美的珠宝作品。伊贝尔特的创新之举在欧洲创造了一个全新的家族商业模式，并在上流社会取得了良好口碑。MONETA品牌就此正式诞生。2002年，MONETA品牌建立10周年之季，伊贝尔特把“日出”作为镇馆之宝永久地保存起来。这枚象征了美好爱情的钻饰，也象蒸蒸日上的朝阳一样，为MONETA品牌演绎着一个又一个MONETA的品牌传奇。&nbsp;</p>' +
 		    '</div>' +
-		    '<div style="float:left; width: 245px;min-height: 470px;border: 1px solid #33672d; background: #e9daab;">' +
+		    '<div style="float:left; width: 245px;min-height: 470px; background: #e9daab;">' +
 		        '<p>&nbsp;</p>' +
 		        '<p>' +
 		            '<br>' +
@@ -83,7 +83,7 @@ var templates = [
         'title': "自定义2",
         'preHtml':'自定义模板2 - 四列展示',
         'html':'<div style="position: relative;z-index: 0; width:1000px; font-size: 13px; background: #e9daab; color:#526351;">' +
-		    '<div style="float:left; width: 245px;min-height: 470px; border: 1px solid #33672d; background: #e9daab;">' +
+		    '<div style="float:left; width: 245px;min-height: 470px; border-right: 2px solid #33672d; background: #e9daab;">' +
 		        '<h1><img src="" width="227" height="35"></h1>' +
 		        '<!--<h2>企业介绍</h2>-->' +
 		        '<div>' +
@@ -93,19 +93,19 @@ var templates = [
 		            '<p style="padding:1px 10px;">&nbsp; &nbsp; &nbsp;xxxxxxx</p>' +
 		        '</div>' +
 		    '</div>' +
-		    '<div style="float:left; width: 245px;min-height: 470px; border: 1px solid #33672d; background: #e9daab;">' +
+		    '<div style="float:left; width: 245px;min-height: 470px; border-right: 2px solid #33672d; background: #e9daab;">' +
 		        '<p style="padding:2px">&nbsp;&nbsp;</p>' +
 		        '<p style="padding:1px 10px;">' +
 		            '<br> &nbsp;&nbsp; &nbsp;经过与中国合作伙伴的长时间沟通与研讨下，伊贝尔特家族决定，将MONETA定位于一线高端专业彩色钻石品牌以及私人高级珠宝定制会所，将会所唯一、传世、私密的理念的有机的融合在零售业务当中，为中国客户带来世界级的珠宝，并提供更加细致和周到的客户体验及服务。</p>' +
 		        '<p style="padding:1px 10px;">&nbsp; &nbsp;2006年MONTA璀璨之夜发布会，正式将MONETA品牌展现给了中国，由此开始了中国的绚烂发展之旅。</p>' +
 		    '</div>' +
-		    '<div style="float:left; width: 245px;min-height: 470px; border: 1px solid #33672d; background: #e9daab;">' +
+		    '<div style="float:left; width: 245px;min-height: 470px; border-right: 2px solid #33672d; background: #e9daab;">' +
 		        '<p>' +
 		            '<br>' +
 		            '<br>' +
 		            '<br> &nbsp;<img alt="" width="227" height="275" src=""></p>' +
 		    '</div>' +
-		    '<div style="float:left; width: 245px;min-height: 470px; border: 1px solid #33672d; background: #e9daab;">' +
+		    '<div style="float:left; width: 245px;min-height: 470px; background: #e9daab;">' +
 		        '<p>' +
 		            '<br>' +
 		            '<br>' +
@@ -119,8 +119,8 @@ var templates = [
         'title': "自定义3",
         'preHtml':'自定义模板3 - 四列展示',
         'html':'<div style="position: relative;z-index: 0; width:1000px; font-size: 13px; background: #e9daab; color:#526351;">' +
-		        '<div style="float:left; width: 245px;min-height: 470px; border: 1px solid #33672d; background: #e9daab;"><img src="" width="250" height="470"></div>' +
-		        '<div style="float:left; width: 245px;min-height: 470px; border: 1px solid #33672d; background: #e9daab;">' +
+		        '<div style="float:left; width: 245px;min-height: 470px; border-right: 2px solid #33672d; background: #e9daab;"><img src="" width="250" height="470"></div>' +
+		        '<div style="float:left; width: 245px;min-height: 470px; border-right: 2px solid #33672d; background: #e9daab;">' +
 		            '<div style="text-align: center">' +
 		                '<a href="" title="5" class="lightbox"><img src="" width="227" height="140" style="margin-top: 1px;"></a>' +
 		            '</div>' +
@@ -131,7 +131,7 @@ var templates = [
 		                    'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>' +
 		            '</div>' +
 		        '</div>' +
-		        '<div style="float:left; width: 245px; border: 1px solid #33672d;min-height: 470px; background: #e9daab;">' +
+		        '<div style="float:left; width: 245px; border-right: 2px solid #33672d;min-height: 470px; background: #e9daab;">' +
 		            '<div style="text-align: center">' +
 		                '<a href="" title="1" class="lightbox"><img src="" width="227" height="140" style="margin-top: 1px;"></a>' +
 		            '</div>' +
@@ -142,7 +142,7 @@ var templates = [
 		                '<a href="" title="" class="lightbox"><img src="" width="227" height="140" style="margin-top: 1px;"></a>' +
 		            '</div>' +
 		        '</div>' +
-		        '<div style="float:left; width: 245px; border: 1px solid #33672d;min-height: 470px; background: #e9daab;">' +
+		        '<div style="float:left; width: 245px; min-height: 470px; background: #e9daab;">' +
 		            '<div style="text-align: center">' +
 		                '<a href="" title="4" class="lightbox"><img src="" width="227" height="295" style="margin-top: 1px;"></a>' +
 		            '</div>' +
@@ -158,7 +158,7 @@ var templates = [
         'title': "自定义3",
         'preHtml':'自定义模板3 - 四列展示',
         'html':'<div style="position: relative;z-index: 0; width:1000px; font-size: 13px; background: #e9daab; color:#526351;">' +
-		        '<div style="float:left;text-align: left;padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border: 1px solid #33672d; ">' +
+		        '<div style="float:left;text-align: left;padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border-right: 2px solid #33672d; ">' +
 		            '<h1 style="text-align: center;"><img src="" width="227" height="35"></h1>' +
 		            '<div>' +
 		                '<h2>&nbsp;</h2>' +
@@ -169,14 +169,14 @@ var templates = [
 		                    '<br> &nbsp;xxxxxxxxxxxxxxxxxxxxxxx</p>' +
 		            '</div>' +
 		        '</div>' +
-		        '<div style="float:left;text-align: left;padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border: 1px solid #33672d;">' +
+		        '<div style="float:left;text-align: left;padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border-right: 2px solid #33672d;">' +
 		            '<p style="text-align: center">' +
 		                '<br>' +
 		                '<br> <img alt="" align="middle" src="" width="220" height=348></p>' +
 		            '<p style="text-align: center"><span style="color: #008080"><strong>&nbsp;</strong><span style="color: #000000"><strong>Marika</strong></span></span>' +
 		            '</p>' +
 		        '</div>' +
-		        '<div style="float:left; padding: 2px 15px;text-align: left;padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border: 1px solid #33672d;">' +
+		        '<div style="float:left; padding: 2px 15px;text-align: left;padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border-right: 2px solid #33672d;">' +
 		            '<p>&nbsp;</p>' +
 		            '<p>&nbsp;</p>' +
 		            '<h2>&nbsp; Palmiero设计师介绍</h2>' +
@@ -186,7 +186,7 @@ var templates = [
 		                '<br> &nbsp; &nbsp;xxxxxxxxxxxxxxxxxxxxxxxxxx</p>' +
 		            '<p>&nbsp;</p>' +
 		        '</div>' +
-		        '<div style="float:left;text-align: left;padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;border: 1px solid #33672d;">' +
+		        '<div style="float:left;text-align: left;padding-top: 15px;background: #e9daab;width: 245px;min-height: 470px;padding: 0;">' +
 		            '<p style="text-align: center">&nbsp;</p>' +
 		            '<p style="text-align: center; ">' +
 		                '<br> <img align="middle" width="218" height="356" alt="" src=""></p>' +
