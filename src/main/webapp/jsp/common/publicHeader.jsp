@@ -38,7 +38,7 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
             </li>
         </ul>
         <ul class="sub_r">
-            <li class="mainlevel"><a href="mgr/activityLists">活动资讯</a>
+            <li class="mainlevel"><a href="activityLists">活动资讯</a>
             </li>
             <li class="mainlevel">联系我们
                 <ul class="sub_nav_05">

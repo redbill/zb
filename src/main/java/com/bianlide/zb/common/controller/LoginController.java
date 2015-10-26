@@ -109,7 +109,7 @@ public class LoginController
     }
 
     @RequestMapping(
-    { "mgr/activityLists" })
+    { "activityLists" })
     public String activityLists(HttpServletRequest request,
             HttpServletResponse response) throws Exception
     {
