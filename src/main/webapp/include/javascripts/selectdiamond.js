@@ -14,7 +14,8 @@ fluor['M'] = 'Medium';
 fluor['S'] = 'Strong';
 fluor['V'] = 'VS';
 
-var totalDiamondData;   //获取所有关于砖石的数据
+var curDiamondData;   
+var totalDiamondDatas;//获取所有关于砖石的数据
 
 //重置条件
 $('input[name="reset"]').click(function() {
@@ -140,10 +141,10 @@ $(function() {
     	var res;
     	var pagesize = $(".result .f2").find("a[class=on]").attr("data-sign");
     	if(flag == 1) {
-        	res = bubble(totalDiamondData, name);
+        	res = bubble(curDiamondData, name);
         	$(this).find("img").attr("src", basePath +"include/images/c_up.jpg")
     	}else {
-    		res = bubble(totalDiamondData, name).reverse();
+    		res = bubble(curDiamondData, name).reverse();
     		$(this).find("img").attr("src", basePath +"include/images/c_bottom.jpg")
     	}
 		len = res.length;
@@ -198,49 +199,55 @@ $(function() {
             	var res = result.jsonData,
             		len = res.length,
             		str = "";
-            	totalDiamondData = res;
-            	
-            	if(len > 0) {
-            		for(var i = 0; i < len; i++) {
-            			str += '<tr>' +
-		            		    '<td>'+ res[i].shape +'</td>' +
-		            		    '<td>'+ res[i].nai +'</td>' +
-		            		    '<td>'+ res[i].ka +'</td>' +
-		            		    '<td>'+ res[i].carat +'</td>' +
-		            		    '<td>'+ res[i].color +'</td>' +
-		            		    '<td>'+ res[i].clarity +'</td>' +
-		            		    '<td>'+ res[i].cut +'</td>' +
-		            		    '<td>'+ res[i].polish +'</td>' +
-		            		    '<td>'+ res[i].semmetry +'</td>' +
-		            		    '<td>'+ res[i].fluor +'</td>' +
-		            		    '<td>' +
-		            		        '<font color="blue">'+ res[i].xinJian +'</font>' +
-		            		    '</td>' +
-		            		    '<td><a href="javascript:;" title="">'+ res[i].zhiJing +'</a></td>' +
-		            		    '<td>'+ res[i].depth +'</td>' +
-		            		    '<td>'+ res[i].taiMian +'</td>' +
-		            		    '<td>' +
-		            		        '<font color="red">'+ res[i].certNo +'</font>' +
-		            		    '</td>' +
-		            		    '<td>' +
-		            		        '<font color="red">'+ res[i].cert +'</font>' +
-		            		    '</td>' +
-		            		    '<td>' +
-		            		        '<font color="blue">'+ res[i].price +'</font>' +
-		            		    '</td>' +
-		            		'</tr>';
-            		}
-            		$("#searchList").html(str);
-            		getTablePage(100, ".listtab")
-            		$(".tablepage").show();
-            	} else {
-            		$("#searchList").html('<tr><td colspan="16">暂无数据!</td></tr>');
-            	}
+            	totalDiamondDatas = res;
+            	curDiamondData = res.slice(0);
+            	showTableByData(curDiamondData);
+            
             }
         }
     })
 
 });
+
+function showTableByData(res){
+	var str="";
+	if(res && res.length > 0) {
+		for(var i = 0; i < res.length; i++) {
+			str += '<tr>' +
+        		    '<td>'+ res[i].shape +'</td>' +
+        		    '<td>'+ res[i].nai +'</td>' +
+        		    '<td>'+ res[i].ka +'</td>' +
+        		    '<td>'+ res[i].carat +'</td>' +
+        		    '<td>'+ res[i].color +'</td>' +
+        		    '<td>'+ res[i].clarity +'</td>' +
+        		    '<td>'+ res[i].cut +'</td>' +
+        		    '<td>'+ res[i].polish +'</td>' +
+        		    '<td>'+ res[i].semmetry +'</td>' +
+        		    '<td>'+ res[i].fluor +'</td>' +
+        		    '<td>' +
+        		        '<font color="blue">'+ res[i].xinJian +'</font>' +
+        		    '</td>' +
+        		    '<td><a href="javascript:;" title="">'+ res[i].zhiJing +'</a></td>' +
+        		    '<td>'+ res[i].depth +'</td>' +
+        		    '<td>'+ res[i].taiMian +'</td>' +
+        		    '<td>' +
+        		        '<font color="red">'+ res[i].certNo +'</font>' +
+        		    '</td>' +
+        		    '<td>' +
+        		        '<font color="red">'+ res[i].cert +'</font>' +
+        		    '</td>' +
+        		    '<td>' +
+        		        '<font color="blue">'+ res[i].price +'</font>' +
+        		    '</td>' +
+        		'</tr>';
+		}
+		$("#searchList").html(str);
+		getTablePage(100, ".listtab")
+		$(".tablepage").show();
+	} else {
+		$("#searchList").html('<tr><td colspan="16">暂无数据!</td></tr>');
+	}
+}
 	//1 升序 0 降序
 	function arraySortByType(arr, type) {
 		arr.sort(function(a, b) {
@@ -364,13 +371,59 @@ $(function() {
     }
     
     function searchDT(){
-    	//获取约束条件数据
-    	var searchCondition = getSearchCondition();
-    	//获取后台取得的数据
+    	if(totalDiamondData && totalDiamondData.length > 0){
+    		//获取约束条件数据
+        	var searchCondition = getSearchCondition();
+        	//获取后台取得的数据
+        	var resCopy = totalDiamondData.slice(0);
+        	var filteredData = new Array();
+        	for(var i=0;i<resCopy.length;i++){
+        		var curD = resCopy[i];
+        		
+        		//形状验证
+        		if(searchCondition.shapeCondition && searchCondition.shapeCondition.length > 0){
+        			var shapValid = false;
+        			if(!curD.shape || $.trim(curD.shape)  == ""){//如果数据没有此项属性则直接跳出剩余验证
+        				continue;
+        			}else{
+        				for(var j=0;j<searchCondition.shapeCondition.length;j++){
+            				if($.trim(curD.shape) == searchCondition.shapeCondition[j]){
+            					shapValid = true;
+            				}
+            			}
+        			}
+        			if(!shapValid){//如果颜色认证没通过，则进入下条数据验证，跳过剩余条件验证
+        				continue;
+        			}
+        			
+        		}
+        		
+        		//
+        		if(searchCondition.bigThanWeight && searchCondition.bigThanWeight > 0){
+        			var bigThanWeightValid = false;
+        			if(!curD.carat || $.trim(curD.carat)  == 0){//如果数据没有此项属性则直接跳出剩余验证
+        				continue;
+        			}else{
+            				if($.trim(curD.carat) >= searchCondition.bigThanWeight){
+            					shapValid = true;
+            				}
+        			}
+        			if(!bigThanWeightValid){//如果颜色认证没通过，则进入下条数据验证，跳过剩余条件验证
+        				continue;
+        			}
+        			
+        		}
+        		
+        		
+        		
+        		
+        	} 
+        	
+        	//根据条件过滤所有数据
+        	
+        	//将数据放入到表格
+    	}
     	
-    	//根据条件过滤所有数据
-    	
-    	//将数据放入到表格
     	
     	
     }
@@ -388,10 +441,20 @@ $(function() {
     		console.log(shapeCondition);
     	}
     	
-//    	if($('#bigThanWeight').attr('value') && )
-//    	var bigThanWeight=""
     	
-    	var checkedColor = $('.color-list li a.un');
+    	var bigThanWeight =$('#bigThanWeight').val();
+    	console.log(bigThanWeight);
+    	if(bigThanWeight){
+    		searchCondition.bigThanWeight = bigThanWeight
+    	}
+    	
+    	var smallThanWeight =$('#smallThanWeight').val();
+    	console.log(smallThanWeight);
+    	if(smallThanWeight){
+    		searchCondition.smallThanWeight = smallThanWeight
+    	}
+    	
+    	var checkedColor = $('#colorUl li a.un');
     	if(checkedColor && checkedColor.length > 0){
     		var colorCondition = new Array();
     		
@@ -401,6 +464,98 @@ $(function() {
     		searchCondition.colorCondition = colorCondition;
     		console.log(colorCondition);
     	}
+    	
+    	var checkedCut = $('#cutUl li a.un');
+    	if(checkedCut && checkedCut.length > 0){
+    		var cutCondition = new Array();
+    		
+    		for(var i=0;i< checkedCut.length ; i++){
+    			cutCondition.push(checkedCut.eq(i).attr("title"));	
+    		}
+    		searchCondition.cutCondition = cutCondition;
+    		console.log(cutCondition);
+    	}
+    	
+    	
+    	var checkedClarity = $('#clarityUl li a.un');
+    	if(checkedClarity && checkedClarity.length > 0){
+    		var clarityCondition = new Array();
+    		
+    		for(var i=0;i< checkedClarity.length ; i++){
+    			clarityCondition.push(checkedClarity.eq(i).attr("title"));	
+    		}
+    		searchCondition.clarityCondition = clarityCondition;
+    		console.log(clarityCondition);
+    	}
+    	
+    	var checkedPolish = $('#polishUl li a.un');
+    	if(checkedPolish && checkedPolish.length > 0){
+    		var polishCondition = new Array();
+    		
+    		for(var i=0;i< checkedPolish.length ; i++){
+    			polishCondition.push(checkedPolish.eq(i).attr("title"));	
+    		}
+    		searchCondition.polishCondition = polishCondition;
+    		console.log(polishCondition);
+    	}
+    	
+    	var checkedCert = $('#certUl li a.un');
+    	if(checkedCert && checkedCert.length > 0){
+    		var certCondition = new Array();
+    		
+    		for(var i=0;i< checkedCert.length ; i++){
+    			certCondition.push(checkedCert.eq(i).attr("title"));	
+    		}
+    		searchCondition.certCondition = certCondition;
+    		console.log(certCondition);
+    	}
+    	
+    	var certNo = $('#certNo').val();
+    	if(certNo){
+    		searchCondition.certNo = certNo;
+    		console.log("certNo:"+certNo);
+    	}
+    	
+    	var checkedSymmetry = $('#symmetryUl li a.un');
+    	if(checkedSymmetry && checkedSymmetry.length > 0){
+    		var symmetryCondition = new Array();
+    		
+    		for(var i=0;i< checkedSymmetry.length ; i++){
+    			symmetryCondition.push(checkedSymmetry.eq(i).attr("title"));	
+    		}
+    		searchCondition.symmetryCondition = symmetryCondition;
+    		console.log(searchCondition.symmetryCondition);
+    	}
+    	
+    	var price = $('#price').val();
+    	if(price){
+    		searchCondition.price = price;
+    		console.log("price:"+price);
+    	}
+    	
+    	var checkedFluor = $('#fluorUl li a.un');
+    	if(checkedFluor && checkedFluor.length > 0){
+    		var fluorCondition = new Array();
+    		
+    		for(var i=0;i< checkedFluor.length ; i++){
+    			fluorCondition.push(checkedFluor.eq(i).attr("title"));	
+    		}
+    		searchCondition.fluorCondition = fluorCondition;
+    		console.log(searchCondition.fluorCondition);
+    	}
+    	
+    	if($('#withoutNK').hasClass('un')){
+    		searchCondition.withoutNK = true;
+    	}else{
+    		searchCondition.withoutNK = false;
+    	}
+    	
+    	console.log(searchCondition.withoutNK);
+    	
+    	
+    	
+    	
+    	
     	
 //    	
 //    	

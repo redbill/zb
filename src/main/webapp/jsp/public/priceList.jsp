@@ -95,7 +95,7 @@
                     <div class="selectwarp">
                         <div class="select-box"> <span>颜色<br>
           Color</span>
-                            <ul class="color-list">
+                            <ul id="colorUl" class="color-list">
                                 <li>
                                     <a href="javascript:void(0);" title="D">D</a>
                                     <input type="checkbox" name="color[1]" value="D">
@@ -144,7 +144,7 @@
                         </div>
                         <div class="select-box2"> <span>切工<br>
           Cut</span>
-                            <ul class="cut-list">
+                            <ul id="cutUl" class="cut-list">
                                 <li>
                                     <a href="javascript:void(0);" title="Ideal">Ideal</a>
                                     <input type="checkbox" name="cut[1]" value="I">
@@ -183,7 +183,7 @@
                     <div class="selectwarp">
                         <div class="select-box"> <span>净度<br>
           Clarity</span>
-                            <ul class="clarity-list">
+                            <ul id="clarityUl" class="clarity-list">
                                 <li>
                                     <a href="javascript:void(0);" title="FL">FL</a>
                                     <input type="checkbox" name="clarity[1]" value="FL">
@@ -232,7 +232,7 @@
                         </div>
                         <div class="select-box2"> <span>抛光<br>
           Polish</span>
-                            <ul class="cut-list">
+                            <ul id="polishUl" class="polish-list">
                                 <li>
                                     <a name="polish_a" num="1" href="javascript:void(0);" title="Ideal">Ideal</a>
                                     <input type="checkbox" name="polish[1]" value="I">
@@ -262,7 +262,7 @@
                         <div class="select-box1">
                             <ul class="fast-list">
                                 <li>
-                                    <a href="javascript:void(0);" id="without" title="排除奶咖">排除奶咖</a>
+                                    <a id="withoutNK" href="javascript:void(0);" id="without" title="排除奶咖">排除奶咖</a>
                                     <input id="withoutInput" type="checkbox" name="without" value="1">
                                 </li>
                             </ul>
@@ -271,7 +271,7 @@
                     <div class="selectwarp">
                         <div class="select-box">
                             <span>证书<br>Cert</span>
-                            <ul class="clarity-list">
+                            <ul id="certUl" class="clarity-list">
                                 <li>
                                     <a href="javascript:void(0);" title="GIA">GIA</a>
                                     <input type="checkbox" name="cert[1]" value="GIA">
@@ -294,11 +294,11 @@
                                 </li>
                             </ul>
                             <span class="f1" style="margin-left: 15px;">证书号码</span>
-                            <input type="text" name="certificate" class="item-input" maxlength="30">
+                            <input type="text" name="certificate" class="item-input" maxlength="30" id="certNo">
                         </div>
                         <div class="select-box"> <span>对称<br>
           Symmetry</span>
-                            <ul class="cut-list">
+                            <ul id="symmetryUl" class="cut-list">
                                 <li>
                                     <a name="symmetry_a" num="1" href="javascript:void(0);" title="Ideal">Ideal</a>
                                     <input type="checkbox" name="symmetry[1]" value="I">
@@ -325,13 +325,13 @@
                                 </li>
                             </ul>
                             <span class="f1">价格</span>
-                            <input type="text" name="price" class="item-input" maxlength="5" style="width:60px">
+                            <input type="text" name="price" id="price" class="item-input" maxlength="5" style="width:60px">
                         </div>
                     </div>
                     <div class="selectwarp">
                         <div class="select-box"> <span>荧光<br>
           Fluor</span>
-                            <ul class="fluor-list">
+                            <ul id="fluorUl" class="fluor-list">
                                 <li>
                                     <a href="javascript:void(0);" title="None" id="flnone">None</a>
                                     <input type="checkbox" id="flnonecheck" name="fluor[1]" value="N">

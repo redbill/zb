@@ -347,6 +347,42 @@
     color: #fff;
 }
 
+.polish-list {
+    height: 43px;
+    float: left;
+}
+
+.polish-list li {
+    width: 43px;
+    height: 43px;
+    float: left;
+    line-height: 43px;
+    text-align: center;
+    font-weight: bold;
+    font-family: Tahoma;
+}
+
+.polish-list li a {
+    width: 42px;
+    height: 41px;
+    display: block;
+    background: url(../images/tab_bg.jpg) repeat-x;
+    border: 1px solid #d5d5d5;
+    color: #000;
+}
+
+.polish-list li a:hover {
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+
+.polish-list li a.un {
+    border: 1px solid #d5d5d5;
+    background: #1e7eba;
+    color: #fff;
+}
+
 .clarity-list {
     height: 43px;
     float: left;
