@@ -262,7 +262,7 @@
                         <div class="select-box1">
                             <ul class="fast-list">
                                 <li>
-                                    <a id="withoutNK" href="javascript:void(0);" id="without" title="排除奶咖">排除奶咖</a>
+                                    <a href="javascript:void(0);" id="without" title="排除奶咖">排除奶咖</a>
                                     <input id="withoutInput" type="checkbox" name="without" value="1">
                                 </li>
                             </ul>
@@ -325,7 +325,7 @@
                                 </li>
                             </ul>
                             <span class="f1">价格</span>
-                            <input type="text" name="price" id="price" class="item-input" maxlength="5" style="width:60px">
+                            <input type="text" name="price" id="price" class="item-input" maxlength="5" style="width:60px" onblur="checkNum(this)"  onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" >
                         </div>
                     </div>
                     <div class="selectwarp">

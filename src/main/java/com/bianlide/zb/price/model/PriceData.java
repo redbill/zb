@@ -3,7 +3,8 @@ package com.bianlide.zb.price.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class PriceData extends PriceDataKey {
+public class PriceData extends PriceDataKey
+{
     private String shape;
 
     private String nai;
@@ -26,7 +27,7 @@ public class PriceData extends PriceDataKey {
 
     private String xinJian;
 
-    private BigDecimal zhiJing;
+    private String zhiJing;
 
     private BigDecimal depth;
 
@@ -42,155 +43,193 @@ public class PriceData extends PriceDataKey {
 
     private Date deleteTime;
 
-    public String getShape() {
+    public String getShape()
+    {
         return shape;
     }
 
-    public void setShape(String shape) {
+    public void setShape(String shape)
+    {
         this.shape = shape == null ? null : shape.trim();
     }
 
-    public String getNai() {
+    public String getNai()
+    {
         return nai;
     }
 
-    public void setNai(String nai) {
+    public void setNai(String nai)
+    {
         this.nai = nai == null ? null : nai.trim();
     }
 
-    public String getKa() {
+    public String getKa()
+    {
         return ka;
     }
 
-    public void setKa(String ka) {
+    public void setKa(String ka)
+    {
         this.ka = ka == null ? null : ka.trim();
     }
 
-    public BigDecimal getCarat() {
+    public BigDecimal getCarat()
+    {
         return carat;
     }
 
-    public void setCarat(BigDecimal carat) {
+    public void setCarat(BigDecimal carat)
+    {
         this.carat = carat;
     }
 
-    public String getColor() {
+    public String getColor()
+    {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(String color)
+    {
         this.color = color == null ? null : color.trim();
     }
 
-    public String getClarity() {
+    public String getClarity()
+    {
         return clarity;
     }
 
-    public void setClarity(String clarity) {
+    public void setClarity(String clarity)
+    {
         this.clarity = clarity == null ? null : clarity.trim();
     }
 
-    public String getCut() {
+    public String getCut()
+    {
         return cut;
     }
 
-    public void setCut(String cut) {
+    public void setCut(String cut)
+    {
         this.cut = cut == null ? null : cut.trim();
     }
 
-    public String getPolish() {
+    public String getPolish()
+    {
         return polish;
     }
 
-    public void setPolish(String polish) {
+    public void setPolish(String polish)
+    {
         this.polish = polish == null ? null : polish.trim();
     }
 
-    public String getSemmetry() {
+    public String getSemmetry()
+    {
         return semmetry;
     }
 
-    public void setSemmetry(String semmetry) {
+    public void setSemmetry(String semmetry)
+    {
         this.semmetry = semmetry == null ? null : semmetry.trim();
     }
 
-    public String getFluor() {
+    public String getFluor()
+    {
         return fluor;
     }
 
-    public void setFluor(String fluor) {
+    public void setFluor(String fluor)
+    {
         this.fluor = fluor == null ? null : fluor.trim();
     }
 
-    public String getXinJian() {
+    public String getXinJian()
+    {
         return xinJian;
     }
 
-    public void setXinJian(String xinJian) {
+    public void setXinJian(String xinJian)
+    {
         this.xinJian = xinJian == null ? null : xinJian.trim();
     }
 
-    public BigDecimal getZhiJing() {
+    public String getZhiJing()
+    {
         return zhiJing;
     }
 
-    public void setZhiJing(BigDecimal zhiJing) {
+    public void setZhiJing(String zhiJing)
+    {
         this.zhiJing = zhiJing;
     }
 
-    public BigDecimal getDepth() {
+    public BigDecimal getDepth()
+    {
         return depth;
     }
 
-    public void setDepth(BigDecimal depth) {
+    public void setDepth(BigDecimal depth)
+    {
         this.depth = depth;
     }
 
-    public BigDecimal getTaiMian() {
+    public BigDecimal getTaiMian()
+    {
         return taiMian;
     }
 
-    public void setTaiMian(BigDecimal taiMian) {
+    public void setTaiMian(BigDecimal taiMian)
+    {
         this.taiMian = taiMian;
     }
 
-    public String getCertNo() {
+    public String getCertNo()
+    {
         return certNo;
     }
 
-    public void setCertNo(String certNo) {
+    public void setCertNo(String certNo)
+    {
         this.certNo = certNo == null ? null : certNo.trim();
     }
 
-    public String getCert() {
+    public String getCert()
+    {
         return cert;
     }
 
-    public void setCert(String cert) {
+    public void setCert(String cert)
+    {
         this.cert = cert == null ? null : cert.trim();
     }
 
-    public Integer getPrice() {
+    public Integer getPrice()
+    {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Integer price)
+    {
         this.price = price;
     }
 
-    public String getStatus() {
+    public String getStatus()
+    {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(String status)
+    {
         this.status = status == null ? null : status.trim();
     }
 
-    public Date getDeleteTime() {
+    public Date getDeleteTime()
+    {
         return deleteTime;
     }
 
-    public void setDeleteTime(Date deleteTime) {
+    public void setDeleteTime(Date deleteTime)
+    {
         this.deleteTime = deleteTime;
     }
 }

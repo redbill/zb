@@ -208,15 +208,7 @@ public class PriceController
                             Row.CREATE_NULL_AS_BLANK);
                     if (zhiJingCell != null)
                     {
-                        String zhiJingStr = getValue(zhiJingCell);
-
-                        if (!checkDecimals(zhiJingStr, "0+"))
-                        {
-                            throw new Exception("第" + rowNum
-                                    + "行第12列的数据格式有问题,请修正并重新上传文件！");
-                        }
-                        pd.setZhiJing(BigDecimal.valueOf(Double
-                                .valueOf(zhiJingStr)));
+                        pd.setZhiJing(getValue(zhiJingCell));
                     }
                     HSSFCell depthCell = xssfRow.getCell(12,
                             Row.CREATE_NULL_AS_BLANK);

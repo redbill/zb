@@ -245,6 +245,7 @@ function showTableByData(res){
 		getTablePage(100, ".listtab")
 		$(".tablepage").show();
 	} else {
+		 document.getElementById("total").innerHTML = "0";
 		$("#searchList").html('<tr><td colspan="16">暂无数据!</td></tr>');
 	}
 }
@@ -371,11 +372,11 @@ function showTableByData(res){
     }
     
     function searchDT(){
-    	if(totalDiamondData && totalDiamondData.length > 0){
+    	if(totalDiamondDatas && totalDiamondDatas.length > 0){
     		//获取约束条件数据
         	var searchCondition = getSearchCondition();
         	//获取后台取得的数据
-        	var resCopy = totalDiamondData.slice(0);
+        	var resCopy = totalDiamondDatas.slice(0);
         	var filteredData = new Array();
         	for(var i=0;i<resCopy.length;i++){
         		var curD = resCopy[i];
@@ -398,14 +399,14 @@ function showTableByData(res){
         			
         		}
         		
-        		//
-        		if(searchCondition.bigThanWeight && searchCondition.bigThanWeight > 0){
+        		//重量范围验证
+        		if(searchCondition.bigThanWeight && parseFloat(searchCondition.bigThanWeight) > 0){
         			var bigThanWeightValid = false;
-        			if(!curD.carat || $.trim(curD.carat)  == 0){//如果数据没有此项属性则直接跳出剩余验证
+        			if(!curD.carat || parseFloat($.trim(curD.carat))  == 0){//如果数据没有此项属性则直接跳出剩余验证
         				continue;
         			}else{
-            				if($.trim(curD.carat) >= searchCondition.bigThanWeight){
-            					shapValid = true;
+            				if(parseFloat($.trim(curD.carat)) >= parseFloat(searchCondition.bigThanWeight)){
+            					bigThanWeightValid = true;
             				}
         			}
         			if(!bigThanWeightValid){//如果颜色认证没通过，则进入下条数据验证，跳过剩余条件验证
@@ -414,14 +415,189 @@ function showTableByData(res){
         			
         		}
         		
+        		if(searchCondition.smallThanWeight && parseFloat(searchCondition.smallThanWeight) > 0){
+        			var smallThanWeightValid = false;
+        			if(!curD.carat || parseFloat($.trim(curD.carat))  == 0){//如果数据没有此项属性则直接跳出剩余验证
+        				continue;
+        			}else{
+            				if(parseFloat($.trim(curD.carat)) <= parseFloat(searchCondition.smallThanWeight)){
+            					smallThanWeightValid = true;
+            				}
+        			}
+        			if(!smallThanWeightValid){//如果颜色认证没通过，则进入下条数据验证，跳过剩余条件验证
+        				continue;
+        			}
+        			
+        		}
         		
+        		//颜色验证
+        		if(searchCondition.colorCondition && searchCondition.colorCondition.length > 0){
+        			var colorCondition = false;
+        			if(!curD.color || $.trim(curD.color)  == ""){//如果数据没有此项属性则直接跳出剩余验证
+        				continue;
+        			}else{
+        				for(var j=0;j<searchCondition.colorCondition.length;j++){
+            				if($.trim(curD.color) == searchCondition.colorCondition[j]){
+            					colorCondition = true;
+            				}
+            			}
+        			}
+        			if(!colorCondition){//如果颜色认证没通过，则进入下条数据验证，跳过剩余条件验证
+        				continue;
+        			}
+        			
+        		}
         		
+        		//切工验证
+        		if(searchCondition.cutCondition && searchCondition.cutCondition.length > 0){
+        			var cutCondition = false;
+        			if(!curD.cut || $.trim(curD.cut)  == ""){//如果数据没有此项属性则直接跳出剩余验证
+        				continue;
+        			}else{
+        				for(var j=0;j<searchCondition.cutCondition.length;j++){
+            				if($.trim(curD.cut) == searchCondition.cutCondition[j]){
+            					cutCondition = true;
+            				}
+            			}
+        			}
+        			if(!cutCondition){//如果颜色认证没通过，则进入下条数据验证，跳过剩余条件验证
+        				continue;
+        			}
+        			
+        		}
         		
+        		//净度验证
+        		if(searchCondition.clarityCondition && searchCondition.clarityCondition.length > 0){
+        			var clarityCondition = false;
+        			if(!curD.clarity || $.trim(curD.clarity)  == ""){//如果数据没有此项属性则直接跳出剩余验证
+        				continue;
+        			}else{
+        				for(var j=0;j<searchCondition.clarityCondition.length;j++){
+            				if($.trim(curD.clarity) == searchCondition.clarityCondition[j]){
+            					clarityCondition = true;
+            				}
+            			}
+        			}
+        			if(!clarityCondition){//如果颜色认证没通过，则进入下条数据验证，跳过剩余条件验证
+        				continue;
+        			}
+        			
+        		}
+        		
+        		//抛光验证
+        		if(searchCondition.polishCondition && searchCondition.polishCondition.length > 0){
+        			var polishCondition = false;
+        			if(!curD.polish || $.trim(curD.polish)  == ""){//如果数据没有此项属性则直接跳出剩余验证
+        				continue;
+        			}else{
+        				for(var j=0;j<searchCondition.polishCondition.length;j++){
+            				if($.trim(curD.polish) == searchCondition.polishCondition[j]){
+            					polishCondition = true;
+            				}
+            			}
+        			}
+        			if(!polishCondition){//如果颜色认证没通过，则进入下条数据验证，跳过剩余条件验证
+        				continue;
+        			}
+        			
+        		}
+        		
+        		//排除奶咖验证
+        		if(searchCondition.withoutNK){
+        			var withoutNK = false;
+        			if((!curD.nai || curD.nai != "1") && (!curD.ka || curD.ka != "1")){//如果数据没有此项属性则直接跳出剩余验证
+        				withoutNK = true;
+        			}
+        			if(!withoutNK){//如果颜色认证没通过，则进入下条数据验证，跳过剩余条件验证
+        				continue;
+        			}
+        			
+        		}
+        		
+        		//证书类型认证
+        		if(searchCondition.certCondition && searchCondition.certCondition.length > 0){
+        			var certCondition = false;
+        			if(!curD.cert || $.trim(curD.cert)  == ""){//如果数据没有此项属性则直接跳出剩余验证
+        				continue;
+        			}else{
+        				for(var j=0;j<searchCondition.certCondition.length;j++){
+            				if($.trim(curD.cert) == searchCondition.certCondition[j]){
+            					certCondition = true;
+            				}
+            			}
+        			}
+        			if(!certCondition){//如果认证没通过，则进入下条数据验证，跳过剩余条件验证
+        				continue;
+        			}
+        			
+        		}
+        		//证书编码认证
+        		if(searchCondition.certNo && $.trim(searchCondition.certNo)  != ""){
+        			var certNo = false;
+        			if(curD.certNo &&  curD.certNo == $.trim(searchCondition.certNo)){
+        				certNo = true;
+        			}
+        			if(!certNo){//如果颜色认证没通过，则进入下条数据验证，跳过剩余条件验证
+        				continue;
+        			}
+        			
+        		}
+        		
+        		//对称验证
+        		if(searchCondition.symmetryCondition && searchCondition.symmetryCondition.length > 0){
+        			var symmetryCondition = false;
+        			if(!curD.semmetry || $.trim(curD.semmetry)  == ""){//如果数据没有此项属性则直接跳出剩余验证
+        				continue;
+        			}else{
+        				for(var j=0;j<searchCondition.symmetryCondition.length;j++){
+            				if($.trim(curD.semmetry) == searchCondition.symmetryCondition[j]){
+            					symmetryCondition = true;
+            				}
+            			}
+        			}
+        			if(!symmetryCondition){//如果颜色认证没通过，则进入下条数据验证，跳过剩余条件验证
+        				continue;
+        			}
+        			
+        		}
+        		
+        		//价格认证
+        		if(searchCondition.price && $.trim(searchCondition.price)  != ""){
+        			var price = false;
+        			if(curD.price  &&  parseInt(curD.price) == parseInt($.trim(searchCondition.price))){
+        				price = true;
+        			}
+        			if(!price){//如果颜色认证没通过，则进入下条数据验证，跳过剩余条件验证
+        				continue;
+        			}
+        		}
+        		
+        		//荧光验证
+        		if(searchCondition.fluorCondition && searchCondition.fluorCondition.length > 0){
+        			var fluorCondition = false;
+        			if(!curD.fluor || $.trim(curD.fluor)  == ""){//如果数据没有此项属性则直接跳出剩余验证
+        				continue;
+        			}else{
+        				for(var j=0;j<searchCondition.fluorCondition.length;j++){
+            				if($.trim(curD.fluor) == searchCondition.fluorCondition[j]){
+            					fluorCondition = true;
+            				}
+            			}
+        			}
+        			if(!fluorCondition){//如果颜色认证没通过，则进入下条数据验证，跳过剩余条件验证
+        				continue;
+        			}
+        			
+        		}
+        		
+        		//所有验证条件都通过
+        		filteredData.push(curD);
         	} 
         	
         	//根据条件过滤所有数据
-        	
+        	curDiamondData = filteredData;
         	//将数据放入到表格
+        	showTableByData(curDiamondData);
     	}
     	
     	
@@ -544,7 +720,7 @@ function showTableByData(res){
     		console.log(searchCondition.fluorCondition);
     	}
     	
-    	if($('#withoutNK').hasClass('un')){
+    	if($('#without').hasClass('un')){
     		searchCondition.withoutNK = true;
     	}else{
     		searchCondition.withoutNK = false;
@@ -553,7 +729,7 @@ function showTableByData(res){
     	console.log(searchCondition.withoutNK);
     	
     	
-    	
+    	return searchCondition;
     	
     	
     	
