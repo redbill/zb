@@ -85,11 +85,11 @@ function getNavLists(codeModule, id) {
 			var code = parseInt(codeModule, 10);
 			for(var i = 0; i < len; i++){
 				if(code == 1001) {
-					totalStr += '<li class="item"><a href="arcContent?aid='+ res[i].id +'&cat='+ res[i].codeModule +'" title="'+ res[i].title +'">'+ res[i].title +'</a></li>'
+					totalStr += '<li class="item"><a href="'+ basePath +'arcContent?aid='+ res[i].id +'&cat='+ res[i].codeModule +'" title="'+ res[i].title +'">'+ res[i].title +'</a></li>'
 				} else if(code == 1002) {
 					totalStr += '<li><a href="'+ basePath +'arcContent?aid='+ res[i].id +'" title="'+ res[i].title +'">'+ res[i].title +'</a></li>';
 				} else {
-					totalStr += '<li class="item"><a href="arcContent?aid='+ res[i].id +'" title="'+ res[i].title +'">'+ res[i].title +'</a></li>'
+					totalStr += '<li class="item"><a href="'+ basePath +'arcContent?aid='+ res[i].id +'" title="'+ res[i].title +'">'+ res[i].title +'</a></li>'
 				}
 				
 				

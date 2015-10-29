@@ -80,7 +80,7 @@
                     </a>
                 </li>
                
-                <li class="active ">
+                <li class="">
                     <a href="<%=paths%>mgr/updatePriceData">
                         <i class="icon-cogs"></i>
                         <span class="title">报价管理</span>
@@ -96,53 +96,10 @@
                             <a href="<%=paths%>mgr/importPriceData">
                             导入报价文件</a>
                         </li>
-                        <li>
-                            <a href="<%=paths%>mgr/updatePriceData">
-                            更改报价数据</a>
-                        </li>
                     </ul>
                 </li>
-                <li class="">
-                    <a href="javascript:;">
-                        <i class="icon-bookmark-empty"></i>
-                        <span class="title">产品管理</span>
-                        <span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="ui_general.html">
-
-                            General</a>
-                        </li>
-                        <li>
-                            <a href="ui_buttons.html">
-
-                            Buttons</a>
-                        </li>
-                        <li>
-                            <a href="ui_modals.html">
-
-                            Enhanced Modals</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="">
-                    <a href="javascript:;">
-                        <i class="icon-table"></i>
-                        <span class="title">栏目管理</span>
-                        <span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="form_layout.html">
-                            Form Layouts</a>
-                        </li>
-                        <li>
-                            <a href="form_samples.html">
-                            Advance Form Samples</a>
-                        </li>
-                    </ul>
-                </li>
+               
+                
                 <li class="">
                     <a href="javascript:;">
                         <i class="icon-briefcase"></i>

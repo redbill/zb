@@ -15,7 +15,7 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
     <div class="header"></div>
     <div class="menu">
         <ul class="sub_l">
-            <li class="mainlevel"><a href="/" title="HOME">首页</a></li>
+            <li class="mainlevel"><a href="<%=paths%>" title="HOME">首页</a></li>
             <li class="mainlevel">走进品牌
                 <ul class="sub_nav_03" id="brand-lists">
                     <span class="Triangle_con"></span>
@@ -38,7 +38,7 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
             </li>
         </ul>
         <ul class="sub_r">
-            <li class="mainlevel"><a href="activityLists">活动资讯</a>
+            <li class="mainlevel"><a href="<%=paths%>activityLists">活动资讯</a>
             </li>
             <li class="mainlevel">联系我们
                 <ul class="sub_nav_05">
@@ -52,7 +52,7 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
 	if(userInfo != null ){
 		%>
 		
-		  <li class="mainlevel"><a href="mgr/priceList" title="钻石报价">钻石报价</a></li>
+		  <li class="mainlevel"><a href="<%=paths%>mgr/priceList" title="钻石报价">钻石报价</a></li>
 		<%
 			} 
 	    %>

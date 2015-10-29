@@ -43,6 +43,11 @@ String lastFileUpTime = sdf.format(fu.getUploadTime());
 				type:"post", //默认GET
 				success: function(res){
 					 console.log(res);
+					 if(res.isOK == "false"){
+						 alert(res.msg);
+					 }else{
+						 alert("数据已成功导入数据库");
+					 }
 				},
 				error: function(res) {
 					 
