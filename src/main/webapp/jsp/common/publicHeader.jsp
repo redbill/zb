@@ -15,7 +15,7 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
     <div class="header"></div>
     <div class="menu">
         <ul class="sub_l">
-            <li class="mainlevel"><a href="<%=paths%>" title="HOME">首页</a></li>
+            <li class="mainlevel"><a href="<%=paths%>index" title="HOME">首页</a></li>
             <li class="mainlevel">走进品牌
                 <ul class="sub_nav_03" id="brand-lists">
                     <span class="Triangle_con"></span>

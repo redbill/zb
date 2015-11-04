@@ -16,6 +16,10 @@
       <put-attribute name="title"  value="首页"/>
       <put-attribute name="main"   value="/jsp/public/index.jsp"/>
   </definition>
+  <definition name="home" extends="publicLayout">
+      <put-attribute name="title"  value="首页"/>
+      <put-attribute name="main"   value="/jsp/public/home.jsp"/>
+  </definition>
   
     <definition name="category" extends="publicLayout">
       <put-attribute name="title"  value="文章列表"/>
