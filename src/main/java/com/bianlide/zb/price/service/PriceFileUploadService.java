@@ -15,6 +15,7 @@
 package com.bianlide.zb.price.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bianlide.zb.price.model.FileUpload;
 import com.bianlide.zb.price.model.PriceData;
@@ -52,5 +53,15 @@ public interface PriceFileUploadService
      * @throws
      */
     public List<PriceData> getPriceDatas();
+
+    /**
+     * @Title: getPriceDatas
+     * @Description: TODO(这里用一句话描述这个方法的作用)
+     * @author QianQingzhao
+     * @param sm
+     * @return
+     * @throws
+     */
+    public List getPriceDatas(Map sm);
 
 }

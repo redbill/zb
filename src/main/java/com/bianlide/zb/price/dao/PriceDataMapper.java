@@ -1,6 +1,7 @@
 package com.bianlide.zb.price.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bianlide.zb.price.model.PriceData;
 import com.bianlide.zb.price.model.PriceDataKey;
@@ -36,4 +37,14 @@ public interface PriceDataMapper
      * @throws
      */
     List<PriceData> getPriceDatas();
+
+    /**
+     * @Title: getPriceDatas
+     * @Description: TODO(这里用一句话描述这个方法的作用)
+     * @author QianQingzhao
+     * @param sm
+     * @return
+     * @throws
+     */
+    List<PriceData> getPriceDatas(Map sm);
 }

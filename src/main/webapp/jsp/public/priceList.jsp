@@ -293,8 +293,8 @@
                                     <input type="checkbox" name="cert[5]" value="统包货">
                                 </li>
                             </ul>
-                            <span class="f1" style="margin-left: 15px;">证书号码</span>
-                            <input type="text" name="certificate" class="item-input" maxlength="30" id="certNo">
+                         <!--    <span class="f1" style="margin-left: 15px;">证书号码</span>
+                            <input type="text" name="certificate" class="item-input" maxlength="30" id="certNo">  -->
                         </div>
                         <div class="select-box"> <span>对称<br>
           Symmetry</span>
@@ -368,8 +368,8 @@
         </form>
         <div class="table-data-show">
             <div class="result"> 
-	            <span class="f1">为您筛选出<i id="total">238131</i>  颗钻石</span> 
-	            <span class="f2">每页显示：
+	            <span class="f1">为您筛选出<i id="total">----</i>  颗钻石</span> 
+	            <span id="pageSize" class="f2">每页显示：
 	            <a href="javascript:;" class="on" id="hundred" data-sign="100">100</a> 
 	            <a href="javascript:;" id="fifty" data-sign="50">50</a> 
 	            <a href="javascript:;" id="thirty" data-sign="30">30</a>
@@ -400,7 +400,7 @@
                             <td class="w_40">直径</td>
                             <td class="w_40">深度</td>
                             <td class="w_40">台面</td>
-                            <td class="w_85">证书号码</td>
+                           <!--   <td class="w_85">证书号码</td> -->
                             <td class="w_40">证书</td>
                             <td class="w_65">
                                 <a title="按价格排序" href="javascript:;" data-name="price" data-order="0" id="sortbyprice">
@@ -441,22 +441,15 @@
                         </tr> -->
                     </tbody>
                 </table>
-                <p class="tablepage">
-					<span id="sjzl"></span> 
-					<span id="btn0"></span>
-					<!--  <input id="pageSize" type="text" size="1" maxlength="2" value="getDefaultValue()"/><a> 条 </a> 
-					<a href="javascript:;" id="pageSizeSet">设置</a>-->
-					<a  href="javascript:;" id="btn1">首页</a>
-					<a  href="javascript:;" id="btn2">上一页</a>
-					<a  href="javascript:;" id="btn3">下一页</a>
-					<a  href="javascript:;" id="btn4">尾页</a> 
-					<span> 转到 </span>
-					<input id="changePage" type="text" size="1" maxlength="4"/>
-					<span>页 </span>
-					<a href="javascript:;" id="btn5">跳转</a>
-				 </p>
+                
+              
+			 <div class="page hide">
+					<div class="page_v1" id="price_ajax_page" style="display:none;"></div>
+			</div>
+				 
             </div>
 
         </div>
     </div>
+    <script language="javascript" type="text/javascript" src="<%=paths%>include/javascripts/jquery.whpage.js"></script>
     <script language="javascript" type="text/javascript" src="<%=paths%>include/javascripts/selectdiamond.js"></script>

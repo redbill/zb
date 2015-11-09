@@ -40,7 +40,9 @@
   </select>
   <select id="getPriceDatas" resultMap="BaseResultMap" >
     select 
-    <include refid="Base_Column_List" />
+     shape, nai, ka, carat, color, clarity, cut, polish, 
+    semmetry, fluor, xin_jian, zhi_jing, depth, tai_mian, cert_no, cert, price  
+    
     from price_data
     where  status = '1'
   </select>

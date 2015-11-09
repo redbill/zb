@@ -19,9 +19,12 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -40,6 +43,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.bianlide.zb.common.vo.JsonResultVO;
 import com.bianlide.zb.price.model.FileUpload;
 import com.bianlide.zb.price.model.PriceData;
@@ -311,11 +315,48 @@ public class PriceController
         response.setContentType("application/json;charset=utf-8");
         pw = response.getWriter();
         JsonResultVO jsonRes = new JsonResultVO();
+        String searchCondition = request.getParameter("searchCondition");
+        // 一页显示条数
+        String pageSizeStr = request.getParameter("pageSize");
+        // 页码
+        String pageNoStr = request.getParameter("page");
+        // 页码
+        String gotoPageNoStr = request.getParameter("pageNo");
+
+        int pageSize = 0;
+        int pageNo = 0;
+
+        if (pageSizeStr != null && !"".equals(pageSizeStr))
+        {
+            pageSize = Integer.parseInt(pageSizeStr);
+        }
+
+        if (pageNoStr != null && !"".equals(pageNoStr))
+        {
+            pageNo = Integer.parseInt(pageNoStr);
+        }
+
+        if (gotoPageNoStr != null && !"".equals(gotoPageNoStr))
+        {
+            pageNo = Integer.parseInt(gotoPageNoStr);
+        }
+
         try
         {
+            JSONObject sco = null;
+            if (searchCondition != null && !"".equals(searchCondition))
+            {
+                searchCondition = URLDecoder.decode(searchCondition, "UTF-8");
+                sco = JSONObject.parseObject(searchCondition);
+            }
 
-            List<PriceData> priceList = this.priceFileUploadService
-                    .getPriceDatas();
+            Map sm = new HashMap();
+            sm.put("sco", sco);
+            sm.put("pageSize", pageSize);
+            sm.put("pageNo", pageNo);
+
+            //
+            List priceList = this.priceFileUploadService.getPriceDatas(sm);
             jsonRes.setIsOKToTrue();
             jsonRes.setJsonData(priceList);
             pw.write(JSON.toJSONString(jsonRes));
