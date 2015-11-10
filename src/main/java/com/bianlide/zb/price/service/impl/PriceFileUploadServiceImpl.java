@@ -149,18 +149,24 @@ public class PriceFileUploadServiceImpl implements PriceFileUploadService
      * .util.Map)
      */
     @Override
-    public List getPriceDatas(Map sm)
+    public Map getPriceDatasPage(Map sm)
     {
         // TODO Auto-generated method stub
+        JSONObject sco = (JSONObject) sm.get("sco");
+        Integer pageSize = (Integer) sm.get("pageSize");
+        Integer pageNo = (Integer) sm.get("pageNo");
+        Map resultMap = new HashMap();
+        resultMap.put("isOK", "false");
+        resultMap.put("jsonData", null);
+        resultMap.put("total", 0);
+        resultMap.put("pageNo", pageNo);
+        resultMap.put("pageSize", pageSize);
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         List list = null;
         try
         {
-            JSONObject sco = (JSONObject) sm.get("sco");
-            Integer pageSize = (Integer) sm.get("pageSize");
-            Integer pageNo = (Integer) sm.get("pageNo");
 
             conn = dataSource.getConnection();
 
@@ -400,6 +406,33 @@ public class PriceFileUploadServiceImpl implements PriceFileUploadService
             rs.close();
             stmt.close();
             stmt = conn.createStatement();
+            // searchCondition.sortbyweight =
+            // $("#sortbyweight").attr("data-order");
+            // searchCondition.sortbyprice =
+            // $("#sortbyprice").attr("data-order");
+
+            String sortbyweight = sco.getString("sortbyweight");
+            if (sortbyweight != null && "1".equals(sortbyweight.trim()))
+            {
+                sql.append(" order by carat desc, ");
+            }
+            else
+            {
+                sql.append(" order by carat asc, ");
+            }
+
+            String sortbyprice = sco.getString("sortbyprice");
+            if (sortbyprice != null && "1".equals(sortbyprice.trim()))
+            {
+                sql.append("  price desc ");
+            }
+            else
+            {
+                sql.append("  price asc ");
+            }
+
+            sql.append(" LIMIT ").append((pageNo - 1) * pageSize).append(",")
+                    .append(pageSize);
             rs = stmt.executeQuery(sql.toString());
 
             ResultSetMetaData md = rs.getMetaData();
@@ -421,11 +454,21 @@ public class PriceFileUploadServiceImpl implements PriceFileUploadService
                 list.add(map);
 
             }
+
+            resultMap.put("isOK", "true");
+            resultMap.put("jsonData", list);
+            resultMap.put("total", count);
+            resultMap.put("pageNo", pageNo);
+            resultMap.put("pageSize", pageSize);
+
         }
         catch (SQLException e)
         {
             // TODO Auto-generated catch block
             e.printStackTrace();
+            resultMap.put("isOK", "false");
+            resultMap.put("jsonData", null);
+            resultMap.put("msg", e.getMessage());
         }
         finally
         {
@@ -454,6 +497,6 @@ public class PriceFileUploadServiceImpl implements PriceFileUploadService
                 }
             }
         }
-        return list;
+        return resultMap;
     }
 }

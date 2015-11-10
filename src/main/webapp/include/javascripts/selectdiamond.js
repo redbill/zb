@@ -123,13 +123,7 @@ $(function() {
         }
     });
     
-    //每页展示条数选择
-    $(".result .f2 > a").on("click", function() {
-    	var sign = 0;
-    	$(this).addClass("on").siblings().removeClass("on");
-    	sign = $(this).attr("data-sign");
-    	getTablePage(sign, ".listtab");
-    })
+   
     
     //砖重和价格的排序
     $("#sortbyweight, #sortbyprice").on("click", function() {
@@ -139,54 +133,24 @@ $(function() {
     	var len = 0;
     	var str = "";
     	var res;
-    	var pagesize = $(".result .f2").find("a[class=on]").attr("data-sign");
+    	//var pagesize = $(".result .f2").find("a[class=on]").attr("data-sign");
+    	searchDT();
     	if(flag == 1) {
-        	res = bubble(curDiamondData, name);
+        //	res = bubble(curDiamondData, name);
         	$(this).find("img").attr("src", basePath +"include/images/c_up.jpg")
     	}else {
-    		res = bubble(curDiamondData, name).reverse();
+    	//	res = bubble(curDiamondData, name).reverse();
     		$(this).find("img").attr("src", basePath +"include/images/c_bottom.jpg")
     	}
-		len = res.length;
-		if(len > 0) {
-    		for(var i = 0; i < len; i++) {
-    			str += '<tr>' +
-            		    '<td>'+ res[i].shape +'</td>' +
-            		    '<td>'+ res[i].nai +'</td>' +
-            		    '<td>'+ res[i].ka +'</td>' +
-            		    '<td>'+ res[i].carat +'</td>' +
-            		    '<td>'+ res[i].color +'</td>' +
-            		    '<td>'+ res[i].clarity +'</td>' +
-            		    '<td>'+ res[i].cut +'</td>' +
-            		    '<td>'+ res[i].polish +'</td>' +
-            		    '<td>'+ res[i].semmetry +'</td>' +
-            		    '<td>'+ res[i].fluor +'</td>' +
-            		    '<td>' +
-            		        '<font color="blue">'+ res[i].xinJian +'</font>' +
-            		    '</td>' +
-            		    '<td><a href="javascript:;" title="">'+ res[i].zhiJing +'</a></td>' +
-            		    '<td>'+ res[i].depth +'</td>' +
-            		    '<td>'+ res[i].taiMian +'</td>' +
-            		    '<td>' +
-            		        '<font color="red">'+ res[i].certNo +'</font>' +
-            		    '</td>' +
-            		    '<td>' +
-            		        '<font color="red">'+ res[i].cert +'</font>' +
-            		    '</td>' +
-            		    '<td>' +
-            		        '<font color="blue">'+ res[i].price +'</font>' +
-            		    '</td>' +
-            		'</tr>';
-    		}
-    		$("#searchList").html();
-    		$("#searchList").html(str);
-    		getTablePage(pagesize, ".listtab")
-    		$(".tablepage").show();
-		} else {
-			$("#searchList").html('<tr><td colspan="16">暂无数据!</td></tr>');
-		}
+		
     })
     
+    
+     //每页展示条数选择
+    $(".result .f2 > a").on("click", function() {
+    	$(this).addClass("on").siblings().removeClass("on");
+    	 searchDT();
+    })
     
   searchDT();
 
@@ -357,6 +321,8 @@ function showTableByData(res){
     function searchDT(page){
     	//后台分页显示
     	//获取约束条件数据
+    	// <span id="dataLoadTips" class="f1">为您筛选出<i id="total">----</i>  颗钻石</span> 
+    	$("#dataLoadTips").html("数据查询中，请稍等！");
     	var searchCondition = getSearchCondition();
     	//
     	var data = new Object();
@@ -390,6 +356,7 @@ function showTableByData(res){
 				var t = {};
 				//
 				var records = parseInt(data.total);
+				$("#dataLoadTips").html('为您筛选出<i id="total">'+data.total+'</i>  颗钻石');
 				pageCount = Math.ceil(data.total / data.pageSize);
 				t['cur'] = data.pageNo;;
 				t['pageCount'] = pageCount;
@@ -591,6 +558,8 @@ function showTableByData(res){
     		searchCondition.withoutNK = false;
     	}
     	
+    	searchCondition.sortbyweight = $("#sortbyweight").attr("data-order");
+    	searchCondition.sortbyprice = $("#sortbyprice").attr("data-order");
     	console.log(searchCondition.withoutNK);
     	
     	

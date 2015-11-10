@@ -55,13 +55,13 @@ public interface PriceFileUploadService
     public List<PriceData> getPriceDatas();
 
     /**
-     * @Title: getPriceDatas
+     * @Title: getPriceDatasPage
      * @Description: TODO(这里用一句话描述这个方法的作用)
      * @author QianQingzhao
      * @param sm
      * @return
      * @throws
      */
-    public List getPriceDatas(Map sm);
+    Map getPriceDatasPage(Map sm);
 
 }

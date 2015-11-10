@@ -356,10 +356,9 @@ public class PriceController
             sm.put("pageNo", pageNo);
 
             //
-            List priceList = this.priceFileUploadService.getPriceDatas(sm);
-            jsonRes.setIsOKToTrue();
-            jsonRes.setJsonData(priceList);
-            pw.write(JSON.toJSONString(jsonRes));
+            Map result = this.priceFileUploadService.getPriceDatasPage(sm);
+
+            pw.write(JSON.toJSONString(result));
             pw.flush();
             return null;
         }

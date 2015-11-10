@@ -368,7 +368,7 @@
         </form>
         <div class="table-data-show">
             <div class="result"> 
-	            <span class="f1">为您筛选出<i id="total">----</i>  颗钻石</span> 
+	            <span id="dataLoadTips" class="f1">为您筛选出<i id="total">----</i>  颗钻石</span> 
 	            <span id="pageSize" class="f2">每页显示：
 	            <a href="javascript:;" class="on" id="hundred" data-sign="100">100</a> 
 	            <a href="javascript:;" id="fifty" data-sign="50">50</a> 
@@ -444,7 +444,7 @@
                 
               
 			 <div class="page hide">
-					<div class="page_v1" id="price_ajax_page" style="display:none;"></div>
+					<div class="page_v1 tablepage" id="price_ajax_page" style="display:none;"></div>
 			</div>
 				 
             </div>
