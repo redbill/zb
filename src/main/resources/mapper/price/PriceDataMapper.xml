@@ -276,16 +276,12 @@
       and create_time = #{createTime,jdbcType=TIMESTAMP}
   </update>
   
-    <update id="deleteOldPriceData"  >
-    update price_data
-    <set >
-      
-     
-        status = '0',
-        delete_time =  current_timestamp(),
-    </set>
-    where status = '1'
-  </update>
+  
+  
+  <delete id="deleteOldPriceData"  >
+    delete from price_data
+    where  1=1
+  </delete>
   
   
   <update id="updateByPrimaryKey" parameterType="com.bianlide.zb.price.model.PriceData" >

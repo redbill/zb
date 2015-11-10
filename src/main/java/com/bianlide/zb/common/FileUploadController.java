@@ -95,7 +95,7 @@ public class FileUploadController
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
         String dateStr = sdf.format(date);
-        File tempFile = File.createTempFile(dateStr, ".xls", new File(path));
+        File tempFile = File.createTempFile(dateStr, ".xlsx", new File(path));
         FileOutputStream fs = new FileOutputStream(tempFile);
         byte[] buffer = new byte[1024 * 1024];
         int bytesum = 0;

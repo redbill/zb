@@ -64,4 +64,26 @@ public interface PriceFileUploadService
      */
     Map getPriceDatasPage(Map sm);
 
+    /**
+     * @throws Exception
+     * @Title: importFileToDB
+     * @Description: TODO(这里用一句话描述这个方法的作用)
+     * @author QianQingzhao
+     * @param fileName
+     * @return
+     * @throws
+     */
+    Map importFileToDB(String fileName) throws Exception;
+
+    /**
+     * @Title: importFileToDBSAX
+     * @Description: TODO(这里用一句话描述这个方法的作用)
+     * @author QianQingzhao
+     * @param fileName
+     * @return
+     * @throws Exception
+     * @throws
+     */
+    Map importFileToDBSAX(String fileName) throws Exception;
+
 }

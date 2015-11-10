@@ -397,8 +397,8 @@ function showTableByData(res){
     				for(var i = 0; i < res.length; i++) {
     					str += '<tr>' +
     		        		    '<td>'+ res[i].shape +'</td>' +
-    		        		    '<td>'+ res[i].nai +'</td>' +
-    		        		    '<td>'+ res[i].ka +'</td>' +
+    		        		    '<td>'+ (typeof(res[i].nai) == "undefined"?" ":res[i].nai) +'</td>' +
+    		        		    '<td>'+ (typeof(res[i].ka) == "undefined"?" ":res[i].ka) +'</td>' +
     		        		    '<td>'+ res[i].carat +'</td>' +
     		        		    '<td>'+ res[i].color +'</td>' +
     		        		    '<td>'+ res[i].clarity +'</td>' +
