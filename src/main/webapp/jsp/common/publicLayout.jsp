@@ -13,6 +13,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+	<link rel="icon" href="<%=paths%>include/images/icon.png" type="image/x-icon"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title><tiles:insertAttribute name="title"/></title>
     <link href="<%=paths%>include/stylesheets/publicStyle.css" rel="stylesheet" type="text/css">

@@ -100,7 +100,7 @@ public class PriceController
         {
 
             //
-            this.priceFileUploadService.importFileToDB(fileName);
+            this.priceFileUploadService.importFileToDBSAX(fileName);
             jsonRes.setIsOKToTrue();
             pw.write(JSON.toJSONString(jsonRes));
             pw.flush();

@@ -190,8 +190,10 @@ public class PriceFileUploadServiceImpl implements PriceFileUploadService
             list = new ArrayList();
 
             Statement stmt = conn.createStatement();
+            StringBuilder countSql = new StringBuilder("select count(*) ");
+            StringBuilder pageSql = new StringBuilder("select * ");
             StringBuilder sql = new StringBuilder();
-            sql.append("select * from price_data where 1 = 1 ");
+            sql.append(" from price_data where 1 = 1 ");
             if (sco != null)
             {
                 JSONArray shapeArray = sco.getJSONArray("shapeCondition");
@@ -409,10 +411,8 @@ public class PriceFileUploadServiceImpl implements PriceFileUploadService
 
             }
 
-            System.out.println(sql.toString());
-            StringBuilder countSql = new StringBuilder();
-            countSql.append("select count(*) from (").append(sql)
-                    .append(") a ");
+            countSql.append(sql);
+            System.out.println(countSql.toString());
             rs = stmt.executeQuery(countSql.toString());
             int count = 0;
             while (rs.next())
@@ -450,7 +450,9 @@ public class PriceFileUploadServiceImpl implements PriceFileUploadService
 
             sql.append(" LIMIT ").append((pageNo - 1) * pageSize).append(",")
                     .append(pageSize);
-            rs = stmt.executeQuery(sql.toString());
+            pageSql.append(sql);
+            System.out.println(pageSql.toString());
+            rs = stmt.executeQuery(pageSql.toString());
 
             ResultSetMetaData md = rs.getMetaData();
 
@@ -706,177 +708,96 @@ public class PriceFileUploadServiceImpl implements PriceFileUploadService
         // 导入数据前删除以前数据
         int deleteCode = deleteOldPriceData();
         // 读取文件
-
-        
-         
-
-        List<String[]> list = XLSXCovertCSVReader.readerExcel(excelUploadPat
-                + File.separator + fileName, "", 17);
-        for (String[] record : list)
-        {
-            for (String cell : record)
-            {
-               cell.split("")
-            }
-            System.out.println();
-        }
-
-        Sheet xssfSheet = xssfWorkbook.getSheetAt(0);
+        CSVFileUtil cfu = new CSVFileUtil(excelUploadPat + File.separator
+                + fileName);
+        cfu.readLine();// 第一行数据不存数据库
         List<PriceData> pdList = new ArrayList<PriceData>();
-        // Read the Row
-        for (int rowNum = 1; rowNum <= xssfSheet.getLastRowNum(); rowNum++)
+        int i = 0;
+        while (true)
         {
-            Row xssfRow = xssfSheet.getRow(rowNum);
-            if (xssfRow != null)
+            String lineStr = cfu.readLine();
+            if (lineStr == null)
             {
-                PriceData pd = new PriceData();
-                pd.setFileName(fileName);
-                pd.setRowNum(rowNum);
-                pd.setCreateTime(new Date());
-                pd.setStatus("1");// 新插入状态
+                cfu.closeStream();
+                break;
+            }
+            String[] cells = cfu.fromCSVLine(lineStr, 17);
+            PriceData pd = new PriceData();
+            i = i + 1;
 
-                Cell shapeCell = xssfRow.getCell(0, Row.CREATE_NULL_AS_BLANK);
-                if (shapeCell != null)
+            pd.setFileName(fileName);
+            pd.setRowNum(i);
+            pd.setCreateTime(new Date());
+            pd.setStatus("1");// 新插入状态
+            pd.setShape(cells[0]);
+            if (cells[1] != null && "1".equals(cells[1]))
+            {
+                pd.setNai(cells[1]);
+            }
+            if (cells[2] != null && "1".equals(cells[2]))
+            {
+                pd.setKa(cells[2]);
+            }
+            if (cells[3] != null)
+            {
+                if (!checkDecimals(cells[3], ""))
                 {
-                    pd.setShape(getValue(shapeCell));
+                    throw new Exception("第" + i + "行第4列的数据格式有问题,请修正并重新上传文件！");
                 }
-                xssfRow.getCell(1).setCellType(Cell.CELL_TYPE_STRING);
-                Cell naiCell = xssfRow.getCell(1, Row.CREATE_NULL_AS_BLANK);
-                if (naiCell != null)
-                {
-                    String naiStr = naiCell.getStringCellValue();
-                    if (naiStr != null && "1".equals(naiStr.trim()))
-                    {
-                        pd.setNai("1");
-                    }
-                }
-                xssfRow.getCell(2).setCellType(Cell.CELL_TYPE_STRING);
-                Cell kaCell = xssfRow.getCell(2, Row.CREATE_NULL_AS_BLANK);
-                if (kaCell != null)
-                {
-                    String kaStr = kaCell.getStringCellValue();
-                    if (kaStr != null && "1".equals(kaStr.trim()))
-                    {
-                        pd.setKa("1");
-                    }
-                }
-                Cell caratCell = xssfRow.getCell(3, Row.CREATE_NULL_AS_BLANK);
-                if (caratCell != null)
-                {
-                    String caratStr = getValue(caratCell);
-                    if (!checkDecimals(caratStr, ""))
-                    {
-                        throw new Exception("第" + rowNum
-                                + "行第4列的数据格式有问题,请修正并重新上传文件！");
-                    }
-                    pd.setCarat(BigDecimal.valueOf(Double.valueOf(caratStr)));
-                }
-                Cell colorCell = xssfRow.getCell(4, Row.CREATE_NULL_AS_BLANK);
-                if (colorCell != null)
-                {
-                    pd.setColor(getValue(colorCell));
-                }
-                Cell clarityCell = xssfRow.getCell(5, Row.CREATE_NULL_AS_BLANK);
-                if (clarityCell != null)
-                {
-                    pd.setClarity(getValue(clarityCell));
-                }
-                Cell cutCell = xssfRow.getCell(6, Row.CREATE_NULL_AS_BLANK);
-                if (cutCell != null)
-                {
-                    pd.setCut(getValue(cutCell));
-                }
-                Cell polishCell = xssfRow.getCell(7, Row.CREATE_NULL_AS_BLANK);
-                if (polishCell != null)
-                {
-                    pd.setPolish(getValue(polishCell));
-                }
-                Cell semmetryCell = xssfRow
-                        .getCell(8, Row.CREATE_NULL_AS_BLANK);
-                if (semmetryCell != null)
-                {
-                    pd.setSemmetry(getValue(semmetryCell));
-                }
-                Cell fluorCell = xssfRow.getCell(9, Row.CREATE_NULL_AS_BLANK);
-                if (fluorCell != null)
-                {
-                    pd.setFluor(getValue(fluorCell));
-                }
-                Cell xinJianCell = xssfRow
-                        .getCell(10, Row.CREATE_NULL_AS_BLANK);
-                if (xinJianCell != null)
-                {
-                    pd.setXinJian(getValue(xinJianCell));
-                }
-                Cell zhiJingCell = xssfRow
-                        .getCell(11, Row.CREATE_NULL_AS_BLANK);
-                if (zhiJingCell != null)
-                {
-                    pd.setZhiJing(getValue(zhiJingCell));
-                }
-                Cell depthCell = xssfRow.getCell(12, Row.CREATE_NULL_AS_BLANK);
-                if (depthCell != null)
-                {
-                    String depthStr = getValue(depthCell);
+                pd.setCarat(BigDecimal.valueOf(Double.valueOf(cells[3])));
+            }
+            pd.setColor(cells[4]);
+            pd.setClarity(cells[5]);
+            pd.setCut(cells[6]);
+            pd.setPolish(cells[7]);
+            pd.setSemmetry(cells[8]);
+            pd.setFluor(cells[9]);
+            pd.setXinJian(cells[10]);
+            pd.setZhiJing(cells[11]);
 
-                    if (!checkDecimals(depthStr, "0+"))
-                    {
-                        throw new Exception("第" + rowNum
-                                + "行第13列的数据格式有问题,请修正并重新上传文件！");
-                    }
-                    pd.setDepth(BigDecimal.valueOf(Double.valueOf(depthStr)));
-                }
+            if (cells[12] != null)
+            {
 
-                Cell taiMianCell = xssfRow
-                        .getCell(13, Row.CREATE_NULL_AS_BLANK);
-                if (taiMianCell != null)
+                if (!checkDecimals(cells[12], "0+"))
                 {
-                    String taiMianStr = getValue(taiMianCell);
+                    throw new Exception("第" + i + "行第13列的数据格式有问题,请修正并重新上传文件！");
+                }
+                pd.setDepth(BigDecimal.valueOf(Double.valueOf(cells[12])));
+            }
 
-                    if (!checkDecimals(taiMianStr, "0+"))
-                    {
-                        throw new Exception("第" + rowNum
-                                + "行第14列的数据格式有问题,请修正并重新上传文件！");
-                    }
-                    pd.setTaiMian(BigDecimal.valueOf(Double.valueOf(taiMianStr)));
+            if (cells[13] != null)
+            {
+                if (!checkDecimals(cells[13], "0+"))
+                {
+                    throw new Exception("第" + i + "行第14列的数据格式有问题,请修正并重新上传文件！");
                 }
+                pd.setTaiMian(BigDecimal.valueOf(Double.valueOf(cells[13])));
+            }
+            pd.setCertNo(cells[14]);
+            pd.setCert(cells[15]);
 
-                Cell cetNoCell = xssfRow.getCell(14, Row.CREATE_NULL_AS_BLANK);
-                if (cetNoCell != null)
-                {
-                    pd.setCertNo(getValue(cetNoCell));
-                }
-                Cell cerCell = xssfRow.getCell(15, Row.CREATE_NULL_AS_BLANK);
-                if (cerCell != null)
-                {
-                    pd.setCert(getValue(cerCell));
-                }
-                Cell priceCell = xssfRow.getCell(16, Row.CREATE_NULL_AS_BLANK);
-                if (priceCell != null)
-                {
-                    String priceStr = getValue(priceCell);
+            if (cells[16] != null)
+            {
 
-                    if (!checkDecimals(priceStr, "0+"))
-                    {
-                        throw new Exception("第" + rowNum
-                                + "行第17列的数据格式有问题,请修正并重新上传文件！");
-                    }
-                    Double pricedb = Double.valueOf(priceStr);
-                    pd.setPrice(pricedb.intValue());
-                }
-                pdList.add(pd);
-                if (pdList.size() == 1000)
+                if (!checkDecimals(cells[16], "0+"))
                 {
-                    // 批量插入
-                    insertBatch(pdList);
-                    pdList.clear();
+                    throw new Exception("第" + i + "行第17列的数据格式有问题,请修正并重新上传文件！");
                 }
+                Double pricedb = Double.valueOf(cells[16]);
+                pd.setPrice(pricedb.intValue());
+            }
 
+            pdList.add(pd);
+            if (pdList.size() == 1000)
+            {
+                // 批量插入
+                insertBatch(pdList);
+                pdList.clear();
             }
         }
-        if (pdList.size() != 0)
+
+        if (pdList.size() > 0)
         {
-            // 批量插入
             insertBatch(pdList);
         }
 
