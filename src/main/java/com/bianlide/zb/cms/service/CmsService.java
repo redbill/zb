@@ -6,11 +6,13 @@ import com.bianlide.zb.cms.model.TJewContent;
 
 public interface CmsService {
 
-	public List<TJewContent> getArticleList(TJewContent content);
-	
-	public void saveOrUpdate(TJewContent content);
-	
-	public TJewContent getContentById(int id);
-	
-	public void delContentById(int id);
+    public List<TJewContent> getArticleList(TJewContent content);
+    
+    public void saveOrUpdate(TJewContent content);
+    
+    public TJewContent getContentById(int id);
+    
+    public void delContentById(int id);
+    
+    public void updateMenuData();
 }

@@ -101,8 +101,8 @@ function getNavLists(codeModule, id) {
 	})
 }
 
-getNavLists(1000,"#brand-lists");
-getNavLists(1002,"#activityLists")
-getNavLists(1003,"#service-lists")
-getNavLists(1001,"#product-lists")
+//getNavLists(1000,"#brand-lists");
+//getNavLists(1002,"#activityLists")
+//getNavLists(1003,"#service-lists")
+//getNavLists(1001,"#product-lists")
 
