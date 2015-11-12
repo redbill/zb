@@ -13,11 +13,11 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
   <!--底部-->
     <div class="footer">
         <ul class="list" style="width:550px;">
-            <li><a href="" title="关于Moneta">关于Moneta</a></li>
+            <li><a href="" title="关于1002">关于1002</a></li>
             <li><a href="" title="联系我们">联系我们</a></li>
             <li><a href="" title="招贤纳士">招贤纳士</a></li>
-            <li><a href="" target="_blank" class="l">微博</a>
-                <a href="" target="_blank" class="l"><img src="<%=paths%>include/images/weibo.png" style="vertical-align: middle;"></a>
+            <li><a href="http://www.dianping.com/shop/24742092" target="_blank">大众点评店铺</a>
+             <!--    <a href="" target="_blank" class="l"><img src="<%=paths%>include/images/weibo.png" style="vertical-align: middle;"></a> -->
             </li>
             <li><a href="" title="声明" target="_blank">声明</a></li>
            
@@ -39,9 +39,8 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
 
            
         </ul>
-        <p>Tel:+86- 400-xxx-xxx</p>
-        <p>京ICP备150xxxxx号-1 |Moneta 中国 Copyright @ 2011 MONETA .All right reserved Design by <a href="" target="_blank">xxxxx</a>
-        </p>
+        <p>Tel:+86- 15195993119,18914738805</p>
+        <p>1002 @ 2015 | 地址：中山东路300号长发中心A栋1203 </p>
     </div>
 
       <script>
