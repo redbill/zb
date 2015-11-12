@@ -84,6 +84,29 @@ public class LoginController
     {
         return "arcContent";
     }
+    
+    @RequestMapping({ "brandArc" })
+    	    public String brandArc(HttpServletRequest request, HttpServletResponse response)
+    	            throws Exception
+    	    {
+    	        return "brandArc";
+    	    }
+    
+    @RequestMapping({ "productArc" })
+    public String productArc(HttpServletRequest request, HttpServletResponse response)
+            throws Exception
+    {
+        return "productArc";
+    }
+    
+    @RequestMapping({ "serviceArc" })
+    public String serviceArc(HttpServletRequest request, HttpServletResponse response)
+            throws Exception
+    {
+        return "serviceArc";
+    }
+    
+    
     @RequestMapping(
     { "mgr/index" })
     public String mgrIndex(HttpServletRequest request,

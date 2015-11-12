@@ -30,7 +30,7 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
     StringBuilder sl = new StringBuilder();
     if(serviceList != null && serviceList.size()>0){
         for(TJewContent a:serviceList){
-            pl.append("<li class=\"item\"><a href=\"").append(paths).append("serviceArc?aid=").append(a.getId()).append("\" title=\"").append(a.getTitle()).append("\">").append(a.getTitle()).append("</a></li>");
+            sl.append("<li class=\"item\"><a href=\"").append(paths).append("serviceArc?aid=").append(a.getId()).append("\" title=\"").append(a.getTitle()).append("\">").append(a.getTitle()).append("</a></li>");
         }
     }
     
