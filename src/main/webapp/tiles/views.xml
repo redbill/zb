@@ -32,13 +32,23 @@
   </definition>
   <definition name="brandArc" extends="publicLayout">
       <put-attribute name="title"  value="走进品牌"/>
-      <put-attribute name="main"   value="/jsp/public/arcContent.jsp"/>
+      <put-attribute name="main"   value="/jsp/public/brandContent.jsp"/>
   </definition>
   
    <definition name="productArc" extends="publicLayout">
-      <put-attribute name="title"  value="产品系统"/>
-      <put-attribute name="main"   value="/jsp/public/arcContent.jsp"/>
+      <put-attribute name="title"  value="产品系列"/>
+      <put-attribute name="main"   value="/jsp/public/productContent.jsp"/>
   </definition>
+   <definition name="activityArc" extends="publicLayout">
+      <put-attribute name="title"  value="新闻活动"/>
+      <put-attribute name="main"   value="/jsp/public/activityContent.jsp"/>
+  </definition>
+  
+  <definition name="productDetail" extends="publicLayout">
+      <put-attribute name="title"  value="产品详情"/>
+      <put-attribute name="main"   value="/jsp/public/productDetailContent.jsp"/>
+  </definition>
+  
   
    <definition name="serviceArc" extends="publicLayout">
       <put-attribute name="title"  value="客户服务"/>

@@ -16,8 +16,8 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
             <li><a href="" title="关于1002">关于1002</a></li>
             <li><a href="" title="联系我们">联系我们</a></li>
             <li><a href="" title="招贤纳士">招贤纳士</a></li>
-            <li><a href="http://www.dianping.com/shop/24742092" target="_blank">大众点评店铺</a>
-             <!--    <a href="" target="_blank" class="l"><img src="<%=paths%>include/images/weibo.png" style="vertical-align: middle;"></a> -->
+            <li><a href="http://weibo.com/5686386872/profile?topnav=1&wvr=6" target="_blank">微博</a>
+                 <a href="" target="_blank" class="l"><img src="<%=paths%>include/images/weibo.png" style="vertical-align: middle;"></a> 
             </li>
             <li><a href="" title="声明" target="_blank">声明</a></li>
            
@@ -39,8 +39,8 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
 
            
         </ul>
-        <p>Tel:+86- 15195993119,18914738805</p>
-        <p>1002 @ 2015 | 地址：中山东路300号长发中心A栋1203 </p>
+        <p>Tel:+86-025-86798805</p>
+        <p>1002 @ 2015 | 地址：南京市中山东路300号长发中心A栋12楼C座 </p>
     </div>
 
       <script>

@@ -404,7 +404,7 @@
                             <td class="w_40">证书</td>
                             <td class="w_65">
                                 <a title="按价格排序" href="javascript:;" data-name="price" data-order="0" id="sortbyprice">
-              折后价(RMB)
+              价格
               <img src="<%=paths%>include/images/c_up.jpg" width="7" height="8">
             </a>
                             </td>

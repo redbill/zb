@@ -7,6 +7,8 @@
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="pre_img" property="preImg" jdbcType="VARCHAR" />
+    <result column="home_img" property="homeImg" jdbcType="VARCHAR" />
+    <result column="small_img" property="smallImg" jdbcType="VARCHAR" />
     
     <result column="name_module" property="nameModule" jdbcType="VARCHAR" />
   </resultMap>
@@ -20,7 +22,7 @@
     content
   </sql>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
-    select id,code_module,title,create_time,pre_img,content
+    select id,code_module,title,create_time,pre_img,content,home_img,small_img
     from t_jew_content
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -55,6 +57,12 @@
       <if test="preImg != null" >
         pre_img,
       </if>
+      <if test="homeImg != null" >
+        home_img ,
+      </if>
+      <if test="smallImg != null" >
+        small_img,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -75,6 +83,12 @@
        <if test="preImg != null" >
         #{preImg,jdbcType=VARCHAR},
       </if>
+      <if test="homeImg != null" >
+        #{homeImg,jdbcType=VARCHAR},
+      </if>
+      <if test="smallImg != null" >
+        #{smallImg,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.bianlide.zb.cms.model.TJewContent" >
@@ -94,6 +108,12 @@
       </if>
        <if test="preImg != null" >
         pre_img = #{preImg,jdbcType=VARCHAR},
+      </if>
+       <if test="homeImg != null" >
+        home_img = #{homeImg,jdbcType=VARCHAR},
+      </if>
+      <if test="smallImg != null" >
+        small_img = #{smallImg,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -118,7 +138,7 @@
   
   <select id="getAticleList" parameterType="com.bianlide.zb.cms.model.TJewContent"  resultMap="ResultMapWithBLOBs">
     select 
-    tjc.id,tjc.code_module,tjc.title,tjc.content,tcm.name_module,tjc.create_time,tjc.pre_img
+    tjc.id,tjc.code_module,tjc.title,tjc.content,tcm.name_module,tjc.create_time,tjc.pre_img,tjc.home_img,tjc.small_img
     from t_jew_content tjc,t_code_module tcm
     where tjc.code_module=tcm.code_module
     <if test="codeModule != null" >

@@ -23,7 +23,7 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
     StringBuilder pl = new StringBuilder();
     if(productList != null && productList.size()>0){
         for(TJewContent a:productList){
-            pl.append("<li class=\"item\"><a href=\"").append(paths).append("productArc?aid=").append(a.getId()).append("\" title=\"").append(a.getTitle()).append("\">").append(a.getTitle()).append("</a></li>");
+            pl.append("<li class=\"item\"><a href=\"").append(paths).append("productArc?aid=").append(a.getId()).append("&cat=").append(a.getCodeModule()).append("\" title=\"").append(a.getTitle()).append("\">").append(a.getTitle()).append("</a></li>");
         }
     }
     

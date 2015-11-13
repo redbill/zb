@@ -155,13 +155,31 @@
         				var data = result.jsonData,
         					len = data.length;
         				
-        				if(!!data.preImg) {
+        				if(data.codeModule == "1001") {
             				$("#img-up").show();
             				$("#img-show").show();
-        					$("#img-show").show().find("img").attr("src", basePath + "uploadImg/" +data.preImg);
+            				if(!!data.preImg) {
+            					$("#img-show").show().find("img").attr("src", basePath + "uploadImg/" +data.preImg);
+            				}
+        					$("#img-up-home").show();
+            				$("#img-show-home").show();
+            				if(!!data.homeImg) {
+            					$("#img-show-home").show().find("img").attr("src", basePath + "uploadImg/" +data.homeImg);
+            				}
+        					$("#img-up-small").show();
+            				$("#img-show-small").show();
+            				if(!!data.smallImg) {
+            					$("#img-show-small").show().find("img").attr("src", basePath + "uploadImg/" +data.smallImg);
+            				}
         				} else {
             				$("#img-up").hide();
             				$("#img-show").hide();
+            				
+            				$("#img-up-home").hide();
+            				$("#img-show-home").hide();
+            				
+            				$("#img-up-small").hide();
+            				$("#img-show-small").hide();
         				}
         				
         				
@@ -203,6 +221,8 @@
         		//产品模块 需要传递preImg参数
         		if(productCode === '1001') {
         			dataAddArcticle.preImg = $("#hidFileID").attr('data-img');
+        			dataAddArcticle.homeImg = $("#hidFileID-home").attr('data-img');
+        			dataAddArcticle.smallImg = $("#hidFileID-small").attr('data-img');
         		}
         		
         		dataAddArcticle.content = editor.getContent() ? editor.getContent() : "";
@@ -240,9 +260,17 @@
         		($(this).val() === '1001') ? (function() {
         			$("#img-up").show()
         			$("#img-show").show()
+        			$("#img-up-home").show()
+        			$("#img-show-home").show()
+        			$("#img-up-small").show()
+        			$("#img-show-small").show()
         		}()) : (function() {
         			$("#img-up").hide()
         			$("#img-show").hide()
+        			$("#img-up-home").hide()
+        			$("#img-show-home").hide()
+        			$("#img-up-small").hide()
+        			$("#img-show-small").hide()
         		}());
         	})
         },

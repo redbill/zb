@@ -60,53 +60,71 @@ public class LoginController
     {
         return "index";
     }
-    
+
     @RequestMapping(
-    	    { "home" })
-    	    public String home(HttpServletRequest request, HttpServletResponse response)
-    	            throws Exception
-    	    {
-    	        return "home";
-    	    }
+    { "home" })
+    public String home(HttpServletRequest request, HttpServletResponse response)
+            throws Exception
+    {
+        return "home";
+    }
 
     @RequestMapping(
     { "category" })
-    public String category(HttpServletRequest request, HttpServletResponse response)
-            throws Exception
+    public String category(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
     {
         return "category";
     }
-    
+
     @RequestMapping(
     { "arcContent" })
-    public String arcContent(HttpServletRequest request, HttpServletResponse response)
-            throws Exception
+    public String arcContent(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
     {
         return "arcContent";
     }
-    
-    @RequestMapping({ "brandArc" })
-    	    public String brandArc(HttpServletRequest request, HttpServletResponse response)
-    	            throws Exception
-    	    {
-    	        return "brandArc";
-    	    }
-    
-    @RequestMapping({ "productArc" })
-    public String productArc(HttpServletRequest request, HttpServletResponse response)
-            throws Exception
+
+    @RequestMapping(
+    { "brandArc" })
+    public String brandArc(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "brandArc";
+    }
+
+    @RequestMapping(
+    { "productArc" })
+    public String productArc(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
     {
         return "productArc";
     }
-    
-    @RequestMapping({ "serviceArc" })
-    public String serviceArc(HttpServletRequest request, HttpServletResponse response)
-            throws Exception
+
+    @RequestMapping(
+    { "productDetail" })
+    public String productDetail(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "productDetail";
+    }
+
+    @RequestMapping(
+    { "serviceArc" })
+    public String serviceArc(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
     {
         return "serviceArc";
     }
-    
-    
+
+    @RequestMapping(
+    { "activityArc" })
+    public String activityArc(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "activityArc";
+    }
+
     @RequestMapping(
     { "mgr/index" })
     public String mgrIndex(HttpServletRequest request,
@@ -146,6 +164,7 @@ public class LoginController
     {
         return "activityLists";
     }
+
     @RequestMapping(
     { "loginOut" })
     public String loginOut(HttpServletRequest request,

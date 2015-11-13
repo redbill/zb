@@ -38,8 +38,52 @@
                         </div>
                     </div>
                     
-                    <div class="control-group" id="img-up" style="display: none;">
-                        <label class="control-label">图片上传：</label>
+                     <div class="control-group" id="img-up-small" style="display: none;">
+                        <label class="control-label">首页小图片上传：</label>
+                        <div class="controls">
+                            <span class="file" style="position: relative">
+                            	<span class="txt" style="display: inline-block;width: 92px;height: 30px;line-height: 30px;color: #555;background-color: #e2e4ea;border: 1px solid #cbcbcb;text-align: center;padding: 0;">浏览图片</span>
+								<input id="uploadImg-small" data-url="" name="uploadImg-small" type="file" style="position: absolute;top: 0;right: 0;width: 92px;height: 30px;z-index: 2;opacity: 0;cursor: pointer;"/>
+							</span>
+							 <input type="hidden" name="hidFileID-small" id="hidFileID-small" value="" />
+							<span class="feedback hide" id="uploadImgTips-small">正在上传中</span>
+							<p class="tip" style="color: #999;font-size: 12px;">图片大小不能超过500K，支持jpg、jpeg、gif、png、bmp格式</p>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group" id="img-show-small" style="display: none;">
+                        <label class="control-label">首页小图片上传：</label>
+                        <div class="controls">
+                            <span>
+                            	<img src="" style="width:160px; height:200px;"/>
+                            </span>
+                        </div>
+                    </div>
+                    
+                     <div class="control-group" id="img-up-home" style="display: none;">
+                        <label class="control-label">首页logo图片上传：</label>
+                        <div class="controls">
+                            <span class="file" style="position: relative">
+                            	<span class="txt" style="display: inline-block;width: 92px;height: 30px;line-height: 30px;color: #555;background-color: #e2e4ea;border: 1px solid #cbcbcb;text-align: center;padding: 0;">浏览图片</span>
+								<input id="uploadImg-home" data-url="" name="uploadImg-home" type="file" style="position: absolute;top: 0;right: 0;width: 92px;height: 30px;z-index: 2;opacity: 0;cursor: pointer;"/>
+							</span>
+							 <input type="hidden" name="hidFileID-home" id="hidFileID-home" value="" />
+							<span class="feedback hide" id="uploadImgTips-home">正在上传中</span>
+							<p class="tip" style="color: #999;font-size: 12px;">图片大小不能超过500K，支持jpg、jpeg、gif、png、bmp格式</p>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group" id="img-show-home" style="display: none;">
+                        <label class="control-label">首页图片上传：</label>
+                        <div class="controls">
+                            <span>
+                            	<img src="" style="width:160px; height:200px;"/>
+                            </span>
+                        </div>
+                    </div>
+                    
+                     <div class="control-group" id="img-up" style="display: none;">
+                        <label class="control-label">产品系列页图片上传：</label>
                         <div class="controls">
                             <span class="file" style="position: relative">
                             	<span class="txt" style="display: inline-block;width: 92px;height: 30px;line-height: 30px;color: #555;background-color: #e2e4ea;border: 1px solid #cbcbcb;text-align: center;padding: 0;">浏览图片</span>
@@ -52,7 +96,29 @@
                     </div>
                     
                     <div class="control-group" id="img-show" style="display: none;">
-                        <label class="control-label">图片展示：</label>
+                        <label class="control-label">产品系列页图片上传：</label>
+                        <div class="controls">
+                            <span>
+                            	<img src="" style="width:160px; height:200px;"/>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group" id="img-up" style="display: none;">
+                        <label class="control-label">产品系列页图片上传：</label>
+                        <div class="controls">
+                            <span class="file" style="position: relative">
+                            	<span class="txt" style="display: inline-block;width: 92px;height: 30px;line-height: 30px;color: #555;background-color: #e2e4ea;border: 1px solid #cbcbcb;text-align: center;padding: 0;">浏览图片</span>
+								<input id="uploadImg" data-url="" name="uploadImg" type="file" style="position: absolute;top: 0;right: 0;width: 92px;height: 30px;z-index: 2;opacity: 0;cursor: pointer;"/>
+							</span>
+							 <input type="hidden" name="hidFileID" id="hidFileID" value="" />
+							<span class="feedback hide" id="uploadImgTips">正在上传中</span>
+							<p class="tip" style="color: #999;font-size: 12px;">图片大小不能超过500K，支持jpg、jpeg、gif、png、bmp格式</p>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group" id="img-show" style="display: none;">
+                        <label class="control-label">产品系列页图片上传：</label>
                         <div class="controls">
                             <span>
                             	<img src="" style="width:160px; height:200px;"/>
@@ -91,6 +157,56 @@
     			modules.imgUploadShowOrHide();
     			modules.editArticleContent();
     			modules.addArticleByAjax();
+    			
+    			//图片上传
+    			if($("#uploadImg-small").length>0){
+    				new AjaxUpload("#uploadImg-small",{//上传图片 	
+    					action: basePath + "upload?codeModule=1001&nameModule=product",
+    					autoSubmit:true,
+    					type:"POST",
+    					name:"file",
+    					onSubmit:function(filepic, extension){
+    						if (extension && /^(jpg|jpeg|gif|png|bmp|JPEG|JPG|GIF|PNG|BMP)$/.test(extension)){
+    				 	      	$("#uploadImgTips").html('<span class="loading">文件正在上传...</span>').show();
+    					 	}else{
+    							$("#uploadImgTips").text("格式错误！").show();
+    							return false;
+    						}
+    					},
+    					onComplete:function(filename,files,issuccess){
+    						var res = JSON.parse(files);
+    						$("#uploadImgTips").text(res.msg).show();
+    						$("#hidFileID-small").attr('data-img', res.fileName);
+    						//图片上传成功,展示
+    						$("#img-show-small").find("img").attr("src", basePath + "uploadImg/" + res.fileName)
+    					}
+    				});
+    			}
+    			
+    			//图片上传
+    			if($("#uploadImg-home").length>0){
+    				new AjaxUpload("#uploadImg-home",{//上传图片 	
+    					action: basePath + "upload?codeModule=1001&nameModule=product",
+    					autoSubmit:true,
+    					type:"POST",
+    					name:"file",
+    					onSubmit:function(filepic, extension){
+    						if (extension && /^(jpg|jpeg|gif|png|bmp|JPEG|JPG|GIF|PNG|BMP)$/.test(extension)){
+    				 	      	$("#uploadImgTips").html('<span class="loading">文件正在上传...</span>').show();
+    					 	}else{
+    							$("#uploadImgTips").text("格式错误！").show();
+    							return false;
+    						}
+    					},
+    					onComplete:function(filename,files,issuccess){
+    						var res = JSON.parse(files);
+    						$("#uploadImgTips").text(res.msg).show();
+    						$("#hidFileID-home").attr('data-img', res.fileName);
+    						//图片上传成功,展示
+    						$("#img-show-home").find("img").attr("src", basePath + "uploadImg/" + res.fileName)
+    					}
+    				});
+    			}
     			
     			//图片上传
     			if($("#uploadImg").length>0){
