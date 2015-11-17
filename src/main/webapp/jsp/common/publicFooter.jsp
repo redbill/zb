@@ -13,14 +13,13 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
   <!--底部-->
     <div class="footer">
         <ul class="list" style="width:550px;">
-            <li><a href="" title="关于1002">关于1002</a></li>
-            <li><a href="" title="联系我们">联系我们</a></li>
-            <li><a href="" title="招贤纳士">招贤纳士</a></li>
+            <li><a href="http://localhost:8080/brandArc?aid=86" target="_blank" title="关于1002">关于1002</a></li>
+            <li><a href="<%=paths%>usArc?aid=83" target="_blank" title="联系我们">联系我们</a></li>
+            <li><a href="<%=paths%>usArc?aid=85" target="_blank" title="招贤纳士">招贤纳士</a></li>
             <li><a href="http://weibo.com/5686386872/profile?topnav=1&wvr=6" target="_blank">微博</a>
-                 <a href="" target="_blank" class="l"><img src="<%=paths%>include/images/weibo.png" style="vertical-align: middle;"></a> 
+                 <a href="http://weibo.com/5686386872/profile?topnav=1&wvr=6" target="_blank" class="l"><img src="<%=paths%>include/images/weibo.png" style="vertical-align: middle;"></a> 
             </li>
-            <li><a href="" title="声明" target="_blank">声明</a></li>
-           
+           <li><a href="<%=paths%>serviceArc?aid=87" target="_blank" title="定制流程">定制流程</a></li>
 			 <%
 	if(userInfo != null ){
 		%>

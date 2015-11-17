@@ -48,6 +48,7 @@ public class CmsServiceImpl implements CmsService
     public void delContentById(int id)
     {
         jewContentMapper.deleteByPrimaryKey(id);
+        this.updateMenuData();
     }
 
     /*
@@ -82,6 +83,16 @@ public class CmsServiceImpl implements CmsService
         product.setCodeModule("1001");
         List<TJewContent> productList = this.getArticleList(product);
         sc.setAttribute("productList", productList);
+
+        TJewContent us = new TJewContent();
+        us.setCodeModule("1004");
+        List<TJewContent> usList = this.getArticleList(us);
+        sc.setAttribute("usList", usList);
+
+        TJewContent other = new TJewContent();
+        other.setCodeModule("1005");
+        List<TJewContent> otherList = this.getArticleList(other);
+        sc.setAttribute("otherList", otherList);
     }
 
 }

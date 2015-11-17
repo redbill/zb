@@ -126,6 +126,14 @@ public class LoginController
     }
 
     @RequestMapping(
+    { "usArc" })
+    public String usArc(HttpServletRequest request, HttpServletResponse response)
+            throws Exception
+    {
+        return "usArc";
+    }
+
+    @RequestMapping(
     { "mgr/index" })
     public String mgrIndex(HttpServletRequest request,
             HttpServletResponse response) throws Exception

@@ -34,6 +34,8 @@
                                 <option value="1001">产品</option>
                                 <option value="1002">活动</option>
                                 <option value="1003">客服</option>
+                                <option value="1004">联系我们</option>
+                                <option value="1005">其它</option>
                             </select>
                         </div>
                     </div>

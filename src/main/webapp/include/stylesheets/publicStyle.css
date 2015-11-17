@@ -470,6 +470,24 @@ a.redtxt:hover {
     border: 1px solid #33672d;
 }
 
+.home_box .rol_activity_left {
+	float: left;
+    background: #e9daab;
+    width: 498px;
+    height: 470px;
+    padding: 0;
+    border: 1px solid #33672d;
+}
+
+.home_box .rol_activity_right {
+	float: right;
+    background: #e9daab;
+    width: 498px;
+    height: 470px;
+    padding: 0;
+    border: 1px solid #33672d;
+}
+
 .home_box .rol_1,
 .home_box .rol_2,
 .home_box .rol_3,
@@ -798,7 +816,7 @@ a.redtxt:hover {
 }
 
 .activity .newslist {
-    width: 210px;
+    width: 400px;
     padding: 0 20px;
     overflow: hidden;
     margin: 0;

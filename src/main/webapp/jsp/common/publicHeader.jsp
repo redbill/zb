@@ -12,25 +12,33 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
     List<TJewContent> activityList =   (List<TJewContent>)request.getServletContext().getAttribute("activityList");
     List<TJewContent> serviceList =   (List<TJewContent>)request.getServletContext().getAttribute("serviceList");
     List<TJewContent> productList =   (List<TJewContent>)request.getServletContext().getAttribute("productList");
+    List<TJewContent> usList =   (List<TJewContent>)request.getServletContext().getAttribute("usList");
     
     StringBuilder bl = new StringBuilder();
     if(brandList != null && brandList.size()>0){
         for(TJewContent a:brandList){
-            bl.append("<li class=\"item\"><a href=\"").append(paths).append("brandArc?aid=").append(a.getId()).append("\" title=\"").append(a.getTitle()).append("\">").append(a.getTitle()).append("</a></li>");
+            bl.append("<li class=\"item\"><a  target=\"_blank\" href=\"").append(paths).append("brandArc?aid=").append(a.getId()).append("\" title=\"").append(a.getTitle()).append("\">").append(a.getTitle()).append("</a></li>");
         }
     }
     
     StringBuilder pl = new StringBuilder();
     if(productList != null && productList.size()>0){
         for(TJewContent a:productList){
-            pl.append("<li class=\"item\"><a href=\"").append(paths).append("productArc?aid=").append(a.getId()).append("&cat=").append(a.getCodeModule()).append("\" title=\"").append(a.getTitle()).append("\">").append(a.getTitle()).append("</a></li>");
+            pl.append("<li class=\"item\"><a  target=\"_blank\" href=\"").append(paths).append("productArc?aid=").append(a.getId()).append("&cat=").append(a.getCodeModule()).append("\" title=\"").append(a.getTitle()).append("\">").append(a.getTitle()).append("</a></li>");
         }
     }
     
     StringBuilder sl = new StringBuilder();
     if(serviceList != null && serviceList.size()>0){
         for(TJewContent a:serviceList){
-            sl.append("<li class=\"item\"><a href=\"").append(paths).append("serviceArc?aid=").append(a.getId()).append("\" title=\"").append(a.getTitle()).append("\">").append(a.getTitle()).append("</a></li>");
+            sl.append("<li class=\"item\"><a  target=\"_blank\" href=\"").append(paths).append("serviceArc?aid=").append(a.getId()).append("\" title=\"").append(a.getTitle()).append("\">").append(a.getTitle()).append("</a></li>");
+        }
+    }
+    
+    StringBuilder ul = new StringBuilder();
+    if(usList != null && usList.size()>0){
+        for(TJewContent a:usList){
+            ul.append("<li class=\"item\"><a  target=\"_blank\" href=\"").append(paths).append("usArc?aid=").append(a.getId()).append("\" title=\"").append(a.getTitle()).append("\">").append(a.getTitle()).append("</a></li>");
         }
     }
     
@@ -70,21 +78,22 @@ UserAccount userInfo = (UserAccount) request.getSession().getAttribute(
             </li>
         </ul>
         <ul class="sub_r">
-            <li class="mainlevel"><a href="<%=paths%>activityLists">活动资讯</a>
+            <li class="mainlevel"><a target="_blank" href="<%=paths%>activityLists">活动资讯</a>
             </li>
             <li class="mainlevel">联系我们
                 <ul class="sub_nav_05">
                     <span class="Triangle_con"></span>
-                    <li><a href="">Us 联系我们</a></li>
+                    <%=ul.toString()%>
+                   <!--  <li><a href="">Us 联系我们</a></li>
                     <li><a href="">Partners 寻找伙伴</a></li>
-                    <li><a href="">Feedback 反馈信息</a></li>
+                    <li><a href="">Feedback 反馈信息</a></li>  -->
                 </ul>
             </li>
     <%
 	if(userInfo != null ){
 		%>
 		
-		  <li class="mainlevel"><a href="<%=paths%>mgr/priceList" title="钻石报价">钻石报价</a></li>
+		  <li class="mainlevel"><a  target="_blank" href="<%=paths%>mgr/priceList" title="钻石报价">钻石报价</a></li>
 		<%
 			} 
 	    %>

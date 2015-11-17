@@ -2,7 +2,7 @@
     var modules = {
     	allParam: function() {
     		return {
-    			"cat" : {"品牌": "1000","产品":"1001", "活动":"1002", "客服": "1003"}
+    			"cat" : {"品牌": "1000","产品":"1001", "活动":"1002", "客服": "1003", "联系我们": "1004", "其它": "1005"}
     		};
     	},
     	
@@ -31,7 +31,7 @@
                     var res = result.jsonData,
                         resLen = res.length,
                         stringTr = "";
-                    
+                    console.log(result);
                     if (resLen > 0) {
                         for (var i = 0; i < resLen; i++) {
                             stringTr += '<tr class="" data-sign=' + res[i].id + '>' +
