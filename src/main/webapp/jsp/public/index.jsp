@@ -95,5 +95,5 @@ $(function(){
 	});
 });
 </script>
-<embed src="<%=paths%>SimpleGifts-SaraDonaldson.mp3"  width="0" height="0"  autostart="true" loop="true" />
+<embed src="<%=paths%>SimpleGifts-SaraDonaldson.mp3"  hidden="true"  autostart="true" loop="-1" />
 

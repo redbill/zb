@@ -396,6 +396,7 @@ function showTableByData(res){
     			if(res!=[]&&res!=""&&res.length!=0) {
     				for(var i = 0; i < res.length; i++) {
     					str += '<tr>' +
+    							'<td>'+ res[i].cert_no +'</td>' +
     		        		    '<td>'+ res[i].shape +'</td>' +
     		        		    '<td><font color="red">'+ (typeof(res[i].nai) == "undefined"?" ":"奶") +'</font></td>' +
     		        		    '<td><font color="red">'+ (typeof(res[i].ka) == "undefined"?" ":"咖") +'</font></td>' +

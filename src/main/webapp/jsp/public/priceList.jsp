@@ -379,30 +379,31 @@
                 <table cellspacing="0" id="tb" class="listtab" cellpadding="0" border="0" id="">
                     <thead>
                         <tr>
-                            <td class="w_50">形状</td>
-                            <td class="w_30">奶</td>
-                            <td class="w_30">咖</td>
-                            <td class="w_50">
+                        	<td style="width:50px">货号</td>
+                            <td style="width:30px">形状</td>
+                            <td style="width:20px">奶</td>
+                            <td style="width:20px">咖</td>
+                            <td style="width:30px">
                                 <a title="按钻重排序" href="javascript:;" data-name="carat" data-order="0" id="sortbyweight">
               钻重
               <img src="<%=paths%>include/images/c_up.jpg" width="7" height="8">
             </a>
                             </td>
-                            <td class="w_30">颜色</td>
-                            <td class="w_40">净度</td>
-                            <td class="w_30">切工</td>
-                            <td class="w_30">抛光</td>
-                            <td class="w_30">对称</td>
-                            <td class="w_40">荧光</td>
-                            <td class="w_30">
+                            <td style="width:30px">颜色</td>
+                            <td style="width:30px">净度</td>
+                            <td style="width:30px">切工</td>
+                            <td style="width:30px">抛光</td>
+                            <td style="width:30px">对称</td>
+                            <td style="width:30px">荧光</td>
+                            <td style="width:30px">
                                 <font color="blue">心箭</font>
                             </td>
-                            <td class="w_40">直径</td>
-                            <td class="w_40">深度</td>
-                            <td class="w_40">台面</td>
+                            <td  style="width:30px">直径</td>
+                            <td style="width:30px">深度</td>
+                            <td style="width:30px">台面</td>
                            <!--   <td class="w_85">证书号码</td> -->
-                            <td class="w_40">证书</td>
-                            <td class="w_65">
+                            <td style="width:30px">证书</td>
+                            <td style="width:30px">
                                 <a title="按价格排序" href="javascript:;" data-name="price" data-order="0" id="sortbyprice">
               价格
               <img src="<%=paths%>include/images/c_up.jpg" width="7" height="8">
