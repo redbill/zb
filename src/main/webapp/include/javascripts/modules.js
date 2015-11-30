@@ -54,6 +54,37 @@
                 }
             })
         },
+        
+        getAccountList: function() {
+            var _that = this;
+            _that.commonAjax(basePath + "getAccountList", "", "GET", function(result) {
+                if (result.isOK === "true") {
+                    var res = result.jsonData,
+                        resLen = res.length,
+                        stringTr = "";
+                    console.log(result);
+                    if (resLen > 0) {
+                        for (var i = 0; i < resLen; i++) {
+                            stringTr += '<tr class="" data-sign=' + res[i].id + '>' +
+                                '<td>' + res[i].title + '</td>' +
+                                '<td>' + res[i].nameModule + '</td>' +
+                                '<td>' + _that.timestampFormat(res[i].createTime / 1000) + '</td>' +
+                                '<td><a class="arc-edit" href="javascript:;" data-sign="' + res[i].id + '" data-cat="'+ _that.allParam().cat[$.trim(res[i].nameModule)] +'">修改</a> | <a class="arc-delete" href="javascript:;" data-sign="'+ res[i].id +'">删除</a></td>' +
+                                '</tr>';
+                        }
+                        
+                        $(".arc-lists-tbody").html(stringTr);
+
+                        _that.useDataTable();
+                    }else {
+                    	stringTr = '<tr><td colspan="4" style="text-align: center;">暂无数据</td></tr>';
+                    	$(".arc-lists-tbody").html(stringTr);
+                    }
+                } else {
+
+                }
+            })
+        },
         /**
          * 调用datatables插件
          */

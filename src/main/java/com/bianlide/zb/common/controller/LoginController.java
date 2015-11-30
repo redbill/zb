@@ -164,6 +164,14 @@ public class LoginController
     {
         return "articleList";
     }
+    
+    @RequestMapping(
+    { "mgr/accountList" })
+    public String accountList(HttpServletRequest request,
+            HttpServletResponse response) throws Exception
+    {
+        return "accountList";
+    }
 
     @RequestMapping(
     { "activityLists" })

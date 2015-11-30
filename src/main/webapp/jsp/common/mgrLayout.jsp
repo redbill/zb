@@ -118,6 +118,19 @@
                         </li>
                     </ul>
                 </li>
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="icon-briefcase"></i>
+                        <span class="title">账号管理</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu" style="display: block;">
+                        <li>
+                            <a href="<%=paths%>mgr/accountList">
+                                <i class="icon-cogs"></i>账号列表</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
             <!-- END SIDEBAR MENU -->
         </div>

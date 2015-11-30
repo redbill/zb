@@ -16,6 +16,7 @@
 	commonAjax(basePath + "getArticleList", "", "POST", function(result){
 		
 		if(result.isOK === "true"){
+			console.log(result);
 			var res = result.jsonData,
 				len = res.length;
 			var content = "";
