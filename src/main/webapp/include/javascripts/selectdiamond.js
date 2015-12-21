@@ -396,21 +396,21 @@ function showTableByData(res){
     			if(res!=[]&&res!=""&&res.length!=0) {
     				for(var i = 0; i < res.length; i++) {
     					str += '<tr>' +
-    							'<td>'+ res[i].cert_no +'</td>' +
+    							'<td title="'+ res[i].cert_no +'">'+ res[i].cert_no +'</td>' +
     		        		    '<td>'+ res[i].shape +'</td>' +
     		        		    '<td><font color="red">'+ (typeof(res[i].nai) == "undefined"?" ":"奶") +'</font></td>' +
     		        		    '<td><font color="red">'+ (typeof(res[i].ka) == "undefined"?" ":"咖") +'</font></td>' +
     		        		    '<td>'+ res[i].carat +'</td>' +
-    		        		    '<td>'+ res[i].color +'</td>' +
+    		        		    '<td title="'+ res[i].color +'">'+ res[i].color +'</td>' +
     		        		    '<td>'+ res[i].clarity +'</td>' +
     		        		    '<td>'+ res[i].cut +'</td>' +
     		        		    '<td>'+ res[i].polish +'</td>' +
     		        		    '<td>'+ res[i].semmetry +'</td>' +
-    		        		    '<td>'+ res[i].fluor +'</td>' +
+    		        		    '<td title="'+ res[i].fluor +'">'+ res[i].fluor +'</td>' +
     		        		    '<td>' +
     		        		        '<font color="blue">'+ res[i].xin_jian +'</font>' +
     		        		    '</td>' +
-    		        		    '<td><a href="javascript:;" title="">'+ res[i].zhi_jing +'</a></td>' +
+    		        		    '<td title="'+ res[i].zhi_jing +'">'+ res[i].zhi_jing +'</td>' +
     		        		    '<td>'+ res[i].depth +'</td>' +
     		        		    '<td>'+ res[i].tai_mian +'</td>' +
     		        		    
@@ -418,7 +418,7 @@ function showTableByData(res){
     		        		        '<font color="red">'+ res[i].cert +'</font>' +
     		        		    '</td>' +
     		        		    '<td>' +
-    		        		        '<font color="blue">'+ res[i].price +'</font>' +
+    		        		        '<font title="'+ res[i].price +'" color="blue">'+ res[i].price +'</font>' +
     		        		    '</td>' +
     		        		'</tr>';
     				}

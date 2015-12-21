@@ -673,6 +673,8 @@
     text-align: center;
     color: #555;
     border-bottom: 1px solid #dadada;
+     overflow:hidden;
+    white-space:nowrap;
 }
 
 .result-list thead td span {
@@ -699,6 +701,9 @@
     line-height: 40px;
     text-align: center;
     vertical-align: middle;
+     overflow:hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
 }
 
 .result-list tr.trspecial {
@@ -1351,7 +1356,7 @@ textarea.span5 {
 
 .listtab {
     border-collapse: collapse;
-    table-layout: automatic;
+    table-layout: fixed;
     width: 100%;
     background: #fff;
 }
